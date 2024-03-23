@@ -7,18 +7,21 @@ Clases:
 -Puntos de golpe
 -Equipamiento inicial
 -Autor
+-Validado(Boolean)
 
 Subclases:
 -Nombre
 -Requisitos (puede ser ninguno)
 -Clase_id
 -Autor
+-Validado(Boolean)
 
 Habilidades:
 -Nombre
 -origen_id(varía en función de donde venga, clase, subclase, trasfondo y dotes)
 -Descripción
 -Autor
+-Validado(Boolean)
 
 Trasfondo:
 -Nombre
@@ -27,12 +30,14 @@ Trasfondo:
 -Idiomas(Sólo origen)
 -Objetos iniciales(solo ocupación)
 -Competencias(solo ocupación)
+-Validado(Boolean)
 
 Dotes:
 -Nombre
 -Descripción
 -Requisitos
 -Beneficios
+-Validado(Boolean)
 
 Razas:
 -Nombre
@@ -46,6 +51,7 @@ Razas:
 -Autor
 -Velocidad(fts)
 -Ataque desarmado
+-Validado(Boolean)
 
 Subrazas:
 -Nombre
@@ -59,6 +65,7 @@ Subrazas:
 -Carisma
 -Autor
 -Ataque desarmado
+-Validado(Boolean)
 
 Hechizos:
 -Nombre
@@ -68,6 +75,7 @@ Hechizos:
 -Tiempo de ejecución
 -Rango
 -Componentes(Requisitos pueden ser verbales, somáticos y/o materiales)
+-Validado(Boolean)
 
 Lista_Hechizos:
 -Clase_id

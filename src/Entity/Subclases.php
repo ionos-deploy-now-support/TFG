@@ -2,28 +2,29 @@
 
 namespace App\Entity;
 
-use App\Repository\DotesRepository;
+use App\Repository\SubclasesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: DotesRepository::class)]
-class Dotes
+#[ORM\Entity(repositoryClass: SubclasesRepository::class)]
+class Subclases
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 200)]
     private ?string $Nombre = null;
 
-    #[ORM\Column(length: 999)]
-    private ?string $Descripción = null;
-
-    #[ORM\Column(length: 100, nullable:true)]
+    #[ORM\Column(length: 999, nullable: true)]
     private ?string $Requisitos = null;
 
-    #[ORM\Column(length: 200, nullable: true)]
-    private ?string $Beneficios = null;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Clases $clase_id = null;
+
+    #[ORM\Column(length: 200)]
+    private ?string $Autor = null;
 
     #[ORM\Column]
     private ?bool $Validado = null;
@@ -45,38 +46,38 @@ class Dotes
         return $this;
     }
 
-    public function getDescripción(): ?string
-    {
-        return $this->Descripción;
-    }
-
-    public function setDescripción(string $Descripción): static
-    {
-        $this->Descripción = $Descripción;
-
-        return $this;
-    }
-
     public function getRequisitos(): ?string
     {
         return $this->Requisitos;
     }
 
-    public function setRequisitos(string $Requisitos): static
+    public function setRequisitos(?string $Requisitos): static
     {
         $this->Requisitos = $Requisitos;
 
         return $this;
     }
 
-    public function getBeneficios(): ?string
+    public function getClaseId(): ?Clases
     {
-        return $this->Beneficios;
+        return $this->clase_id;
     }
 
-    public function setBeneficios(?string $Beneficios): static
+    public function setClaseId(?Clases $clase_id): static
     {
-        $this->Beneficios = $Beneficios;
+        $this->clase_id = $clase_id;
+
+        return $this;
+    }
+
+    public function getAutor(): ?string
+    {
+        return $this->Autor;
+    }
+
+    public function setAutor(string $Autor): static
+    {
+        $this->Autor = $Autor;
 
         return $this;
     }
