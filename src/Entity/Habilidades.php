@@ -18,9 +18,6 @@ class Habilidades
     #[ORM\Column(length: 200)]
     private ?string $Nombre = null;
 
-    #[ORM\ManyToMany(targetEntity: Clases::class)]
-    private Collection $origen_id_clase;
-
     #[ORM\Column(length: 200)]
     private ?string $Descripción = null;
 
@@ -29,6 +26,9 @@ class Habilidades
 
     #[ORM\Column]
     private ?bool $Validado = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Origen_ID = null;
 
     public function __construct()
     {
@@ -48,30 +48,6 @@ class Habilidades
     public function setNombre(string $Nombre): static
     {
         $this->Nombre = $Nombre;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Clases>
-     */
-    public function getOrigenIdClase(): Collection
-    {
-        return $this->origen_id_clase;
-    }
-
-    public function addOrigenIdClase(Clases $origenIdClase): static
-    {
-        if (!$this->origen_id_clase->contains($origenIdClase)) {
-            $this->origen_id_clase->add($origenIdClase);
-        }
-
-        return $this;
-    }
-
-    public function removeOrigenIdClase(Clases $origenIdClase): static
-    {
-        $this->origen_id_clase->removeElement($origenIdClase);
 
         return $this;
     }
@@ -108,6 +84,18 @@ class Habilidades
     public function setValidado(bool $Validado): static
     {
         $this->Validado = $Validado;
+
+        return $this;
+    }
+
+    public function getOrigenID(): ?string
+    {
+        return $this->Origen_ID;
+    }
+
+    public function setOrigenID(string $Origen_ID): static
+    {
+        $this->Origen_ID = $Origen_ID;
 
         return $this;
     }
