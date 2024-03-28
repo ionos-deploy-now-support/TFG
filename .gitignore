@@ -1,17 +1,17 @@
-# Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
 
-# Cache, session files and logs (Symfony3)
-
-
-
-
-
-/vendor/
-
+/vendor/monolog
+/vendor/myclabs
+/vendor/nikic
+/vendor/twig
+/vendor/sebastian
+/vendor/phpunit
+/vendor/theseer
+/vendor/webmozart
+/vendor/phpstan
+/vendor/phar-io
+/vendor/psr
+/vendor/phpdocumentor
+/vendor/symfony
 
 
 
