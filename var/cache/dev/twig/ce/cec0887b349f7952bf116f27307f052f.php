@@ -71,17 +71,19 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\"><li>Inicio</li></a>
-            <a href=\"\"><li>Añadir carta</li></a>
-            <a href=\"\"><li>Mecánicas</li></a>
-            <a href=\"\"><li>Ver todas las cartas</li></a>
             <a href=\"\"><li>Buscador</li></a>
-            <a href=\"\"><li>Comandante Aleatorio</li></a>
+            <a href=\"\"><li>Creador de personajes</li></a>
+            <a href=\"\"><li>Solicitudes</li></a>
+            <a href=\"";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\"><li>Iniciar Sesión</li></a>
         </ul>
         </header>
         ";
-        // line 26
+        // line 25
         $this->displayBlock('body', $context, $blocks);
-        // line 27
+        // line 26
         echo "    </body>
 </html>
 ";
@@ -177,7 +179,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 26
+    // line 25
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -216,7 +218,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  181 => 26,  162 => 12,  152 => 13,  149 => 12,  139 => 11,  126 => 8,  116 => 7,  97 => 5,  85 => 27,  83 => 26,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  183 => 25,  164 => 12,  154 => 13,  151 => 12,  141 => 11,  128 => 8,  118 => 7,  99 => 5,  87 => 26,  85 => 25,  79 => 22,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -239,16 +241,15 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         <header>
         <ul class=\"menu\">
             <a href=\"{{ path(\"app_index\") }}\"><li>Inicio</li></a>
-            <a href=\"\"><li>Añadir carta</li></a>
-            <a href=\"\"><li>Mecánicas</li></a>
-            <a href=\"\"><li>Ver todas las cartas</li></a>
             <a href=\"\"><li>Buscador</li></a>
-            <a href=\"\"><li>Comandante Aleatorio</li></a>
+            <a href=\"\"><li>Creador de personajes</li></a>
+            <a href=\"\"><li>Solicitudes</li></a>
+            <a href=\"{{path(\"app_login\")}}\"><li>Iniciar Sesión</li></a>
         </ul>
         </header>
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "E:\\TFG\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\base.html.twig");
     }
 }

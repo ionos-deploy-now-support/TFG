@@ -18,5 +18,13 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'app_index' => [[], ['_controller' => 'App\\Controller\\IndexController::index'], [], [['text', '/index']], [], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], [], []],
+    'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
+    'test_public' => [[], ['_controller' => 'App\\Controller\\SeguridadController::test_public'], [], [['text', '/public/test_public']], [], [], []],
+    'test_private' => [[], ['_controller' => 'App\\Controller\\SeguridadController::test_private'], [], [['text', '/private/test_private']], [], [], []],
     'App\Controller\IndexController::index' => [[], ['_controller' => 'App\\Controller\\IndexController::index'], [], [['text', '/index']], [], [], []],
+    'App\Controller\LoginController::index' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], [], []],
+    'App\Controller\RegistrationController::register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
+    'App\Controller\SeguridadController::test_public' => [[], ['_controller' => 'App\\Controller\\SeguridadController::test_public'], [], [['text', '/public/test_public']], [], [], []],
+    'App\Controller\SeguridadController::test_private' => [[], ['_controller' => 'App\\Controller\\SeguridadController::test_private'], [], [['text', '/private/test_private']], [], [], []],
 ];
