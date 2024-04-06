@@ -401,6 +401,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\PactosRepository" class="App\Repository\PactosRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\RazasRepository" class="App\Repository\RazasRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -5061,7 +5065,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator._IxdObC"/>
+      <argument type="service" id=".service_locator._RD.8Py"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -7131,6 +7135,8 @@
     <service id=".abstract.instanceof.App\Repository\HechizosRepository" class="App\Repository\HechizosRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ListaHechizosRepository" class="App\Repository\ListaHechizosRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ListaHechizosRepository" class="App\Repository\ListaHechizosRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PactosRepository" class="App\Repository\PactosRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PactosRepository" class="App\Repository\PactosRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RazasRepository" class="App\Repository\RazasRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RazasRepository" class="App\Repository\RazasRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SubclasesRepository" class="App\Repository\SubclasesRepository" autowire="true" abstract="true"/>
@@ -7836,7 +7842,7 @@
         <argument key="turbo.doctrine.event_listener" type="service_closure" id="turbo.doctrine.event_listener"/>
       </argument>
     </service>
-    <service id=".service_locator._IxdObC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._RD.8Py" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ClasesRepository" type="service_closure" id="App\Repository\ClasesRepository"/>
@@ -7844,6 +7850,7 @@
         <argument key="App\Repository\HabilidadesRepository" type="service_closure" id="App\Repository\HabilidadesRepository"/>
         <argument key="App\Repository\HechizosRepository" type="service_closure" id="App\Repository\HechizosRepository"/>
         <argument key="App\Repository\ListaHechizosRepository" type="service_closure" id="App\Repository\ListaHechizosRepository"/>
+        <argument key="App\Repository\PactosRepository" type="service_closure" id="App\Repository\PactosRepository"/>
         <argument key="App\Repository\RazasRepository" type="service_closure" id="App\Repository\RazasRepository"/>
         <argument key="App\Repository\SubclasesRepository" type="service_closure" id="App\Repository\SubclasesRepository"/>
         <argument key="App\Repository\SubrazasRepository" type="service_closure" id="App\Repository\SubrazasRepository"/>

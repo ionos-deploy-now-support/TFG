@@ -19,11 +19,8 @@ class Trasfondo
     #[ORM\Column(length: 999)]
     private ?string $Descripción = null;
 
-    #[ORM\Column(length: 999, nullable: true)]
-    private ?string $Origen = null;
-
-    #[ORM\Column(length: 999, nullable: true)]
-    private ?string $Ocupación = null;
+    #[ORM\Column]
+    private ?bool $Origen = null;
 
     #[ORM\Column(length: 999, nullable: true)]
     private ?string $Idiomas = null;
@@ -36,6 +33,12 @@ class Trasfondo
 
     #[ORM\Column]
     private ?bool $Validado = null;
+
+    #[ORM\Column(length: 200)]
+    private ?string $Autor = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $Plano = null;
 
     public function getId(): ?int
     {
@@ -66,26 +69,14 @@ class Trasfondo
         return $this;
     }
 
-    public function getOrigen(): ?string
+    public function isOrigen(): ?bool
     {
         return $this->Origen;
     }
 
-    public function setOrigen(?string $Origen): static
+    public function setOrigen(bool $Origen): static
     {
         $this->Origen = $Origen;
-
-        return $this;
-    }
-
-    public function getOcupación(): ?string
-    {
-        return $this->Ocupación;
-    }
-
-    public function setOcupación(?string $Ocupación): static
-    {
-        $this->Ocupación = $Ocupación;
 
         return $this;
     }
@@ -134,6 +125,30 @@ class Trasfondo
     public function setValidado(bool $Validado): static
     {
         $this->Validado = $Validado;
+
+        return $this;
+    }
+
+    public function getAutor(): ?string
+    {
+        return $this->Autor;
+    }
+
+    public function setAutor(string $Autor): static
+    {
+        $this->Autor = $Autor;
+
+        return $this;
+    }
+
+    public function getPlano(): ?string
+    {
+        return $this->Plano;
+    }
+
+    public function setPlano(string $Plano): static
+    {
+        $this->Plano = $Plano;
 
         return $this;
     }

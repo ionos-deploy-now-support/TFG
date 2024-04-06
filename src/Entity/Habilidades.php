@@ -18,7 +18,7 @@ class Habilidades
     #[ORM\Column(length: 200)]
     private ?string $Nombre = null;
 
-    #[ORM\Column(length: 200)]
+    #[ORM\Column(length: 999)]
     private ?string $Descripción = null;
 
     #[ORM\Column(length: 200)]
@@ -29,6 +29,9 @@ class Habilidades
 
     #[ORM\Column(length: 255)]
     private ?string $Origen_ID = null;
+
+    #[ORM\Column]
+    private ?int $origen_nivel = null;
 
     public function __construct()
     {
@@ -96,6 +99,18 @@ class Habilidades
     public function setOrigenID(string $Origen_ID): static
     {
         $this->Origen_ID = $Origen_ID;
+
+        return $this;
+    }
+
+    public function getOrigenNivel(): ?int
+    {
+        return $this->origen_nivel;
+    }
+
+    public function setOrigenNivel(int $origen_nivel): static
+    {
+        $this->origen_nivel = $origen_nivel;
 
         return $this;
     }
