@@ -32,7 +32,7 @@ class Clases
     private ?string $PuntosDeGolpe = null;
 
     #[ORM\Column(length: 999)]
-    private ?string $string = null;
+    private ?string $Equipamiento = null;
 
     #[ORM\Column(length: 350)]
     private ?string $Autor = null;
@@ -117,14 +117,14 @@ class Clases
         return $this;
     }
 
-    public function getString(): ?string
+    public function getEquipamiento(): ?string
     {
-        return $this->string;
+        return $this->Equipamiento;
     }
 
-    public function setString(string $string): static
+    public function setEquipamiento(string $equipamiento): static
     {
-        $this->string = $string;
+        $this->Equipamiento = $equipamiento;
 
         return $this;
     }

@@ -18,7 +18,7 @@ class Habilidades
     #[ORM\Column(length: 200)]
     private ?string $Nombre = null;
 
-    #[ORM\Column(length: 999)]
+    #[ORM\Column(length: 9999)]
     private ?string $Descripción = null;
 
     #[ORM\Column(length: 200)]

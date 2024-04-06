@@ -37,6 +37,15 @@ class Hechizos
     #[ORM\Column]
     private ?bool $Validado = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $Autor = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $Duración = null;
+
+    #[ORM\Column(length: 200)]
+    private ?string $Zona_Efecto = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +143,42 @@ class Hechizos
     public function setValidado(bool $Validado): static
     {
         $this->Validado = $Validado;
+
+        return $this;
+    }
+
+    public function getAutor(): ?string
+    {
+        return $this->Autor;
+    }
+
+    public function setAutor(string $Autor): static
+    {
+        $this->Autor = $Autor;
+
+        return $this;
+    }
+
+    public function getDuración(): ?string
+    {
+        return $this->Duración;
+    }
+
+    public function setDuración(string $Duración): static
+    {
+        $this->Duración = $Duración;
+
+        return $this;
+    }
+
+    public function getZonaEfecto(): ?string
+    {
+        return $this->Zona_Efecto;
+    }
+
+    public function setZonaEfecto(string $Zona_Efecto): static
+    {
+        $this->Zona_Efecto = $Zona_Efecto;
 
         return $this;
     }
