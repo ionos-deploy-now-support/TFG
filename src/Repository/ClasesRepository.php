@@ -21,6 +21,16 @@ class ClasesRepository extends ServiceEntityRepository
         parent::__construct($registry, Clases::class);
     }
 
+    public function FindUniqueAutores(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Autor')
+        ->andWhere('a.Autor IS NOT NULL')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Autor')
+        ->getQuery()
+        ->getResult();
+    }
+
     //    /**
     //     * @return Clases[] Returns an array of Clases objects
     //     */

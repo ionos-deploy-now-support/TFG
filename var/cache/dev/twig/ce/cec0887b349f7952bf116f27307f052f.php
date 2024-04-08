@@ -71,7 +71,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\"><li>Inicio</li></a>
-            <a href=\"\"><li>Buscador</li></a>
+            <a href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador");
+        echo "\"><li>Buscador</li></a>
             <a href=\"\"><li>Creador de personajes</li></a>
             <a href=\"\"><li>Solicitudes</li></a>
             <a href=\"";
@@ -218,7 +221,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  183 => 25,  164 => 12,  154 => 13,  151 => 12,  141 => 11,  128 => 8,  118 => 7,  99 => 5,  87 => 26,  85 => 25,  79 => 22,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  186 => 25,  167 => 12,  157 => 13,  154 => 12,  144 => 11,  131 => 8,  121 => 7,  102 => 5,  90 => 26,  88 => 25,  82 => 22,  76 => 19,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -241,7 +244,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         <header>
         <ul class=\"menu\">
             <a href=\"{{ path(\"app_index\") }}\"><li>Inicio</li></a>
-            <a href=\"\"><li>Buscador</li></a>
+            <a href=\"{{ path(\"app_buscador\") }}\"><li>Buscador</li></a>
             <a href=\"\"><li>Creador de personajes</li></a>
             <a href=\"\"><li>Solicitudes</li></a>
             <a href=\"{{path(\"app_login\")}}\"><li>Iniciar Sesión</li></a>
