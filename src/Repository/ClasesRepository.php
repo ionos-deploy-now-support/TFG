@@ -30,6 +30,52 @@ class ClasesRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+    
+    public function FindFilter(Clases $formulario){
+       $qb = $this->createQueryBuilder('a')
+                  ->select('a');
+
+
+               
+        if ($formulario->getNombre() != null){
+            $qb = $qb->andWhere('a.Nombre LIKE :nombre')
+            ->setParameter('nombre' , '%' .  $formulario->getNombre() . '%');
+        }
+        
+        if ($formulario->getRequisitos() != null){
+            $qb = $qb->andWhere('a.Requisitos LIKE :requisitos')
+               ->setParameter('requisitos' , '%' .  $formulario->getRequisitos() . '%');
+        }
+
+       if ($formulario->getCompetencias() != null){
+            $qb = $qb->andWhere('a.Competencias LIKE :competencias')
+               ->setParameter('competencias' , '%' .  $formulario->getCompetencias() . '%');
+        }
+
+        if ($formulario->getSalvaciones() != null){
+            $qb = $qb->andWhere('a.Salvaciones LIKE :salvaciones')
+               ->setParameter('salvaciones', '%' .  $formulario->getSalvaciones() . '%');
+        }
+        
+        if ($formulario->getPuntosDeGolpe() != null){
+            $qb = $qb->andWhere('a.PuntosDeGolpe = :puntos')
+               ->setParameter('puntos' ,  $formulario->getPuntosDeGolpe() );
+        }
+        
+        if ($formulario->getAutor() != null){
+            $qb = $qb->andWhere('a.Autor = :autor')
+               ->setParameter('autor' ,  $formulario->getAutor()  );
+               
+        } 
+           
+       $qb = $qb->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+        return $qb;
+       
+       
+        
+    }
 
     //    /**
     //     * @return Clases[] Returns an array of Clases objects

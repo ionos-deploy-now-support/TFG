@@ -388,6 +388,7 @@
     </service>
     <service id="App\Form\ClasesType" class="App\Form\ClasesType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>

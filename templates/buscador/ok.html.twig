@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+   <h1>BÚSQUEDA</h1
+ <ul>
+     {% for clase in resultado %}
+       <li>{{ clase.Nombre }}</li>
+       <li>{{clase.Competencias}}</li>
+       <li>{{clase.Salvaciones}}</li>
+        <li>{{clase.Autor}}</li>
+         <hr/>
+
+     {% endfor %}
+    </ul>
+ 
+
+
+
+{% endblock %}
+
+
