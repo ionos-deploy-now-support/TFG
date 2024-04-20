@@ -28,3 +28,93 @@ header .menu li{
     padding-right: 15px;
     font-size: 22px;
 }
+
+.grid-clase{
+    
+    display:grid;
+    grid-template-areas:"V1 N N V2"
+                        "H H I I"
+                        "C C I I"
+                        "E E I I"
+                        "P P I I"
+                        "S S I I"
+                        "R R I I";
+
+
+    grid-template-columns:0.2fr 0.3fr 0.3fr 0.2fr;
+    grid-template-rows: 0.1fr repeat(6,0.2fr);
+}
+
+.grid-clase .N{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.grid-rasgos{
+    
+    display:grid;
+    grid-template-areas:"N V1 V1 L"
+                        "D D D D";
+                       
+    grid-template-columns:0.2fr 0.3fr 0.3fr 0.2fr;
+    grid-template-rows: 25px auto;
+}
+
+
+
+
+/*  grid-area:ME; */
+.N{
+    grid-area:N;
+
+}
+
+.D{
+    grid-area:D;
+}
+
+.I{
+    grid-area:I;
+}
+
+.I img{
+    width:100%;
+    height:100%;
+    border-radius: 100%;
+}
+.R{
+    grid-area:R;
+}
+
+.P{
+    grid-area:P;
+}
+
+.E{
+    grid-area:E;
+}
+
+.V1{
+    grid-area:V1;
+}
+
+.V2{
+    grid-area:V2;
+}
+
+.C{
+    grid-area:C;
+}
+
+.S{
+    grid-area:S;
+}
+
+.L{
+    grid-area:L;
+}
+
+h1{
+    text-align:center;
+}
+

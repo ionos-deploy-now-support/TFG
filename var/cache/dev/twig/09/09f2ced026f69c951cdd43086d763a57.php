@@ -74,29 +74,34 @@ class __TwigTemplate_f1e38801c22cfa716bd8509dd475a591 extends Template
         $context['_seq'] = twig_ensure_traversable((isset($context["resultado"]) || array_key_exists("resultado", $context) ? $context["resultado"] : (function () { throw new RuntimeError('Variable "resultado" does not exist.', 6, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["clase"]) {
             // line 7
-            echo "       <li>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Nombre", [], "any", false, false, false, 7), "html", null, true);
-            echo "</li>
+            echo "     <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_clase", ["id" => twig_get_attribute($this->env, $this->source, $context["clase"], "id", [], "any", false, false, false, 7)]), "html", null, true);
+            echo "\">
        <li>";
             // line 8
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Competencias", [], "any", false, false, false, 8), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Nombre", [], "any", false, false, false, 8), "html", null, true);
             echo "</li>
        <li>";
             // line 9
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Salvaciones", [], "any", false, false, false, 9), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Competencias", [], "any", false, false, false, 9), "html", null, true);
+            echo "</li>
+       <li>";
+            // line 10
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Salvaciones", [], "any", false, false, false, 10), "html", null, true);
             echo "</li>
         <li>";
-            // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Autor", [], "any", false, false, false, 10), "html", null, true);
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["clase"], "Autor", [], "any", false, false, false, 11), "html", null, true);
             echo "</li>
-         <hr/>
-
+         
+      </a>
+      <hr>
      ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['clase'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 14
+        // line 16
         echo "    </ul>
  
 
@@ -132,7 +137,7 @@ class __TwigTemplate_f1e38801c22cfa716bd8509dd475a591 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  100 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  73 => 6,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  105 => 16,  94 => 11,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  73 => 6,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -143,12 +148,14 @@ class __TwigTemplate_f1e38801c22cfa716bd8509dd475a591 extends Template
    <h1>BÚSQUEDA</h1
  <ul>
      {% for clase in resultado %}
+     <a href=\"{{ path( \"app_clase\", { \"id\": clase.id} ) }}\">
        <li>{{ clase.Nombre }}</li>
        <li>{{clase.Competencias}}</li>
        <li>{{clase.Salvaciones}}</li>
         <li>{{clase.Autor}}</li>
-         <hr/>
-
+         
+      </a>
+      <hr>
      {% endfor %}
     </ul>
  

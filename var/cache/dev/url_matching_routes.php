@@ -16,7 +16,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/buscador' => [[['_route' => 'app_buscador', '_controller' => 'App\\Controller\\BuscadorController::index'], null, null, null, false, false, null]],
         '/buscador_clase' => [[['_route' => 'app_buscador_clase', '_controller' => 'App\\Controller\\BuscadorController::Buscador_Clases'], null, null, null, false, false, null]],
-        '/ok' => [[['_route' => 'ok', '_controller' => 'App\\Controller\\BuscadorController::gestioneditarok'], null, null, null, false, false, null]],
+        '/ok' => [[['_route' => 'app_ok', '_controller' => 'App\\Controller\\BuscadorController::gestioneditarok'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginController::index'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
@@ -43,6 +43,7 @@ return [
                         .')'
                     .')'
                 .')'
+                .'|/clase/([^/]++)(*:217)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -53,8 +54,9 @@ return [
         148 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        191 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        217 => [
+            [['_route' => 'app_clase', '_controller' => 'App\\Controller\\BuscadorController::clasesok'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

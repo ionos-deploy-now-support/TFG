@@ -1,0 +1,32 @@
+.grid-body{
+    display:grid;
+    grid-template-areas:
+                        "L1 DC DC L2"
+                        "L1 TP RC L2";
+                        
+    grid-template-columns:300px 0.5fr 0.5fr 300px;
+    grid-template-rows: 1.3fr;
+}
+
+
+
+.L1{
+    grid-area:L1;
+}
+
+.L2{
+    grid-area:L2;
+}
+
+.DC{
+    grid-area:DC;
+}
+
+.RC{
+    grid-area:RC;
+}
+
+.TP{
+    grid-area:TP;
+}
+

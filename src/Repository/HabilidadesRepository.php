@@ -21,6 +21,18 @@ class HabilidadesRepository extends ServiceEntityRepository
         parent::__construct($registry, Habilidades::class);
     }
 
+    public function findByOrigin($origen, $id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Origen_ID = ?1')
+        ->andWhere('a.Validado = 1')
+        ->setParameter(1, $origen . '_'. $id)
+        ->getQuery()
+        ->getResult();
+    }
+
+    
+
     //    /**
     //     * @return Habilidades[] Returns an array of Habilidades objects
     //     */

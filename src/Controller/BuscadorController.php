@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Clases;
+use App\Entity\Habilidades;
 use App\Form\ClasesType;
+use App\Repository\HabilidadesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -55,7 +57,7 @@ class BuscadorController extends AbstractController
 			
            
             $this->entityManager->flush();
-            return $this->redirectToRoute('ok');
+            return $this->redirectToRoute('app_ok');
         }
 		
 		
@@ -64,7 +66,7 @@ class BuscadorController extends AbstractController
 	}
 
     
-    #[Route("/ok", name:"ok")]
+    #[Route("/ok", name:"app_ok")]
     public function gestioneditarok(Request $request):Response
     {
         // Crea una nueva instancia de Clases para el formulario
@@ -81,6 +83,27 @@ class BuscadorController extends AbstractController
         // Renderiza el formulario de filtro si no se ha enviado o no es válido
         return $this->render('buscador/ok.html.twig', [
              'resultado' => $clases2
+        ]);
+    }
+
+
+    #[Route("/clase/{id}", name:"app_clase")]
+    public function clasesok(Request $request, $id):Response
+    {
+        // Crea una nueva instancia de Clases para el formulario
+      
+        
+        $clase = $this->entityManager->getRepository(Clases::class)->find($id);
+        $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOrigin('clases',$id);
+        
+        // Crea el formulario de filtro
+        
+        
+       
+    
+        // Renderiza el formulario de filtro si no se ha enviado o no es válido
+        return $this->render('buscador/claseok.html.twig', [
+             'clase' => $clase, 'rasgos' => $rasgos
         ]);
     }
 

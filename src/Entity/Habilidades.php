@@ -31,7 +31,7 @@ class Habilidades
     private ?string $Origen_ID = null;
 
     #[ORM\Column]
-    private ?int $origen_nivel = null;
+    private ?int $OrigenNivel = null;
 
     public function __construct()
     {
@@ -105,13 +105,15 @@ class Habilidades
 
     public function getOrigenNivel(): ?int
     {
-        return $this->origen_nivel;
+        return $this->OrigenNivel;
     }
 
     public function setOrigenNivel(int $origen_nivel): static
     {
-        $this->origen_nivel = $origen_nivel;
+        $this->OrigenNivel = $origen_nivel;
 
         return $this;
     }
+
+
 }

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+ {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/bodygrid.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="grid-body">
+        <div class="L1"></div>
+        
+        <div class="DC">
+            <div class='grid-clase'>
+                <span class="V1"> </span>
+                <h1 class="N">{{clase.nombre}}</h1>
+                
+                 <div class="H"><b>Habilidades: </b> <p>{{clase.HabilidadesAElegir}}</p></div>
+                <div class="C"><b>Competencias: </b> <p>{{clase.Competencias}}</p></div>
+                
+               
+                <div class="E"> <b >Equipo: </b> <p>{{clase.Equipamiento}}</p></div>
+                <div class="P"><b>Puntos de golpe: </b> <p>{{clase.PuntosDeGolpe}}</p></div>
+                <div class="S"><b>Salvaciones: </b> <p>{{clase.Salvaciones}}</p></div>
+                <div class="R"><b >Requisitos: </b> <p>{{clase.Requisitos}}</p></div>
+                <div  class="I" ><img src="https://s3-eu-west-2.amazonaws.com/dungeon20/images/549/medium-c67809c080bd2a1bc4aeaa1691f6c7a024ec2a3d.jpg?1536945487"/></div>
+                <span class="V2"></span>
+            </div>
+        </div>
+        <div class="TP">
+            <h1>Tabla de Progresión</h1>
+        </div>
+        <div class="RC">
+            <h1>Rasgos de Clase</h1>
+            <div>
+                {% for habilidad in rasgos %}
+                    <div class="grid-rasgos">
+                        <span class="N">{{habilidad.nombre}}</span>
+                        <span class="V1"></span>
+                        <span class="L">Nivel {{habilidad.OrigenNivel}}</span>
+                        <span class="D">{{habilidad.Descripción}}</span>
+                         
+                    </div><br>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="L2"></div>
+    </div>
+{% endblock %}
+

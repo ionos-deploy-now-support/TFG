@@ -4,12 +4,14 @@
    <h1>BÚSQUEDA</h1
  <ul>
      {% for clase in resultado %}
+     <a href="{{ path( "app_clase", { "id": clase.id} ) }}">
        <li>{{ clase.Nombre }}</li>
        <li>{{clase.Competencias}}</li>
        <li>{{clase.Salvaciones}}</li>
         <li>{{clase.Autor}}</li>
-         <hr/>
-
+         
+      </a>
+      <hr>
      {% endfor %}
     </ul>
  
