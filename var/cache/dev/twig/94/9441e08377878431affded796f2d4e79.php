@@ -130,7 +130,10 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
         // line 22
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["clase"]) || array_key_exists("clase", $context) ? $context["clase"] : (function () { throw new RuntimeError('Variable "clase" does not exist.', 22, $this->source); })()), "Requisitos", [], "any", false, false, false, 22), "html", null, true);
         echo "</p></div>
-                <div  class=\"I\" ><img src=\"https://s3-eu-west-2.amazonaws.com/dungeon20/images/549/medium-c67809c080bd2a1bc4aeaa1691f6c7a024ec2a3d.jpg?1536945487\"/></div>
+                <div  class=\"I\" ><img src=\"";
+        // line 23
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["clase"]) || array_key_exists("clase", $context) ? $context["clase"] : (function () { throw new RuntimeError('Variable "clase" does not exist.', 23, $this->source); })()), "img", [], "any", false, false, false, 23), "html", null, true);
+        echo "\"/></div>
                 <span class=\"V2\"></span>
             </div>
         </div>
@@ -202,7 +205,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  171 => 42,  161 => 38,  157 => 37,  152 => 35,  149 => 34,  145 => 33,  131 => 22,  127 => 21,  123 => 20,  119 => 19,  113 => 16,  109 => 15,  104 => 13,  96 => 7,  86 => 6,  74 => 4,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  174 => 42,  164 => 38,  160 => 37,  155 => 35,  152 => 34,  148 => 33,  135 => 23,  131 => 22,  127 => 21,  123 => 20,  119 => 19,  113 => 16,  109 => 15,  104 => 13,  96 => 7,  86 => 6,  74 => 4,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -229,7 +232,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                 <div class=\"P\"><b>Puntos de golpe: </b> <p>{{clase.PuntosDeGolpe}}</p></div>
                 <div class=\"S\"><b>Salvaciones: </b> <p>{{clase.Salvaciones}}</p></div>
                 <div class=\"R\"><b >Requisitos: </b> <p>{{clase.Requisitos}}</p></div>
-                <div  class=\"I\" ><img src=\"https://s3-eu-west-2.amazonaws.com/dungeon20/images/549/medium-c67809c080bd2a1bc4aeaa1691f6c7a024ec2a3d.jpg?1536945487\"/></div>
+                <div  class=\"I\" ><img src=\"{{clase.img}}\"/></div>
                 <span class=\"V2\"></span>
             </div>
         </div>

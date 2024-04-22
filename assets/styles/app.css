@@ -53,7 +53,7 @@ header .menu li{
 .grid-rasgos{
     
     display:grid;
-    grid-template-areas:"N V1 V1 L"
+    grid-template-areas:"N N V1 L"
                         "D D D D";
                        
     grid-template-columns:0.2fr 0.3fr 0.3fr 0.2fr;

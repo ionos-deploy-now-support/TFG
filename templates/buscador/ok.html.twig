@@ -5,6 +5,7 @@
  <ul>
      {% for clase in resultado %}
      <a href="{{ path( "app_clase", { "id": clase.id} ) }}">
+      
        <li>{{ clase.Nombre }}</li>
        <li>{{clase.Competencias}}</li>
        <li>{{clase.Salvaciones}}</li>
