@@ -24,8 +24,22 @@
                 <span class="V2"></span>
             </div>
         </div>
-        <div class="TP">
+        <div class="TP" >
             <h1>Tabla de Progresión</h1>
+            <table class="Progreso">
+            <tr>
+                <th>Nivel</th>
+                <th>Competencia</th>
+                <th>Mejoras</th>
+            </tr>
+                {% for linea in tabla %}
+                    <tr>
+                        <td>{{linea[0]}}</td>
+                        <td>{{linea[1]}}</td>
+                        <td>{{linea[2]}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
         <div class="RC">
             <h1>Rasgos de Clase</h1>
@@ -35,7 +49,33 @@
                         <span class="N">{{habilidad.nombre}}</span>
                         <span class="V1"></span>
                         <span class="L">Nivel {{habilidad.OrigenNivel}}</span>
-                        <span class="D">{{habilidad.Descripción}}</span>
+                        <span class="D">{% set parraf = ""%}
+                                        {% set buffer = 0 %}
+                                        {% for i in 0.. habilidad.Descripción|length %}
+                                            {% if buffer > 0 %}
+                                                {% set buffer = buffer - 1 %}
+                                            {% elseif habilidad.Descripción|slice(i,5) == "{|S|}" %}
+                                                {% set parraf = [parraf,"\n"]|join %}
+                                                {% set buffer = 4 %}
+                                            {% elseif habilidad.Descripción|slice(i,5) == "{|B|}" %}
+                                                {{parraf|nl2br}}
+                                                {% set parraf = ""%}
+                                                <b>
+                                                {% set buffer = 4 %}
+                                            {% elseif habilidad.Descripción|slice(i,6) == "{|/B|}" %}
+                                                {{parraf|nl2br}}
+                                                {% set parraf = ""%}
+                                                </b>
+                                                {% set buffer = 5 %}
+                                            {% else %}
+                                                {% set parraf = [parraf,habilidad.Descripción|slice(i,1)]|join %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {{parraf|nl2br}}
+                        </span> 
+
+                        
+
                          
                     </div><br>
                 {% endfor %}
@@ -45,3 +85,28 @@
     </div>
 {% endblock %}
 
+
+{# Función para ejecutar comandos
+{% set parraf = ""%}
+{% set buffer = 0 %}
+{% for i in 0.. habilidad.Descripción|length %}
+                            {% if buffer > 0 %}
+                                {% set buffer = buffer - 1 %}
+                            {% elseif habilidad.Descripción|slice(i,5) == "{|S|}" %}
+                                {% set parraf = [parraf,"\n"]|join %}
+                                {% set buffer = 4 %}
+                            {% elseif habilidad.Descripción|slice(i,5) == "{|B|}" %}
+                                {{parraf|nl2br}}
+                                {% set parraf = ""%}
+                                <b>
+                                {% set buffer = 4 %}
+                            {% elseif habilidad.Descripción|slice(i,6) == "{|/B|}" %}
+                                {{parraf|nl2br}}
+                                {% set parraf = ""%}
+                                </b>
+                                {% set buffer = 5 %}
+                            {% else %}
+                                {% set parraf = [parraf,habilidad.Descripción|slice(i,1)]|join %}
+                            {% endif %}
+                        {% endfor %}
+                        {{parraf|nl2br}} #}

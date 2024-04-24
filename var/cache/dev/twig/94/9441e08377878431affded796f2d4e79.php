@@ -137,32 +137,141 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                 <span class=\"V2\"></span>
             </div>
         </div>
-        <div class=\"TP\">
+        <div class=\"TP\" >
             <h1>Tabla de Progresión</h1>
+            <table class=\"Progreso\">
+            <tr>
+                <th>Nivel</th>
+                <th>Competencia</th>
+                <th>Mejoras</th>
+            </tr>
+                ";
+        // line 35
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["tabla"]) || array_key_exists("tabla", $context) ? $context["tabla"] : (function () { throw new RuntimeError('Variable "tabla" does not exist.', 35, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["linea"]) {
+            // line 36
+            echo "                    <tr>
+                        <td>";
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["linea"], 0, [], "array", false, false, false, 37), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["linea"], 1, [], "array", false, false, false, 38), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["linea"], 2, [], "array", false, false, false, 39), "html", null, true);
+            echo "</td>
+                    </tr>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['linea'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 42
+        echo "            </table>
         </div>
         <div class=\"RC\">
             <h1>Rasgos de Clase</h1>
             <div>
                 ";
-        // line 33
+        // line 47
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["rasgos"]) || array_key_exists("rasgos", $context) ? $context["rasgos"] : (function () { throw new RuntimeError('Variable "rasgos" does not exist.', 33, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["rasgos"]) || array_key_exists("rasgos", $context) ? $context["rasgos"] : (function () { throw new RuntimeError('Variable "rasgos" does not exist.', 47, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["habilidad"]) {
-            // line 34
+            // line 48
             echo "                    <div class=\"grid-rasgos\">
                         <span class=\"N\">";
-            // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "nombre", [], "any", false, false, false, 35), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "nombre", [], "any", false, false, false, 49), "html", null, true);
             echo "</span>
                         <span class=\"V1\"></span>
                         <span class=\"L\">Nivel ";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "OrigenNivel", [], "any", false, false, false, 37), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "OrigenNivel", [], "any", false, false, false, 51), "html", null, true);
             echo "</span>
                         <span class=\"D\">";
-            // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 38), "html", null, true);
-            echo "</span>
+            // line 52
+            $context["parraf"] = "";
+            // line 53
+            echo "                                        ";
+            $context["buffer"] = 0;
+            // line 54
+            echo "                                        ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(range(0, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 54))));
+            foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
+                // line 55
+                echo "                                            ";
+                if (((isset($context["buffer"]) || array_key_exists("buffer", $context) ? $context["buffer"] : (function () { throw new RuntimeError('Variable "buffer" does not exist.', 55, $this->source); })()) > 0)) {
+                    // line 56
+                    echo "                                                ";
+                    $context["buffer"] = ((isset($context["buffer"]) || array_key_exists("buffer", $context) ? $context["buffer"] : (function () { throw new RuntimeError('Variable "buffer" does not exist.', 56, $this->source); })()) - 1);
+                    // line 57
+                    echo "                                            ";
+                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 57), $context["i"], 5) == "{|S|}")) {
+                    // line 58
+                    echo "                                                ";
+                    $context["parraf"] = twig_join_filter([(isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 58, $this->source); })()), "
+"]);
+                    // line 59
+                    echo "                                                ";
+                    $context["buffer"] = 4;
+                    // line 60
+                    echo "                                            ";
+                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 60), $context["i"], 5) == "{|B|}")) {
+                    // line 61
+                    echo "                                                ";
+                    echo twig_nl2br(twig_escape_filter($this->env, (isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 61, $this->source); })()), "html", null, true));
+                    echo "
+                                                ";
+                    // line 62
+                    $context["parraf"] = "";
+                    // line 63
+                    echo "                                                <b>
+                                                ";
+                    // line 64
+                    $context["buffer"] = 4;
+                    // line 65
+                    echo "                                            ";
+                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 65), $context["i"], 6) == "{|/B|}")) {
+                    // line 66
+                    echo "                                                ";
+                    echo twig_nl2br(twig_escape_filter($this->env, (isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 66, $this->source); })()), "html", null, true));
+                    echo "
+                                                ";
+                    // line 67
+                    $context["parraf"] = "";
+                    // line 68
+                    echo "                                                </b>
+                                                ";
+                    // line 69
+                    $context["buffer"] = 5;
+                    // line 70
+                    echo "                                            ";
+                } else {
+                    // line 71
+                    echo "                                                ";
+                    $context["parraf"] = twig_join_filter([(isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 71, $this->source); })()), twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 71), $context["i"], 1)]);
+                    // line 72
+                    echo "                                            ";
+                }
+                // line 73
+                echo "                                        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 74
+            echo "                                        ";
+            echo twig_nl2br(twig_escape_filter($this->env, (isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 74, $this->source); })()), "html", null, true));
+            echo "
+                        </span> 
+
+                        
+
                          
                     </div><br>
                 ";
@@ -170,7 +279,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['habilidad'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 42
+        // line 82
         echo "            </div>
         </div>
         <div class=\"L2\"></div>
@@ -205,7 +314,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  174 => 42,  164 => 38,  160 => 37,  155 => 35,  152 => 34,  148 => 33,  135 => 23,  131 => 22,  127 => 21,  123 => 20,  119 => 19,  113 => 16,  109 => 15,  104 => 13,  96 => 7,  86 => 6,  74 => 4,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  283 => 82,  268 => 74,  262 => 73,  259 => 72,  256 => 71,  253 => 70,  251 => 69,  248 => 68,  246 => 67,  241 => 66,  238 => 65,  236 => 64,  233 => 63,  231 => 62,  226 => 61,  223 => 60,  220 => 59,  216 => 58,  213 => 57,  210 => 56,  207 => 55,  202 => 54,  199 => 53,  197 => 52,  193 => 51,  188 => 49,  185 => 48,  181 => 47,  174 => 42,  165 => 39,  161 => 38,  157 => 37,  154 => 36,  150 => 35,  135 => 23,  131 => 22,  127 => 21,  123 => 20,  119 => 19,  113 => 16,  109 => 15,  104 => 13,  96 => 7,  86 => 6,  74 => 4,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -236,8 +345,22 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                 <span class=\"V2\"></span>
             </div>
         </div>
-        <div class=\"TP\">
+        <div class=\"TP\" >
             <h1>Tabla de Progresión</h1>
+            <table class=\"Progreso\">
+            <tr>
+                <th>Nivel</th>
+                <th>Competencia</th>
+                <th>Mejoras</th>
+            </tr>
+                {% for linea in tabla %}
+                    <tr>
+                        <td>{{linea[0]}}</td>
+                        <td>{{linea[1]}}</td>
+                        <td>{{linea[2]}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
         <div class=\"RC\">
             <h1>Rasgos de Clase</h1>
@@ -247,7 +370,33 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                         <span class=\"N\">{{habilidad.nombre}}</span>
                         <span class=\"V1\"></span>
                         <span class=\"L\">Nivel {{habilidad.OrigenNivel}}</span>
-                        <span class=\"D\">{{habilidad.Descripción}}</span>
+                        <span class=\"D\">{% set parraf = \"\"%}
+                                        {% set buffer = 0 %}
+                                        {% for i in 0.. habilidad.Descripción|length %}
+                                            {% if buffer > 0 %}
+                                                {% set buffer = buffer - 1 %}
+                                            {% elseif habilidad.Descripción|slice(i,5) == \"{|S|}\" %}
+                                                {% set parraf = [parraf,\"\\n\"]|join %}
+                                                {% set buffer = 4 %}
+                                            {% elseif habilidad.Descripción|slice(i,5) == \"{|B|}\" %}
+                                                {{parraf|nl2br}}
+                                                {% set parraf = \"\"%}
+                                                <b>
+                                                {% set buffer = 4 %}
+                                            {% elseif habilidad.Descripción|slice(i,6) == \"{|/B|}\" %}
+                                                {{parraf|nl2br}}
+                                                {% set parraf = \"\"%}
+                                                </b>
+                                                {% set buffer = 5 %}
+                                            {% else %}
+                                                {% set parraf = [parraf,habilidad.Descripción|slice(i,1)]|join %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {{parraf|nl2br}}
+                        </span> 
+
+                        
+
                          
                     </div><br>
                 {% endfor %}
@@ -257,6 +406,30 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
     </div>
 {% endblock %}
 
-", "buscador/claseok.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\buscador\\claseok.html.twig");
+
+{# Función para ejecutar comandos
+{% set parraf = \"\"%}
+{% set buffer = 0 %}
+{% for i in 0.. habilidad.Descripción|length %}
+                            {% if buffer > 0 %}
+                                {% set buffer = buffer - 1 %}
+                            {% elseif habilidad.Descripción|slice(i,5) == \"{|S|}\" %}
+                                {% set parraf = [parraf,\"\\n\"]|join %}
+                                {% set buffer = 4 %}
+                            {% elseif habilidad.Descripción|slice(i,5) == \"{|B|}\" %}
+                                {{parraf|nl2br}}
+                                {% set parraf = \"\"%}
+                                <b>
+                                {% set buffer = 4 %}
+                            {% elseif habilidad.Descripción|slice(i,6) == \"{|/B|}\" %}
+                                {{parraf|nl2br}}
+                                {% set parraf = \"\"%}
+                                </b>
+                                {% set buffer = 5 %}
+                            {% else %}
+                                {% set parraf = [parraf,habilidad.Descripción|slice(i,1)]|join %}
+                            {% endif %}
+                        {% endfor %}
+                        {{parraf|nl2br}} #}", "buscador/claseok.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\buscador\\claseok.html.twig");
     }
 }

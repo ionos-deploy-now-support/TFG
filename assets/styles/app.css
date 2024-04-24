@@ -43,6 +43,7 @@ header .menu li{
 
     grid-template-columns:0.2fr 0.3fr 0.3fr 0.2fr;
     grid-template-rows: 0.1fr repeat(6,0.2fr);
+    
 }
 
 .grid-clase .N{
@@ -58,7 +59,20 @@ header .menu li{
                        
     grid-template-columns:0.2fr 0.3fr 0.3fr 0.2fr;
     grid-template-rows: 25px auto;
+    padding:20px;
 }
+
+.Progreso{
+    padding:20px;
+    width:100%;
+}
+
+.Progreso td{
+    text-align: center;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+}
+
 
 
 

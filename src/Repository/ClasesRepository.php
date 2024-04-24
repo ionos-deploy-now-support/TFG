@@ -52,6 +52,12 @@ class ClasesRepository extends ServiceEntityRepository
                ->setParameter('competencias' , '%' .  $formulario->getCompetencias() . '%');
         }
 
+        if ($formulario->getMagia() != null){
+            $qb = $qb->andWhere('a.Magia = :magia')
+               ->setParameter('magia' ,  $formulario->getMagia()  );
+               
+        } 
+
         if ($formulario->getSalvaciones() != null){
             $qb = $qb->andWhere('a.Salvaciones LIKE :salvaciones')
                ->setParameter('salvaciones', '%' .  $formulario->getSalvaciones() . '%');

@@ -33,7 +33,26 @@ class ClasesType extends AbstractType
         ->add('Nombre', TextType::class, ['required' => false])
             ->add('Requisitos', TextType::class, ['required' => false])
             ->add('Competencias', TextType::class, ['required' => false])
-            ->add('Salvaciones', TextType::class, ['required' => false])
+            ->add('Salvaciones', ChoiceType::class, [
+                    'choices' => [
+                        'Fuerza' => 'Fuerza',
+                        'Destreza' => 'Destreza',
+                        'Constitución' => 'Constitución',
+                        'Inteligencia' => 'Inteligencia',
+                        'Sabiduría' => 'Sabiduría',
+                        'Carisma' => 'Carisma',
+                ],
+                    'required' => false])
+            ->add('Magia',ChoiceType::class, [
+                'choices' => [
+                    'No tiene hechizos' => '1',
+                    'Lanzador Parcial' => '2',
+                    'Lanzador Medio' => '3',
+                    'Lanzador Puro' => '4',
+                ],
+                'required' => false])
+                
+            
             ->add('PuntosDeGolpe',ChoiceType::class, [
                 'choices' => [
                     '1d4' => '1d4',
@@ -47,7 +66,7 @@ class ClasesType extends AbstractType
                     'choices' => $final,
                     'required' => false
                 ])
-            ->add('save', SubmitType::class)
+            ->add('Enviar', SubmitType::class)
         ;
     }
 

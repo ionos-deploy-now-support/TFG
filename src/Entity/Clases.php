@@ -43,6 +43,9 @@ class Clases
     #[ORM\Column(length: 999)]
     private ?string $img = null;
 
+    #[ORM\Column]
+    private ?int $Magia = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -164,6 +167,18 @@ class Clases
     public function setImg(string $img): static
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    public function getMagia(): ?int
+    {
+        return $this->Magia;
+    }
+
+    public function setMagia(int $Magia): static
+    {
+        $this->Magia = $Magia;
 
         return $this;
     }
