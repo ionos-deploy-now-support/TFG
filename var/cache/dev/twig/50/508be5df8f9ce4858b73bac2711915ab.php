@@ -96,17 +96,35 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
         echo "\">
         <span>Clases</span>
     </a>
-    <a src=\"\">
+    <a href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_razas");
+        echo "\">
         <span>Razas</span>
     </a>
-    <a src=\"\">
+    <a href=\"";
+        // line 17
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_trasfondo");
+        echo "\">
         <span>Trasfondos</span>
+    </a>
+     <a href=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_dotes");
+        echo "\">
+        <span>Dotes</span>
+    </a>
+     <a href=\"";
+        // line 23
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_hechizos");
+        echo "\">
+        <span>Hechizos</span>
     </a>
 </div>
 <div class=\"example-wrapper\">
     <h1>Hello ";
-        // line 22
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 22, $this->source); })()), "html", null, true);
+        // line 28
+        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 28, $this->source); })()), "html", null, true);
         echo "! ✅</h1>
 
     This friendly message is coming from:
@@ -145,7 +163,7 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  109 => 22,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  127 => 28,  119 => 23,  113 => 20,  107 => 17,  101 => 14,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -163,11 +181,17 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
     <a href=\"{{ path(\"app_buscador_clase\") }}\">
         <span>Clases</span>
     </a>
-    <a src=\"\">
+    <a href=\"{{ path(\"app_buscador_razas\") }}\">
         <span>Razas</span>
     </a>
-    <a src=\"\">
+    <a href=\"{{ path(\"app_buscador_trasfondo\") }}\">
         <span>Trasfondos</span>
+    </a>
+     <a href=\"{{ path(\"app_buscador_dotes\") }}\">
+        <span>Dotes</span>
+    </a>
+     <a href=\"{{ path(\"app_buscador_hechizos\") }}\">
+        <span>Hechizos</span>
     </a>
 </div>
 <div class=\"example-wrapper\">

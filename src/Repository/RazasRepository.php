@@ -21,6 +21,83 @@ class RazasRepository extends ServiceEntityRepository
         parent::__construct($registry, Razas::class);
     }
 
+    public function FindUniqueAutores(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Autor')
+        ->andWhere('a.Autor IS NOT NULL')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Autor')
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function FindFilter(Razas $formulario){
+        $qb = $this->createQueryBuilder('a')
+                   ->select('a');
+ 
+ 
+                
+         if ($formulario->getNombre() != null){
+             $qb = $qb->andWhere('a.Nombre LIKE :nombre')
+             ->setParameter('nombre' , '%' .  $formulario->getNombre() . '%');
+         }
+         
+         if ($formulario->getFuerza() != null){
+             $qb = $qb->andWhere('a.Fuerza LIKE :fuerza')
+                ->setParameter('fuerza' , '%' .  $formulario->getFuerza() . '%');
+         }
+ 
+        if ($formulario->getDestreza() != null){
+             $qb = $qb->andWhere('a.Destreza LIKE :destreza')
+                ->setParameter('destreza' , '%' .  $formulario->getDestreza() . '%');
+         }
+ 
+         if ($formulario->getConstitucion() != null){
+             $qb = $qb->andWhere('a.Constitucion = :constitucion')
+                ->setParameter('constitucion' ,  $formulario->getConstitucion());
+                
+         } 
+ 
+         if ($formulario->getInteligencia() != null){
+             $qb = $qb->andWhere('a.Inteligencia LIKE :inteligencia')
+                ->setParameter('inteligencia', '%' .  $formulario->getInteligencia() . '%');
+         }
+         
+            if ($formulario->getSabiduria() != null){
+             $qb = $qb->andWhere('a.Sabiduria = :sabiduria')
+                ->setParameter('sabiduria' ,  $formulario->getSabiduria() );
+         }
+
+            if ($formulario->getCarisma() != null){
+                $qb = $qb->andWhere('a.Carisma = :carisma')
+                    ->setParameter('carisma' ,  $formulario->getCarisma()  );
+            }
+         
+            if ($formulario->getAutor() != null){
+             $qb = $qb->andWhere('a.Autor = :autor')
+                ->setParameter('autor' ,  $formulario->getAutor()  );
+                
+         }
+         
+            if ($formulario->getVelocidad() != null){
+                $qb = $qb->andWhere('a.Velocidad LIKE :velocidad')
+                    ->setParameter('velocidad' , '%' .  $formulario->getVelocidad() . '%');
+            }
+
+            if ($formulario->getAtaqueDesarmado() != null){
+                $qb = $qb->andWhere('a.AtaqueDesarmado LIKE :ataquedesarmado')
+                    ->setParameter('ataquedesarmado' , '%' .  $formulario->getAtaqueDesarmado() . '%');
+            }
+            
+        $qb = $qb->andWhere('a.Validado = 1')
+         ->getQuery()
+         ->getResult();
+         return $qb;
+        
+        
+         
+     }
+
     //    /**
     //     * @return Razas[] Returns an array of Razas objects
     //     */

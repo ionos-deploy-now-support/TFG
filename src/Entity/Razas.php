@@ -17,7 +17,7 @@ class Razas
     private ?string $Nombre = null;
 
     #[ORM\Column(length: 999)]
-    private ?string $Descripción = null;
+    private ?string $Descripcion = null;
 
     #[ORM\Column]
     private ?int $Fuerza = null;
@@ -26,13 +26,13 @@ class Razas
     private ?int $Destreza = null;
 
     #[ORM\Column]
-    private ?int $Constitución = null;
+    private ?int $Constitucion = null;
 
     #[ORM\Column]
     private ?int $Inteligencia = null;
 
     #[ORM\Column]
-    private ?int $Sabiduría = null;
+    private ?int $Sabiduria = null;
 
     #[ORM\Column]
     private ?int $Carisma = null;
@@ -66,14 +66,14 @@ class Razas
         return $this;
     }
 
-    public function getDescripción(): ?string
+    public function getDescripcion(): ?string
     {
-        return $this->Descripción;
+        return $this->Descripcion;
     }
 
     public function setDescripción(string $Descripción): static
     {
-        $this->Descripción = $Descripción;
+        $this->Descripcion = $Descripción;
 
         return $this;
     }
@@ -102,14 +102,14 @@ class Razas
         return $this;
     }
 
-    public function getConstitución(): ?int
+    public function getConstitucion(): ?int
     {
-        return $this->Constitución;
+        return $this->Constitucion;
     }
 
     public function setConstitución(int $Constitución): static
     {
-        $this->Constitución = $Constitución;
+        $this->Constitucion = $Constitución;
 
         return $this;
     }
@@ -126,14 +126,14 @@ class Razas
         return $this;
     }
 
-    public function getSabiduría(): ?int
+    public function getSabiduria(): ?int
     {
-        return $this->Sabiduría;
+        return $this->Sabiduria;
     }
 
     public function setSabiduría(int $Sabiduría): static
     {
-        $this->Sabiduría = $Sabiduría;
+        $this->Sabiduria = $Sabiduría;
 
         return $this;
     }

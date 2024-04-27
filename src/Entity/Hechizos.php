@@ -17,7 +17,7 @@ class Hechizos
     private ?string $Nombre = null;
 
     #[ORM\Column(length: 999)]
-    private ?string $Descripción = null;
+    private ?string $Descripcion = null;
 
     #[ORM\Column]
     private ?int $Nivel = null;
@@ -26,7 +26,7 @@ class Hechizos
     private ?string $Escuela = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $TiempoDeEjecución = null;
+    private ?string $TiempoDeEjecucion = null;
 
     #[ORM\Column]
     private ?int $Rango = null;
@@ -41,7 +41,7 @@ class Hechizos
     private ?string $Autor = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $Duración = null;
+    private ?string $Duracion = null;
 
     #[ORM\Column(length: 200)]
     private ?string $Zona_Efecto = null;
@@ -63,14 +63,14 @@ class Hechizos
         return $this;
     }
 
-    public function getDescripción(): ?string
+    public function getDescripcion(): ?string
     {
-        return $this->Descripción;
+        return $this->Descripcion;
     }
 
     public function setDescripción(string $Descripción): static
     {
-        $this->Descripción = $Descripción;
+        $this->Descripcion = $Descripción;
 
         return $this;
     }
@@ -99,14 +99,14 @@ class Hechizos
         return $this;
     }
 
-    public function getTiempoDeEjecución(): ?string
+    public function getTiempoDeEjecucion(): ?string
     {
-        return $this->TiempoDeEjecución;
+        return $this->TiempoDeEjecucion;
     }
 
     public function setTiempoDeEjecución(string $TiempoDeEjecución): static
     {
-        $this->TiempoDeEjecución = $TiempoDeEjecución;
+        $this->TiempoDeEjecucion = $TiempoDeEjecución;
 
         return $this;
     }
@@ -159,14 +159,14 @@ class Hechizos
         return $this;
     }
 
-    public function getDuración(): ?string
+    public function getDuracion(): ?string
     {
-        return $this->Duración;
+        return $this->Duracion;
     }
 
     public function setDuración(string $Duración): static
     {
-        $this->Duración = $Duración;
+        $this->Duracion = $Duración;
 
         return $this;
     }

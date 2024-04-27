@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+ {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/bodygrid.css') }}">
+{% endblock %}
+{% block body %}
+   <h1>{{raza.Nombre}}</h1>
+   <h3>Fuerza: {{raza.Fuerza -1}}</h3>
+    <h3>Destreza: {{raza.Destreza -1}}</h3>
+    <h3>Constitución: {{raza.Constitucion -1}}</h3>
+    <h3>Inteligencia: {{raza.Inteligencia -1}}</h3>
+    <h3>Sabiduría: {{raza.Sabiduria -1}}</h3>
+    <h3>Carisma: {{raza.Carisma -1}}</h3>
+    <p>{{raza.Descripcion}}</p>
+    <p>Ataque Desarmado: {{raza.AtaqueDesarmado}}</p>
+{% endblock %}
+
+

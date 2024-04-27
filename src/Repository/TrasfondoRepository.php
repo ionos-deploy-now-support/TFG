@@ -21,6 +21,74 @@ class TrasfondoRepository extends ServiceEntityRepository
         parent::__construct($registry, Trasfondo::class);
     }
 
+    public function FindUniqueAutores(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Autor')
+        ->andWhere('a.Autor IS NOT NULL')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Autor')
+        ->getQuery()
+        ->getResult();
+    }
+    
+    public function FindFilter(Trasfondo $formulario){
+       $qb = $this->createQueryBuilder('a')
+                  ->select('a');
+
+
+               
+        if ($formulario->getNombre() != null){
+            $qb = $qb->andWhere('a.Nombre LIKE :nombre')
+            ->setParameter('nombre' , '%' .  $formulario->getNombre() . '%');
+        }
+        
+        if ($formulario->getDescripcion() != null){
+            $qb = $qb->andWhere('a.Descripcion LIKE :descripcion')
+               ->setParameter('descripcion' , '%' .  $formulario->getDescripcion() . '%');
+        }
+
+       if ($formulario->isOrigen() != null){
+            $qb = $qb->andWhere('a.Origen LIKE :origen')
+               ->setParameter('origen' , '%' .  $formulario->isOrigen() . '%');
+        }
+
+        if ($formulario->getIdiomas() != null){
+            $qb = $qb->andWhere('a.Idiomas LIKE :idiomas')
+               ->setParameter('idiomas' , '%' . $formulario->getIdiomas() . '%' );
+               
+        } 
+
+        if ($formulario->getObjetosIniciales() != null){
+            $qb = $qb->andWhere('a.ObjetosIniciales LIKE :objetos_iniciales')
+               ->setParameter('objetos_iniciales', '%' .  $formulario->getObjetosIniciales() . '%');
+        }
+        
+        if ($formulario->getCompetencias() != null){
+            $qb = $qb->andWhere('a.Competencias = :competencias')
+               ->setParameter('competencias' ,  $formulario->getCompetencias() );
+        }
+
+        
+        if ($formulario->getAutor() != null){
+            $qb = $qb->andWhere('a.Autor = :autor')
+               ->setParameter('autor' ,  $formulario->getAutor()  );
+               
+        } 
+
+        if ($formulario->getPlano() != null){
+            $qb = $qb->andWhere('a.Plano = :plano')
+               ->setParameter('plano' ,  $formulario->getPlano() );
+        }
+           
+       $qb = $qb->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+        return $qb;
+       
+       
+        
+    }
+
     //    /**
     //     * @return Trasfondo[] Returns an array of Trasfondo objects
     //     */

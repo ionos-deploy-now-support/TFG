@@ -20,6 +20,53 @@ class DotesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Dotes::class);
     }
+    public function FindUniqueAutores(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Autor')
+        ->andWhere('a.Autor IS NOT NULL')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Autor')
+        ->getQuery()
+        ->getResult();
+    }
+    
+    public function FindFilter(Dotes $formulario){
+       $qb = $this->createQueryBuilder('a')
+                  ->select('a');
+
+
+               
+        if ($formulario->getNombre() != null){
+            $qb = $qb->andWhere('a.Nombre LIKE :nombre')
+            ->setParameter('nombre' , '%' .  $formulario->getNombre() . '%');
+        }
+        
+        if ($formulario->getRequisitos() != null){
+            $qb = $qb->andWhere('a.Requisitos LIKE :requisitos')
+               ->setParameter('requisitos' , '%' .  $formulario->getRequisitos() . '%');
+        }
+
+       if ($formulario->getBeneficios() != null){
+            $qb = $qb->andWhere('a.Beneficios LIKE :beneficios')
+               ->setParameter('beneficios' , '%' .  $formulario->getBeneficios() . '%');
+        }
+        
+        if ($formulario->getAutor() != null){
+            $qb = $qb->andWhere('a.Autor = :autor')
+               ->setParameter('autor' ,  $formulario->getAutor()  );
+               
+        } 
+
+      
+           
+       $qb = $qb->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+        return $qb;
+       
+       
+        
+    }
 
     //    /**
     //     * @return Dotes[] Returns an array of Dotes objects

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+ {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/bodygrid.css') }}">
+{% endblock %}
+{% block body %}
+   <h1>{{hechizo.Nombre}}</h1>
+    <p>{{hechizo.Descripcion}}</p>
+   <h3>Nivel: {{hechizo.Nivel - 1}}</h3>
+    <h3>Escuela: {{hechizo.Escuela}}</h3>
+    <h3>Componentes: {{hechizo.Componentes}}</h3>
+    <h3>Alcance: {{hechizo.Rango}}</h3>
+{% endblock %}
+
+

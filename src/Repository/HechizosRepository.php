@@ -21,6 +21,79 @@ class HechizosRepository extends ServiceEntityRepository
         parent::__construct($registry, Hechizos::class);
     }
 
+    public function FindUniqueAutores(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Autor')
+        ->andWhere('a.Autor IS NOT NULL')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Autor')
+        ->getQuery()
+        ->getResult();
+    }
+    
+    public function FindFilter(Hechizos $formulario){
+       $qb = $this->createQueryBuilder('a')
+                  ->select('a');
+
+
+               
+        if ($formulario->getNombre() != null){
+            $qb = $qb->andWhere('a.Nombre LIKE :nombre')
+            ->setParameter('nombre' , '%' .  $formulario->getNombre() . '%');
+        }
+        
+        if ($formulario->getNivel() != null){
+            $qb = $qb->andWhere('a.Nivel LIKE :nivel')
+               ->setParameter('nivel' , '%' .  $formulario->getNivel() . '%');
+        }
+
+       if ($formulario->getEscuela() != null){
+            $qb = $qb->andWhere('a.Escuela LIKE :escuela')
+               ->setParameter('escuela' , '%' .  $formulario->getEscuela() . '%');
+        }
+
+        if ($formulario->getTiempoDeEjecucion() != null){
+            $qb = $qb->andWhere('a.TiempoDeEjecucion LIKE :tiempoDeEjecucion')
+               ->setParameter('tiempoDeEjecucion' , '%' .  $formulario->getTiempoDeEjecucion() . '%');
+        }
+
+        if ($formulario->getRango() != null){
+            $qb = $qb->andWhere('a.Rango LIKE :rango')
+               ->setParameter('rango' , '%' .  $formulario->getRango() . '%');
+        }
+
+        if ($formulario->getComponentes() != null){
+            $qb = $qb->andWhere('a.Componentes LIKE :componentes')
+               ->setParameter('componentes' , '%' .  $formulario->getComponentes() . '%');
+        }
+
+        if ($formulario->getDuracion() != null){
+            $qb = $qb->andWhere('a.Duracion LIKE :duracion')
+               ->setParameter('duracion' , '%' .  $formulario->getDuracion() . '%');
+        }
+
+        if ($formulario->getZonaEfecto() != null){
+            $qb = $qb->andWhere('a.Zona_Efecto LIKE :zonaEfecto')
+               ->setParameter('zonaEfecto' , '%' .  $formulario->getZonaEfecto() . '%');
+        }
+        
+        if ($formulario->getAutor() != null){
+            $qb = $qb->andWhere('a.Autor = :autor')
+               ->setParameter('autor' ,  $formulario->getAutor()  );
+               
+        } 
+
+      
+           
+       $qb = $qb->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+        return $qb;
+       
+       
+        
+    }
+
     //    /**
     //     * @return Hechizos[] Returns an array of Hechizos objects
     //     */

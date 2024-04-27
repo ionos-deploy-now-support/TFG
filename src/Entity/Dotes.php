@@ -17,7 +17,7 @@ class Dotes
     private ?string $Nombre = null;
 
     #[ORM\Column(length: 999)]
-    private ?string $Descripción = null;
+    private ?string $Descripcion = null;
 
     #[ORM\Column(length: 100, nullable:true)]
     private ?string $Requisitos = null;
@@ -45,9 +45,9 @@ class Dotes
         return $this;
     }
 
-    public function getDescripción(): ?string
+    public function getDescripcion(): ?string
     {
-        return $this->Descripción;
+        return $this->Descripcion;
     }
 
     public function setDescripción(string $Descripción): static
