@@ -31,8 +31,8 @@ class TrasfondoType extends AbstractType
         ->add('Nombre', TextType::class, ['required' => false])
         ->add('Origen', ChoiceType::class, [
             'choices' => [
-                'No tiene' => false,
-                'Si tiene' => true,
+                'Ocupación' => 0,
+                'Origen' => 1,
                         ],
             'required' => false
         ])

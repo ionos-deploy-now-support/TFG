@@ -28,6 +28,9 @@ class Dotes
     #[ORM\Column]
     private ?bool $Validado = null;
 
+    #[ORM\Column(length: 150)]
+    private ?string $Autor = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Dotes
     public function setValidado(bool $Validado): static
     {
         $this->Validado = $Validado;
+
+        return $this;
+    }
+
+    public function getAutor(): ?string
+    {
+        return $this->Autor;
+    }
+
+    public function setAutor(string $Autor): static
+    {
+        $this->Autor = $Autor;
 
         return $this;
     }

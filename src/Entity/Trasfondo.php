@@ -20,7 +20,7 @@ class Trasfondo
     private ?string $Descripcion = null;
 
     #[ORM\Column]
-    private ?bool $Origen = null;
+    private ?int $Origen = null;
 
     #[ORM\Column(length: 999, nullable: true)]
     private ?string $Idiomas = null;
@@ -69,12 +69,12 @@ class Trasfondo
         return $this;
     }
 
-    public function isOrigen(): ?bool
+    public function getOrigen(): ?int
     {
         return $this->Origen;
     }
 
-    public function setOrigen(bool $Origen): static
+    public function setOrigen(int $Origen): static
     {
         $this->Origen = $Origen;
 

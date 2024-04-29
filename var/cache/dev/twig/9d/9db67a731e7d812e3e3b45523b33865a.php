@@ -157,6 +157,6 @@ class __TwigTemplate_d33405901794c2e800dc39d5e679fa83 extends Template
     </ul>
 </div>
 {% endblock %}
-", "index/index.html.twig", "E:\\TFG\\templates\\index\\index.html.twig");
+", "index/index.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\index\\index.html.twig");
     }
 }

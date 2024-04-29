@@ -48,8 +48,8 @@ class TrasfondoRepository extends ServiceEntityRepository
         }
 
        if ($formulario->isOrigen() != null){
-            $qb = $qb->andWhere('a.Origen LIKE :origen')
-               ->setParameter('origen' , '%' .  $formulario->isOrigen() . '%');
+            $qb = $qb->andWhere('a.Origen = :origen')
+               ->setParameter('origen' , $formulario->isOrigen());
         }
 
         if ($formulario->getIdiomas() != null){
