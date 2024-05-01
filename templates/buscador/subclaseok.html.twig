@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+ {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/bodygrid.css') }}">
+{% endblock %}
+{% block body %}
+   <h1>{{subclase.Nombre}}</h1>
+   <h3>Requisitos: {{subclase.Requisitos}}</h3>
+    
+{% endblock %}
+
+

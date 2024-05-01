@@ -89,10 +89,17 @@ class __TwigTemplate_49bb6dc38b2c02c1554d7bd8da20d025 extends Template
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-";
+ ";
         // line 10
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form');
-        echo "
+        echo " 
+ <a href=\"";
+        // line 11
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_subclase");
+        echo "\">
+        <span>Ir al filtro de Subclases</span>
+</a>
+
 
 ";
         
@@ -124,7 +131,7 @@ class __TwigTemplate_49bb6dc38b2c02c1554d7bd8da20d025 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -138,7 +145,11 @@ class __TwigTemplate_49bb6dc38b2c02c1554d7bd8da20d025 extends Template
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-{{ form(form) }}
+ {{ form(form) }} 
+ <a href=\"{{ path(\"app_buscador_subclase\") }}\">
+        <span>Ir al filtro de Subclases</span>
+</a>
+
 
 {% endblock %}
 ", "buscador/clases.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\buscador\\clases.html.twig");

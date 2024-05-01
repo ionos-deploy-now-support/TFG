@@ -7,11 +7,13 @@ use App\Entity\Dotes;
 use App\Entity\Habilidades;
 use App\Entity\Hechizos;
 use App\Entity\Razas;
+use App\Entity\Subclases;
 use App\Entity\Trasfondo;
 use App\Form\ClasesType;
 use App\Form\DotesType;
 use App\Form\HechizosType;
 use App\Form\RazasType;
+use App\Form\SubclasesType;
 use App\Form\TrasfondoType;
 use App\Repository\HabilidadesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,27 +48,24 @@ class BuscadorController extends AbstractController
        
        
         $clase=new Clases();
+       
 		$form = $this->createForm(ClasesType::Class,$clase);
+        
             
 		$form->handleRequest($request);
+       
        
         
         if ($form->isSubmitted() && $form->isValid()) {
             $clases = $form->getData();
             $sesion = $request->getSession();
             $sesion->set('clases', $clases);
-            $sesion->set('prueba', "prueba");
-           
-            // $form->getData() holds the submitted values
-            // but, the original $task variable has also been updated
-
-            // ... perform some action, such as saving the task to the database
-           
-			
-           
             $this->entityManager->flush();
             return $this->redirectToRoute('app_ok');
         }
+
+
+        
 		
 		
         
@@ -109,6 +108,73 @@ class BuscadorController extends AbstractController
              'clase' => $clase, 'rasgos' => $rasgos, 'tabla' => $tabla
         ]);
     }
+
+    #[Route('/buscador_subclase', name: 'app_buscador_subclase')]
+    public function Buscador_Subclases( Request $request):Response
+	{
+       
+       
+       ;
+        $subclase = new Subclases();
+		
+        $form2 = $this->createForm(SubclasesType::Class,$subclase);
+            
+		
+        $form2->handleRequest($request);
+       
+        
+       
+
+         if ($form2->isSubmitted() && $form2->isValid()) {
+            $subclases = $form2->getData();
+            $sesion = $request->getSession();
+            $sesion->set('subclases', $subclases);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('app_ok_subclases');
+        }
+
+        
+		
+		
+        
+		return $this->render( 'buscador/subclases.html.twig', array('form2' => $form2));
+	}
+
+     
+    #[Route("/ok_subclases", name:"app_ok_subclases")]
+    public function SubclasesOk(Request $request):Response
+    {
+        // Crea una nueva instancia de Clases para el formulario
+        $resultado = $request->getSession()->get('subclases');
+        
+        $subclases = $this->entityManager->getRepository(Subclases::class)->FindFilter($resultado);
+    
+        
+        // Crea el formulario de filtro
+        
+        
+       
+    
+        // Renderiza el formulario de filtro si no se ha enviado o no es válido
+        return $this->render('buscador/ok_subclases.html.twig', [
+             'resultado' => $subclases
+        ]);
+    }
+
+    #[Route("/subclase/{id}", name:"app_subclase")]
+    public function subok(Request $request, $id):Response
+    {
+        
+      
+        
+        $subclase = $this->entityManager->getRepository(Subclases::class)->find($id);
+        
+        return $this->render('buscador/subclaseok.html.twig', [
+             'subclase' => $subclase
+        ]);
+    }
+
+    
 
     #[Route('/buscador_razas', name: 'app_buscador_razas')]
     public function Buscador_Razas( Request $request):Response

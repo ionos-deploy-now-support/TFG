@@ -21,6 +21,54 @@ class SubclasesRepository extends ServiceEntityRepository
         parent::__construct($registry, Subclases::class);
     }
 
+    public function FindUniqueAutores(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Autor')
+        ->andWhere('a.Autor IS NOT NULL')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Autor')
+        ->getQuery()
+        ->getResult();
+    }
+
+    
+    
+    public function FindFilter(Subclases $formulario){
+       $qb = $this->createQueryBuilder('a')
+                  ->select('a');
+
+
+               
+        if ($formulario->getNombre() != null){
+            $qb = $qb->andWhere('a.Nombre LIKE :nombre')
+            ->setParameter('nombre' , '%' .  $formulario->getNombre() . '%');
+        }
+        
+        if ($formulario->getRequisitos() != null){
+            $qb = $qb->andWhere('a.Requisitos LIKE :requisitos')
+               ->setParameter('requisitos' , '%' .  $formulario->getRequisitos() . '%');
+        }
+
+       if ($formulario->getClaseId() != null){
+            $qb = $qb->andWhere('a.clase_id = :clase')
+               ->setParameter('clase' ,   $formulario->getClaseId());
+        }
+        
+        if ($formulario->getAutor() != null){
+            $qb = $qb->andWhere('a.Autor = :autor')
+               ->setParameter('autor' ,  $formulario->getAutor()  );
+               
+        } 
+           
+       $qb = $qb->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+        return $qb;
+       
+       
+        
+    }
+
     //    /**
     //     * @return Subclases[] Returns an array of Subclases objects
     //     */

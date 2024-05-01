@@ -19,9 +19,9 @@ class Subclases
     #[ORM\Column(length: 999, nullable: true)]
     private ?string $Requisitos = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Clases $clase_id = null;
+    
+    #[ORM\Column(nullable: false)]
+    private ?int $clase_id = null;
 
     #[ORM\Column(length: 200)]
     private ?string $Autor = null;
@@ -58,12 +58,12 @@ class Subclases
         return $this;
     }
 
-    public function getClaseId(): ?Clases
+    public function getClaseId(): ?int
     {
         return $this->clase_id;
     }
 
-    public function setClaseId(?Clases $clase_id): static
+    public function setClaseId(?int $clase_id): static
     {
         $this->clase_id = $clase_id;
 
