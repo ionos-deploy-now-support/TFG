@@ -21,6 +21,8 @@ return [
         '/ok_subclases' => [[['_route' => 'app_ok_subclases', '_controller' => 'App\\Controller\\BuscadorController::SubclasesOk'], null, null, null, false, false, null]],
         '/buscador_razas' => [[['_route' => 'app_buscador_razas', '_controller' => 'App\\Controller\\BuscadorController::Buscador_Razas'], null, null, null, false, false, null]],
         '/razas_ok' => [[['_route' => 'app_razas_ok', '_controller' => 'App\\Controller\\BuscadorController::Razas_Ok'], null, null, null, false, false, null]],
+        '/buscador_subraza' => [[['_route' => 'app_buscador_subraza', '_controller' => 'App\\Controller\\BuscadorController::Buscador_Subrazas'], null, null, null, false, false, null]],
+        '/ok_subrazas' => [[['_route' => 'app_ok_subrazas', '_controller' => 'App\\Controller\\BuscadorController::SubrazasOK'], null, null, null, false, false, null]],
         '/buscador_trasfondo' => [[['_route' => 'app_buscador_trasfondo', '_controller' => 'App\\Controller\\BuscadorController::Buscador_Trasfondos'], null, null, null, false, false, null]],
         '/ok_trasfondos' => [[['_route' => 'app_ok_trasfondos', '_controller' => 'App\\Controller\\BuscadorController::Trasfondos_Ok'], null, null, null, false, false, null]],
         '/buscador_dotes' => [[['_route' => 'app_buscador_dotes', '_controller' => 'App\\Controller\\BuscadorController::Buscador_Dotes'], null, null, null, false, false, null]],
@@ -54,11 +56,14 @@ return [
                     .')'
                 .')'
                 .'|/clase/([^/]++)(*:217)'
-                .'|/subclase/([^/]++)(*:243)'
-                .'|/raza/([^/]++)(*:265)'
-                .'|/trasfondo/([^/]++)(*:292)'
-                .'|/dote/([^/]++)(*:314)'
-                .'|/hechizo/([^/]++)(*:339)'
+                .'|/sub(?'
+                    .'|clase/([^/]++)(*:246)'
+                    .'|raza/([^/]++)(*:267)'
+                .')'
+                .'|/raza/([^/]++)(*:290)'
+                .'|/trasfondo/([^/]++)(*:317)'
+                .'|/dote/([^/]++)(*:339)'
+                .'|/hechizo/([^/]++)(*:364)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -71,11 +76,12 @@ return [
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         217 => [[['_route' => 'app_clase', '_controller' => 'App\\Controller\\BuscadorController::clasesok'], ['id'], null, null, false, true, null]],
-        243 => [[['_route' => 'app_subclase', '_controller' => 'App\\Controller\\BuscadorController::subok'], ['id'], null, null, false, true, null]],
-        265 => [[['_route' => 'app_raza', '_controller' => 'App\\Controller\\BuscadorController::razasok'], ['id'], null, null, false, true, null]],
-        292 => [[['_route' => 'app_trasfondo', '_controller' => 'App\\Controller\\BuscadorController::trasfondook'], ['id'], null, null, false, true, null]],
-        314 => [[['_route' => 'app_dote', '_controller' => 'App\\Controller\\BuscadorController::doteok'], ['id'], null, null, false, true, null]],
-        339 => [
+        246 => [[['_route' => 'app_subclase', '_controller' => 'App\\Controller\\BuscadorController::subok'], ['id'], null, null, false, true, null]],
+        267 => [[['_route' => 'app_subraza', '_controller' => 'App\\Controller\\BuscadorController::subzara'], ['id'], null, null, false, true, null]],
+        290 => [[['_route' => 'app_raza', '_controller' => 'App\\Controller\\BuscadorController::razasok'], ['id'], null, null, false, true, null]],
+        317 => [[['_route' => 'app_trasfondo', '_controller' => 'App\\Controller\\BuscadorController::trasfondook'], ['id'], null, null, false, true, null]],
+        339 => [[['_route' => 'app_dote', '_controller' => 'App\\Controller\\BuscadorController::doteok'], ['id'], null, null, false, true, null]],
+        364 => [
             [['_route' => 'app_hechizo', '_controller' => 'App\\Controller\\BuscadorController::hechizook'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

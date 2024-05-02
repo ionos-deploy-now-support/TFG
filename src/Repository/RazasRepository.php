@@ -31,6 +31,16 @@ class RazasRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function FindRazas(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Nombre')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Nombre')
+        ->orderBy('a.id', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
+
     public function FindFilter(Razas $formulario){
         $qb = $this->createQueryBuilder('a')
                    ->select('a');

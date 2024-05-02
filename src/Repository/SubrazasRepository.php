@@ -21,6 +21,86 @@ class SubrazasRepository extends ServiceEntityRepository
         parent::__construct($registry, Subrazas::class);
     }
 
+    public function FindUniqueAutores(){
+        return $this->createQueryBuilder('a')
+        ->select('a.Autor')
+        ->andWhere('a.Autor IS NOT NULL')
+        ->andWhere('a.Validado = 1')
+        ->groupBy('a.Autor')
+        ->getQuery()
+        ->getResult();
+    }
+
+    
+    
+    public function FindFilter(Subrazas $formulario){
+       $qb = $this->createQueryBuilder('a')
+                  ->select('a');
+
+
+               
+        if ($formulario->getNombre() != null){
+            $qb = $qb->andWhere('a.Nombre LIKE :nombre')
+            ->setParameter('nombre' , '%' .  $formulario->getNombre() . '%');
+        }
+        
+        if ($formulario->getFuerza() != null){
+            $qb = $qb->andWhere('a.Fuerza = :fuerza')
+               ->setParameter('fuerza' ,  $formulario->getFuerza());
+        }
+
+        if ($formulario->getDestreza() != null){
+            $qb = $qb->andWhere('a.Destreza = :destreza')
+               ->setParameter('destreza' ,   $formulario->getDestreza());
+        }
+
+        if ($formulario->getConstitucion() != null){
+            $qb = $qb->andWhere('a.Constitucion = :constitucion')
+               ->setParameter('constitucion' ,   $formulario->getConstitucion());
+        }
+
+        if ($formulario->getInteligencia() != null){
+            $qb = $qb->andWhere('a.Inteligencia = :inteligencia')
+               ->setParameter('inteligencia' ,  $formulario->getInteligencia());
+        }
+
+        if ($formulario->getSabiduria() != null){
+            $qb = $qb->andWhere('a.Sabiduria = :sabiduria')
+               ->setParameter('sabiduria' ,  $formulario->getSabiduria());
+        }
+
+        if ($formulario->getCarisma() != null){
+            $qb = $qb->andWhere('a.Carisma = :carisma')
+               ->setParameter('carisma' ,   $formulario->getCarisma());
+        }
+
+
+
+       if ($formulario->getRazaId() != null){
+            $qb = $qb->andWhere('a.raza_id = :raza')
+               ->setParameter('raza' ,   $formulario->getRazaId());
+        }
+
+        if ($formulario->getAtaqueDesarmado() != null){
+            $qb = $qb->andWhere('a.AtaqueDesarmado = :ataque')
+               ->setParameter('ataque' ,   $formulario->getAtaqueDesarmado());
+        }
+        
+        if ($formulario->getAutor() != null){
+            $qb = $qb->andWhere('a.Autor = :autor')
+               ->setParameter('autor' ,  $formulario->getAutor()  );
+               
+        } 
+           
+       $qb = $qb->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+        return $qb;
+       
+       
+        
+    }
+
     //    /**
     //     * @return Subrazas[] Returns an array of Subrazas objects
     //     */

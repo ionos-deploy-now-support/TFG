@@ -8,12 +8,14 @@ use App\Entity\Habilidades;
 use App\Entity\Hechizos;
 use App\Entity\Razas;
 use App\Entity\Subclases;
+use App\Entity\Subrazas;
 use App\Entity\Trasfondo;
 use App\Form\ClasesType;
 use App\Form\DotesType;
 use App\Form\HechizosType;
 use App\Form\RazasType;
 use App\Form\SubclasesType;
+use App\Form\SubrazasType;
 use App\Form\TrasfondoType;
 use App\Repository\HabilidadesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -174,6 +176,8 @@ class BuscadorController extends AbstractController
         ]);
     }
 
+   
+
     
 
     #[Route('/buscador_razas', name: 'app_buscador_razas')]
@@ -240,6 +244,71 @@ class BuscadorController extends AbstractController
         
         return $this->render('buscador/razaok.html.twig', [
              'raza' => $raza
+        ]);
+    }
+
+    #[Route('/buscador_subraza', name: 'app_buscador_subraza')]
+    public function Buscador_Subrazas( Request $request):Response
+	{
+       
+       
+       ;
+        $subraza = new Subrazas();
+		
+        $form2 = $this->createForm(SubrazasType::Class,$subraza);
+            
+		
+        $form2->handleRequest($request);
+       
+        
+       
+
+         if ($form2->isSubmitted() && $form2->isValid()) {
+            $subrazas = $form2->getData();
+            $sesion = $request->getSession();
+            $sesion->set('subrazas', $subrazas);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('app_ok_subrazas');
+        }
+
+        
+		
+		
+        
+		return $this->render( 'buscador/subrazas.html.twig', array('form2' => $form2));
+	}
+
+     
+    #[Route("/ok_subrazas", name:"app_ok_subrazas")]
+    public function SubrazasOK(Request $request):Response
+    {
+        // Crea una nueva instancia de Clases para el formulario
+        $resultado = $request->getSession()->get('subrazas');
+        
+        $subrazas = $this->entityManager->getRepository(Subrazas::class)->FindFilter($resultado);
+    
+        
+        // Crea el formulario de filtro
+        
+        
+       
+    
+        // Renderiza el formulario de filtro si no se ha enviado o no es válido
+        return $this->render('buscador/ok_subrazas.html.twig', [
+             'resultado' => $subrazas
+        ]);
+    }
+
+    #[Route("/subraza/{id}", name:"app_subraza")]
+    public function subzara(Request $request, $id):Response
+    {
+        
+      
+        
+        $subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
+        
+        return $this->render('buscador/subrazaok.html.twig', [
+             'subraza' => $subraza
         ]);
     }
 
