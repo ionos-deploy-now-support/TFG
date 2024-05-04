@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+   <h1>BÚSQUEDA</h1
+ <ul>
+     {% for subraza in resultado %}
+     <a href="{{ path( "app_subraza", { "id": subraza.id} ) }}">
+      
+       <li>{{ subraza.Nombre }}</li>
+        <li>{{subraza.Autor}}</li>
+         
+      </a>
+      <hr>
+     {% endfor %}
+    </ul>
+ 
+
+
+
+{% endblock %}
+
+

@@ -386,7 +386,19 @@
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\SeguridadController"/>
       </call>
     </service>
+    <service id="App\Controller\SolicitudesController" class="App\Controller\SolicitudesController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\SolicitudesController"/>
+      </call>
+    </service>
     <service id="App\Form\ClasesType" class="App\Form\ClasesType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="App\Form\ClasesType2" class="App\Form\ClasesType2" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
@@ -394,11 +406,23 @@
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
+    <service id="App\Form\DotesType2" class="App\Form\DotesType2" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="App\Form\HechizosType" class="App\Form\HechizosType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
+    <service id="App\Form\HechizosType2" class="App\Form\HechizosType2" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="App\Form\RazasType" class="App\Form\RazasType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="App\Form\RazasType2" class="App\Form\RazasType2" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
@@ -409,11 +433,23 @@
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
+    <service id="App\Form\SubclasesType2" class="App\Form\SubclasesType2" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="App\Form\SubrazasType" class="App\Form\SubrazasType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
+    <service id="App\Form\SubrazasType2" class="App\Form\SubrazasType2" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="App\Form\TrasfondoType" class="App\Form\TrasfondoType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="App\Form\TrasfondoType2" class="App\Form\TrasfondoType2" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
@@ -442,6 +478,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\RazasRepository" class="App\Repository\RazasRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\SolicitudesRepository" class="App\Repository\SolicitudesRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1396,13 +1436,20 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\ClasesType</argument>
+        <argument>App\Form\ClasesType2</argument>
         <argument>App\Form\DotesType</argument>
+        <argument>App\Form\DotesType2</argument>
         <argument>App\Form\HechizosType</argument>
+        <argument>App\Form\HechizosType2</argument>
         <argument>App\Form\RazasType</argument>
+        <argument>App\Form\RazasType2</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\SubclasesType</argument>
+        <argument>App\Form\SubclasesType2</argument>
         <argument>App\Form\SubrazasType</argument>
+        <argument>App\Form\SubrazasType2</argument>
         <argument>App\Form\TrasfondoType</argument>
+        <argument>App\Form\TrasfondoType2</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3846,7 +3893,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.YE740Uu"/>
+      <argument type="service" id=".service_locator.70pcR29"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5108,7 +5155,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator._RD.8Py"/>
+      <argument type="service" id=".service_locator.3hefB5c"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -7169,22 +7216,39 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SeguridadController" class="App\Controller\SeguridadController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SeguridadController" class="App\Controller\SeguridadController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SeguridadController" class="App\Controller\SeguridadController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SolicitudesController" class="App\Controller\SolicitudesController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SolicitudesController" class="App\Controller\SolicitudesController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SolicitudesController" class="App\Controller\SolicitudesController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ClasesType" class="App\Form\ClasesType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ClasesType" class="App\Form\ClasesType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ClasesType2" class="App\Form\ClasesType2" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ClasesType2" class="App\Form\ClasesType2" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DotesType" class="App\Form\DotesType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\DotesType" class="App\Form\DotesType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DotesType2" class="App\Form\DotesType2" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\DotesType2" class="App\Form\DotesType2" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HechizosType" class="App\Form\HechizosType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\HechizosType" class="App\Form\HechizosType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HechizosType2" class="App\Form\HechizosType2" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\HechizosType2" class="App\Form\HechizosType2" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RazasType" class="App\Form\RazasType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RazasType" class="App\Form\RazasType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RazasType2" class="App\Form\RazasType2" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RazasType2" class="App\Form\RazasType2" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubclasesType" class="App\Form\SubclasesType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SubclasesType" class="App\Form\SubclasesType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubclasesType2" class="App\Form\SubclasesType2" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SubclasesType2" class="App\Form\SubclasesType2" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubrazasType" class="App\Form\SubrazasType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SubrazasType" class="App\Form\SubrazasType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubrazasType2" class="App\Form\SubrazasType2" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SubrazasType2" class="App\Form\SubrazasType2" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TrasfondoType" class="App\Form\TrasfondoType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TrasfondoType" class="App\Form\TrasfondoType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TrasfondoType2" class="App\Form\TrasfondoType2" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TrasfondoType2" class="App\Form\TrasfondoType2" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ClasesRepository" class="App\Repository\ClasesRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ClasesRepository" class="App\Repository\ClasesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DotesRepository" class="App\Repository\DotesRepository" autowire="true" abstract="true"/>
@@ -7199,6 +7263,8 @@
     <service id=".abstract.instanceof.App\Repository\PactosRepository" class="App\Repository\PactosRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RazasRepository" class="App\Repository\RazasRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RazasRepository" class="App\Repository\RazasRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SolicitudesRepository" class="App\Repository\SolicitudesRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SolicitudesRepository" class="App\Repository\SolicitudesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SubclasesRepository" class="App\Repository\SubclasesRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\SubclasesRepository" class="App\Repository\SubclasesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SubrazasRepository" class="App\Repository\SubrazasRepository" autowire="true" abstract="true"/>
@@ -7773,17 +7839,24 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.YE740Uu" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.70pcR29" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ClasesType" type="service_closure" id="App\Form\ClasesType"/>
+        <argument key="App\Form\ClasesType2" type="service_closure" id="App\Form\ClasesType2"/>
         <argument key="App\Form\DotesType" type="service_closure" id="App\Form\DotesType"/>
+        <argument key="App\Form\DotesType2" type="service_closure" id="App\Form\DotesType2"/>
         <argument key="App\Form\HechizosType" type="service_closure" id="App\Form\HechizosType"/>
+        <argument key="App\Form\HechizosType2" type="service_closure" id="App\Form\HechizosType2"/>
         <argument key="App\Form\RazasType" type="service_closure" id="App\Form\RazasType"/>
+        <argument key="App\Form\RazasType2" type="service_closure" id="App\Form\RazasType2"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\SubclasesType" type="service_closure" id="App\Form\SubclasesType"/>
+        <argument key="App\Form\SubclasesType2" type="service_closure" id="App\Form\SubclasesType2"/>
         <argument key="App\Form\SubrazasType" type="service_closure" id="App\Form\SubrazasType"/>
+        <argument key="App\Form\SubrazasType2" type="service_closure" id="App\Form\SubrazasType2"/>
         <argument key="App\Form\TrasfondoType" type="service_closure" id="App\Form\TrasfondoType"/>
+        <argument key="App\Form\TrasfondoType2" type="service_closure" id="App\Form\TrasfondoType2"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -7909,7 +7982,7 @@
         <argument key="turbo.doctrine.event_listener" type="service_closure" id="turbo.doctrine.event_listener"/>
       </argument>
     </service>
-    <service id=".service_locator._RD.8Py" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.3hefB5c" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ClasesRepository" type="service_closure" id="App\Repository\ClasesRepository"/>
@@ -7919,6 +7992,7 @@
         <argument key="App\Repository\ListaHechizosRepository" type="service_closure" id="App\Repository\ListaHechizosRepository"/>
         <argument key="App\Repository\PactosRepository" type="service_closure" id="App\Repository\PactosRepository"/>
         <argument key="App\Repository\RazasRepository" type="service_closure" id="App\Repository\RazasRepository"/>
+        <argument key="App\Repository\SolicitudesRepository" type="service_closure" id="App\Repository\SolicitudesRepository"/>
         <argument key="App\Repository\SubclasesRepository" type="service_closure" id="App\Repository\SubclasesRepository"/>
         <argument key="App\Repository\SubrazasRepository" type="service_closure" id="App\Repository\SubrazasRepository"/>
         <argument key="App\Repository\TrasfondoRepository" type="service_closure" id="App\Repository\TrasfondoRepository"/>
@@ -8280,6 +8354,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\SolicitudesController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\SolicitudesController"/>
+      <argument>App\Controller\SolicitudesController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
     <service id=".service_locator.fuYM_Z." class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8458,6 +8538,7 @@
           <argument>App\Controller\LoginController</argument>
           <argument>App\Controller\RegistrationController</argument>
           <argument>App\Controller\SeguridadController</argument>
+          <argument>App\Controller\SolicitudesController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -9841,7 +9922,7 @@
     <service id=".service_locator.V6D1oJY" alias=".service_locator.e_4zbH4"/>
     <service id=".service_locator.6d5y4Ar" alias=".service_locator.dkKxYws"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
-    <service id=".service_locator.F1OK7bj" alias=".service_locator.YE740Uu"/>
+    <service id=".service_locator.jOuY2B_" alias=".service_locator.70pcR29"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.jUv.zyj" alias=".service_locator.O2p6Lk7"/>

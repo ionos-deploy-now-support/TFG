@@ -40,7 +40,7 @@ class Clases
     #[ORM\Column]
     private ?bool $Validado = null;
 
-    #[ORM\Column(length: 999)]
+    #[ORM\Column(length: 999, nullable: true)]
     private ?string $img = null;
 
     #[ORM\Column]

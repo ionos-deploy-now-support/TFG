@@ -76,7 +76,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador");
         echo "\"><li>Buscador</li></a>
             <a href=\"\"><li>Creador de personajes</li></a>
-            <a href=\"\"><li>Solicitudes</li></a>
+            <a href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitudes");
+        echo "\"><li>Solicitudes</li></a>
             <a href=\"";
         // line 22
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
@@ -221,7 +224,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  186 => 25,  167 => 12,  157 => 13,  154 => 12,  144 => 11,  131 => 8,  121 => 7,  102 => 5,  90 => 26,  88 => 25,  82 => 22,  76 => 19,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  189 => 25,  170 => 12,  160 => 13,  157 => 12,  147 => 11,  134 => 8,  124 => 7,  105 => 5,  93 => 26,  91 => 25,  85 => 22,  81 => 21,  76 => 19,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -246,7 +249,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
             <a href=\"{{ path(\"app_index\") }}\"><li>Inicio</li></a>
             <a href=\"{{ path(\"app_buscador\") }}\"><li>Buscador</li></a>
             <a href=\"\"><li>Creador de personajes</li></a>
-            <a href=\"\"><li>Solicitudes</li></a>
+            <a href=\"{{ path(\"app_solicitudes\") }}\"><li>Solicitudes</li></a>
             <a href=\"{{path(\"app_login\")}}\"><li>Iniciar Sesión</li></a>
         </ul>
         </header>

@@ -40,6 +40,8 @@ class ClasesRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+
+   
     
     public function FindFilter(Clases $formulario){
        $qb = $this->createQueryBuilder('a')
