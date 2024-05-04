@@ -19,23 +19,23 @@ class Razas
     #[ORM\Column(length: 999)]
     private ?string $Descripcion = null;
 
-    #[ORM\Column]
-    private ?int $Fuerza = null;
+    #[ORM\Column(length: 2)]
+    private ?string $Fuerza = null;
 
-    #[ORM\Column]
-    private ?int $Destreza = null;
+    #[ORM\Column(length: 2)]
+    private ?string $Destreza = null;
 
-    #[ORM\Column]
-    private ?int $Constitucion = null;
+    #[ORM\Column(length: 2)]
+    private ?string $Constitucion = null;
 
-    #[ORM\Column]
-    private ?int $Inteligencia = null;
+    #[ORM\Column(length: 2)]
+    private ?string $Inteligencia = null;
 
-    #[ORM\Column]
-    private ?int $Sabiduria = null;
+    #[ORM\Column(length: 2)]
+    private ?string $Sabiduria = null;
 
-    #[ORM\Column]
-    private ?int $Carisma = null;
+    #[ORM\Column(length: 2)]
+    private ?string $Carisma = null;
 
     #[ORM\Column(length: 200)]
     private ?string $Autor = null;
@@ -71,79 +71,79 @@ class Razas
         return $this->Descripcion;
     }
 
-    public function setDescripción(string $Descripción): static
+    public function setDescripcion(string $Descripción): static
     {
         $this->Descripcion = $Descripción;
 
         return $this;
     }
 
-    public function getFuerza(): ?int
+    public function getFuerza(): ?string
     {
         return $this->Fuerza;
     }
 
-    public function setFuerza(int $Fuerza): static
+    public function setFuerza(string $Fuerza): static
     {
         $this->Fuerza = $Fuerza;
 
         return $this;
     }
 
-    public function getDestreza(): ?int
+    public function getDestreza(): ?string
     {
         return $this->Destreza;
     }
 
-    public function setDestreza(int $Destreza): static
+    public function setDestreza(string $Destreza): static
     {
         $this->Destreza = $Destreza;
 
         return $this;
     }
 
-    public function getConstitucion(): ?int
+    public function getConstitucion(): ?string
     {
         return $this->Constitucion;
     }
 
-    public function setConstitución(int $Constitución): static
+    public function setConstitucion(string $Constitucion): static
     {
-        $this->Constitucion = $Constitución;
+        $this->Constitucion = $Constitucion;
 
         return $this;
     }
 
-    public function getInteligencia(): ?int
+    public function getInteligencia(): ?string
     {
         return $this->Inteligencia;
     }
 
-    public function setInteligencia(int $Inteligencia): static
+    public function setInteligencia(string $Inteligencia): static
     {
         $this->Inteligencia = $Inteligencia;
 
         return $this;
     }
 
-    public function getSabiduria(): ?int
+    public function getSabiduria(): ?string
     {
         return $this->Sabiduria;
     }
 
-    public function setSabiduría(int $Sabiduría): static
+    public function setSabiduria(string $Sabiduria): static
     {
-        $this->Sabiduria = $Sabiduría;
+        $this->Sabiduria = $Sabiduria;
 
         return $this;
     }
 
-    public function getCarisma(): ?int
+    public function getCarisma(): ?string
     {
         return $this->Carisma;
     }
 
-    public function setCarisma(int $Carisma): static
+    public function setCarisma(string $Carisma): static
     {
         $this->Carisma = $Carisma;
 

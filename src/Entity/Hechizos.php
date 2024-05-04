@@ -19,8 +19,8 @@ class Hechizos
     #[ORM\Column(length: 999)]
     private ?string $Descripcion = null;
 
-    #[ORM\Column]
-    private ?int $Nivel = null;
+    #[ORM\Column(length:10)]
+    private ?string $Nivel = null;
 
     #[ORM\Column(length: 100)]
     private ?string $Escuela = null;
@@ -75,12 +75,12 @@ class Hechizos
         return $this;
     }
 
-    public function getNivel(): ?int
+    public function getNivel(): ?string
     {
         return $this->Nivel;
     }
 
-    public function setNivel(int $Nivel): static
+    public function setNivel(string $Nivel): static
     {
         $this->Nivel = $Nivel;
 

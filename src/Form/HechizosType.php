@@ -29,15 +29,16 @@ class HechizosType extends AbstractType
             ->add('Nombre', TextType::class, ['required' => false])
             ->add('Nivel', ChoiceType::class, [
                 'choices' =>  [
-                    '0' => '1',
-                    '1' => '2',
-                    '2' => '3',
-                    '3' => '4',
-                    '4' => '5',
-                    '5' => '6',
-                    '6' => '7',
-                    '7' => '8',
-                    '8' => '9',
+                    'Truco' => '0',
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                    '6' => '6',
+                    '7' => '7',
+                    '8' => '8',
+                    '9' => '9',
                 ],
                 'required' => false
             ])

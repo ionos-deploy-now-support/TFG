@@ -33,23 +33,23 @@ class RazasType extends AbstractType
             ->add('Nombre', TextType::class, ['required' => false])
             ->add('Fuerza', ChoiceType::class, [
                 'choices' => [
-                    '0' => '1',
-                    '1' => '2',
-                    '2' => '3',],
+                    '0' => '0',
+                    '1' => '1',
+                    '2' => '2',],
                 'required' => false
             ])
             ->add('Destreza', ChoiceType::class, [
                 'choices' => [
-                    '0' => '1',
-                    '1' => '2',
-                    '2' => '3',],
+                    '0' => '0',
+                    '1' => '1',
+                    '2' => '2',],
                 'required' => false
             ])
             ->add('Constitucion', ChoiceType::class, [
                 'choices' => [
-                    '0' => '1',
-                    '1' => '2',
-                    '2' => '3',],
+                    '0' => '0',
+                    '1' => '1',
+                    '2' => '2',],
                 'required' => false
             ])
             ->add('Inteligencia', ChoiceType::class, [
@@ -61,16 +61,16 @@ class RazasType extends AbstractType
             ])
             ->add('Sabiduria', ChoiceType::class, [
                 'choices' => [
-                    '0' => '1',
-                    '1' => '2',
-                    '2' => '3',],
+                    '0' => '0',
+                    '1' => '1',
+                    '2' => '2',],
                 'required' => false
             ])
             ->add('Carisma', ChoiceType::class, [
                 'choices' => [
-                    '0' => '1',
-                    '1' => '2',
-                    '2' => '3',],
+                    '0' => '0',
+                    '1' => '1',
+                    '2' => '2',],
                 'required' => false
             ])
             ->add('Autor', ChoiceType::class, [

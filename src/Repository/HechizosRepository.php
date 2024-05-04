@@ -43,9 +43,10 @@ class HechizosRepository extends ServiceEntityRepository
         }
         
         if ($formulario->getNivel() != null){
-            $qb = $qb->andWhere('a.Nivel LIKE :nivel')
-               ->setParameter('nivel' , '%' .  $formulario->getNivel() . '%');
+            $qb = $qb->andWhere('a.Nivel = :nivel')
+               ->setParameter('nivel' ,  $formulario->getNivel());
         }
+        
 
        if ($formulario->getEscuela() != null){
             $qb = $qb->andWhere('a.Escuela LIKE :escuela')

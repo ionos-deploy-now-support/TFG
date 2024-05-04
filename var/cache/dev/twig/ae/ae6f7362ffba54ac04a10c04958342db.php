@@ -93,7 +93,12 @@ class __TwigTemplate_203a9b674888aacbbf51b25f11a8d5ed extends Template
         // line 10
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form');
         echo "
-
+<a href=\"";
+        // line 11
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_subraza");
+        echo "\">
+        <span>Ir al filtro de Subrazas</span>
+</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -124,7 +129,7 @@ class __TwigTemplate_203a9b674888aacbbf51b25f11a8d5ed extends Template
      */
     public function getDebugInfo()
     {
-        return array (  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -139,7 +144,9 @@ class __TwigTemplate_203a9b674888aacbbf51b25f11a8d5ed extends Template
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 {{ form(form) }}
-
+<a href=\"{{ path(\"app_buscador_subraza\") }}\">
+        <span>Ir al filtro de Subrazas</span>
+</a>
 {% endblock %}
 ", "buscador/razas.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\buscador\\razas.html.twig");
     }
