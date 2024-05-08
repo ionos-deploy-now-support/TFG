@@ -1502,3 +1502,5 @@ b91776,::1,GET,http://localhost:8000/buscador,1715014937,,200,request
 ddc407,::1,GET,http://localhost:8000/buscador_subclase,1715014943,,200,request
 bcaafc,::1,POST,http://localhost:8000/buscador_subclase,1715014959,,302,request
 e209d8,::1,GET,http://localhost:8000/ok_subclases,1715014960,,200,request
+dbf343,::1,GET,http://localhost:8000/index,1715184727,,200,request
+055f6e,::1,GET,http://localhost:8000/solicitudes,1715184733,,200,request

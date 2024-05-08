@@ -59,7 +59,7 @@ class SolicitudesController extends AbstractController
     public function Buscador_Clases( Request $request):Response
 	{
        
-       
+        
         $clase=new Clases();
        
 		$form = $this->createForm(ClasesType2::Class,$clase);
@@ -103,7 +103,7 @@ class SolicitudesController extends AbstractController
        
     
         // Renderiza el formulario de filtro si no se ha enviado o no es válido
-        return $this->render('solicitudes/solicitud_ok.html.twig', [
+        return $this->render('solicitudes/solicitud_ok.html.twig', [ 
              
         ]);
     }

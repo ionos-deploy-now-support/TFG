@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerJpxDn40\App_KernelDevDebugContainer([
     'container.build_hash' => 'JpxDn40',
-    'container.build_id' => '9ec2381c',
-    'container.build_time' => 1714839700,
+    'container.build_id' => '847d879e',
+    'container.build_time' => 1715187022,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerJpxDn40');
