@@ -119,7 +119,7 @@ class Subrazas
         return $this->Constitucion;
     }
 
-    public function setConstitución(string $Constitución): static
+    public function setConstitucion(string $Constitución): static
     {
         $this->Constitucion = $Constitución;
 
@@ -143,7 +143,7 @@ class Subrazas
         return $this->Sabiduria;
     }
 
-    public function setSabiduría(string $Sabiduría): static
+    public function setSabiduria(string $Sabiduría): static
     {
         $this->Sabiduria = $Sabiduría;
 

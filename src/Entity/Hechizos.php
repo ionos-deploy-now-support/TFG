@@ -68,7 +68,7 @@ class Hechizos
         return $this->Descripcion;
     }
 
-    public function setDescripción(string $Descripción): static
+    public function setDescripcion(string $Descripción): static
     {
         $this->Descripcion = $Descripción;
 
@@ -104,7 +104,7 @@ class Hechizos
         return $this->TiempoDeEjecucion;
     }
 
-    public function setTiempoDeEjecución(string $TiempoDeEjecución): static
+    public function setTiempoDeEjecucion(string $TiempoDeEjecución): static
     {
         $this->TiempoDeEjecucion = $TiempoDeEjecución;
 
@@ -164,7 +164,7 @@ class Hechizos
         return $this->Duracion;
     }
 
-    public function setDuración(string $Duración): static
+    public function setDuracion(string $Duración): static
     {
         $this->Duracion = $Duración;
 

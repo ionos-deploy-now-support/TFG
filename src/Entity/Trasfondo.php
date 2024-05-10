@@ -62,7 +62,7 @@ class Trasfondo
         return $this->Descripcion;
     }
 
-    public function setDescripción(string $Descripción): static
+    public function setDescripcion(string $Descripción): static
     {
         $this->Descripcion = $Descripción;
 

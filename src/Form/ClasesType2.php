@@ -55,6 +55,7 @@ class ClasesType2 extends AbstractType
                 ],
                 ])
             ->add('Equipamiento', TextType::class)
+            ->add('img', TextType::class, ['required'=> false])
             ->add('Autor',TextType::class, ['required'=> false])
                    
                 

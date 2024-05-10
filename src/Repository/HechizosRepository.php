@@ -30,6 +30,24 @@ class HechizosRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+
+    public function FindNonValidated(){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 0')
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function FindNonValidatedById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 0')
+        ->andWhere('a.id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
     
     public function FindFilter(Hechizos $formulario){
        $qb = $this->createQueryBuilder('a')

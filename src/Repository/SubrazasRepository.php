@@ -31,6 +31,24 @@ class SubrazasRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function FindNonValidated(){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 0')
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function FindNonValidatedById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 0')
+        ->andWhere('a.id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
+
     
     
     public function FindFilter(Subrazas $formulario){

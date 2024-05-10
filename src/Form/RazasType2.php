@@ -31,6 +31,7 @@ class RazasType2 extends AbstractType
         $final = $this->mergeadordearrays($autores);
         $builder
             ->add('Nombre', TextType::class, )
+            ->add('Descripcion', TextType::class, )
             ->add('Fuerza', ChoiceType::class, [
                 'choices' => [
                     '0' => '0',
@@ -73,12 +74,9 @@ class RazasType2 extends AbstractType
                     '2' => '2',],
                
             ])
-            ->add('Autor', ChoiceType::class, [
-                'choices' => $final,
-                
-            ])
-            ->add('Velocidad', TextType::class, ['required' => false])
-            ->add('AtaqueDesarmado', TextType::class, ['required' => false])
+            ->add('Autor', TextType::class, ['required' => false] )
+            ->add('Velocidad', TextType::class,)
+            ->add('AtaqueDesarmado', TextType::class,)
             ->add('Enviar', SubmitType::class)
         ;
     }

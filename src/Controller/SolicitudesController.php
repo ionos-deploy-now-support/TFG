@@ -50,9 +50,24 @@ class SolicitudesController extends AbstractController
     }
 
 
+    #[Route('/revisiones', name: 'app_revisiones')]
+    public function revisiones(): Response
+    {
+        
+        return $this->render('revisiones/index.html.twig', [
+            'controller_name' => 'SolicitudesController',
+        ]);
+    }
 
 
-
+    #[Route('/revisiones_clase', name: 'app_revisiones_clase')]
+    public function revisiones_clase(): Response
+    {
+        $revisiones = $this->entityManager->getRepository(Clases::class)->FindNonValidated();
+        return $this->render('revisiones/revisiones_clase.html.twig', [
+            'revisiones' => $revisiones,
+        ]);
+    }
 
 
     #[Route('/solicitud_clase', name: 'app_solicitud_clase')]
@@ -109,536 +124,510 @@ class SolicitudesController extends AbstractController
     }
 
 
-    #[Route("/clase/{id}", name:"app_clase")]
+    #[Route("/solicitud_clase/{id}", name:"app_comprobar_clase")]
     public function clasesok(Request $request, $id):Response
     {
         
       
         
-        $clase = $this->entityManager->getRepository(Clases::class)->find($id);
-        $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOrigin('clases',$id);
-        $tabla = $this->progreso($rasgos);
-        
-        return $this->render('buscador/claseok.html.twig', [
-             'clase' => $clase, 'rasgos' => $rasgos, 'tabla' => $tabla
-        ]);
-    }
-
-    #[Route('/buscador_subclase', name: 'app_buscador_subclase')]
-    public function Buscador_Subclases( Request $request):Response
-	{
-       
-       
-       ;
-        $subclase = new Subclases();
-		
-        $form2 = $this->createForm(SubclasesType2::Class,$subclase);
-            
-		
-        $form2->handleRequest($request);
+        $clase = $this->entityManager->getRepository(Clases::class)->FindNonValidatedById($id);
        
         
-       
-
-         if ($form2->isSubmitted() && $form2->isValid()) {
-            $subclases = $form2->getData();
-            $sesion = $request->getSession();
-            $sesion->set('subclases', $subclases);
-            $this->entityManager->flush();
-            return $this->redirectToRoute('app_ok_subclases');
-        }
-
-        
-		
-		
-        
-		return $this->render( 'buscador/subclases.html.twig', array('form2' => $form2));
-	}
-
-     
-    #[Route("/ok_subclases", name:"app_ok_subclases")]
-    public function SubclasesOk(Request $request):Response
-    {
-        // Crea una nueva instancia de Clases para el formulario
-        $resultado = $request->getSession()->get('subclases');
-        
-        $subclases = $this->entityManager->getRepository(Subclases::class)->FindFilter($resultado);
-    
-        
-        // Crea el formulario de filtro
-        
-        
-       
-    
-        // Renderiza el formulario de filtro si no se ha enviado o no es válido
-        return $this->render('buscador/ok_subclases.html.twig', [
-             'resultado' => $subclases
-        ]);
-    }
-
-    #[Route("/subclase/{id}", name:"app_subclase")]
-    public function subok(Request $request, $id):Response
-    {
-        
-      
-        
-        $subclase = $this->entityManager->getRepository(Subclases::class)->find($id);
-        
-        return $this->render('buscador/subclaseok.html.twig', [
-             'subclase' => $subclase
+        return $this->render('revisiones/revision_clase.html.twig', [
+             'clase' => $clase,
         ]);
     }
 
    
 
-    
+    #[Route("/validar_clase/{id}", name:"app_validar_clase")]
+    public function validarClase($id)
+{
+    $clase = $this->entityManager->getRepository(Clases::class)->find($id);
 
-    #[Route('/buscador_razas', name: 'app_buscador_razas')]
-    public function Buscador_Razas( Request $request):Response
+
+    $clase->setValidado(1);
+    $this->entityManager->flush();
+
+    return $this->redirectToRoute('app_revisiones_clase');
+}
+
+#[Route("/eliminar_clase/{id}", name:"app_eliminar_clase")]
+public function eliminarClase($id)
+{
+    $clase = $this->entityManager->getRepository(Clases::class)->find($id);
+
+
+    $this->entityManager->remove($clase);
+    $this->entityManager->flush();
+
+    return $this->redirectToRoute('app_revisiones_clase');
+}
+
+#[Route('/revisiones_subclase', name: 'app_revisiones_subclase')]
+public function revisiones_subclase(): Response
+{
+    $revisiones = $this->entityManager->getRepository(Subclases::class)->FindNonValidated();
+    return $this->render('revisiones/revisiones_subclase.html.twig', [
+        'revisiones' => $revisiones,
+    ]);
+}
+
+#[Route('/solicitudes_subclase', name: 'app_solicitudes_subclase')]
+public function Buscador_Subclases( Request $request):Response
+{
+   
+    
+    $subclase=new Subclases();
+   
+    $form = $this->createForm(SubclasesType2::Class,$subclase);
+    
+        
+    $form->handleRequest($request);
+   
+   
+    
+    if ($form->isSubmitted() && $form->isValid()) {
+        $subclases = $form->getData();
+        if ($subclases->getAutor() == null){
+            $subclases->setAutor('Anónimo');
+        }
+
+        $subclases->setValidado(false);
+        $this->entityManager->persist($subclases);
+        $this->entityManager->flush();
+        return $this->redirectToRoute('app_solicitud_ok');
+    }
+    
+    
+    return $this->render( 'solicitudes/subclases.html.twig', array('form' => $form));
+}
+
+     
+#[Route("/solicitud_subclase/{id}", name:"app_comprobar_subclase")]
+public function subclaseok(Request $request, $id):Response
+{
+    
+  
+    
+    $subclase = $this->entityManager->getRepository(Subclases::class)->FindNonValidatedById($id);
+   
+    
+    return $this->render('revisiones/revision_subclase.html.twig', [
+         'subclase' => $subclase,
+    ]);
+}
+
+#[Route("/validar_subclase/{id}", name:"app_validar_subclase")]
+public function validarSubclase($id)
+{
+$subclase = $this->entityManager->getRepository(Subclases::class)->find($id);
+
+
+$subclase->setValidado(1);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_subclase');
+}
+
+#[Route("/eliminar_subclase/{id}", name:"app_eliminar_subclase")]
+public function eliminarSubclase($id)
+{
+$clase = $this->entityManager->getRepository(Subclases::class)->find($id);
+
+
+$this->entityManager->remove($clase);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_subclase');
+}
+
+
+
+
+
+#[Route('/solicitud_raza', name: 'app_solicitud_raza')]
+    public function Solicitudes_Razas( Request $request):Response
 	{
        
-       
+        
         $raza=new Razas();
+       
 		$form = $this->createForm(RazasType2::Class,$raza);
+        
             
 		$form->handleRequest($request);
+       
        
         
         if ($form->isSubmitted() && $form->isValid()) {
             $razas = $form->getData();
-            $sesion = $request->getSession();
-            $sesion->set('razas', $razas);
-            $sesion->set('prueba', "prueba");
-           
-            // $form->getData() holds the submitted values
-            // but, the original $task variable has also been updated
+            if ($razas->getAutor() == null){
+                $razas->setAutor('Anónimo');
+            }
 
-            // ... perform some action, such as saving the task to the database
-           
-			
-           
+            $razas->setValidado(false);
+            $this->entityManager->persist($razas);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_razas_ok');
+            return $this->redirectToRoute('app_solicitud_ok');
         }
-		
-		
         
-		return $this->render( 'buscador/razas.html.twig', array('form' => $form));
+		return $this->render( 'solicitudes/razas.html.twig', array('form' => $form));
 	}
 
-    #[Route("/razas_ok", name:"app_razas_ok")]
-    public function Razas_Ok(Request $request):Response
-    {
-        // Crea una nueva instancia de Clases para el formulario
-        $resultado = $request->getSession()->get('razas');
-        
-        $clases2 = $this->entityManager->getRepository(Razas::class)->FindFilter($resultado);
-    
-        
-        // Crea el formulario de filtro
-        
-        
-       
-    
-        // Renderiza el formulario de filtro si no se ha enviado o no es válido
-        return $this->render('buscador/ok_razas.html.twig', [
-             'resultado' => $clases2
-        ]);
-    }
+    #[Route('/revisiones_razas', name: 'app_revisiones_raza')]
+public function revisiones_razas(): Response
+{
+    $revisiones = $this->entityManager->getRepository(Razas::class)->FindNonValidated();
+    return $this->render('revisiones/revisiones_raza.html.twig', [
+        'revisiones' => $revisiones,
+    ]);
+}
 
-    #[Route("/raza/{id}", name:"app_raza")]
-    public function razasok(Request $request, $id):Response
-    {
-        
-      
-        
-        $raza = $this->entityManager->getRepository(Razas::class)->find($id);
-       
-        
-        return $this->render('buscador/razaok.html.twig', [
-             'raza' => $raza
-        ]);
-    }
+#[Route("/solicitud_raza/{id}", name:"app_comprobar_raza")]
+public function razaok(Request $request, $id):Response
+{
+    
+  
+    
+    $raza = $this->entityManager->getRepository(Razas::class)->FindNonValidatedById($id);
+   
+    
+    return $this->render('revisiones/revision_raza.html.twig', [
+         'raza' => $raza,
+    ]);
+}
 
-    #[Route('/buscador_subraza', name: 'app_buscador_subraza')]
-    public function Buscador_Subrazas( Request $request):Response
+#[Route("/validar_raza/{id}", name:"app_validar_raza")]
+public function validarRazas($id)
+{
+$raza = $this->entityManager->getRepository(Razas::class)->find($id);
+
+
+$raza->setValidado(1);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_raza');
+}
+
+#[Route("/eliminar_raza/{id}", name:"app_eliminar_raza")]
+public function eliminarRaza($id)
+{
+$raza = $this->entityManager->getRepository(Razas::class)->find($id);
+
+
+$this->entityManager->remove($raza);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_raza');
+}
+
+#[Route('/solicitud_subraza', name: 'app_solicitud_subraza')]
+    public function Solicitudes_Subrazas( Request $request):Response
 	{
        
+        
+        $subraza=new Subrazas();
        
-       ;
-        $subraza = new Subrazas();
-		
-        $form2 = $this->createForm(SubrazasType2::Class,$subraza);
-            
-		
-        $form2->handleRequest($request);
-       
+		$form = $this->createForm(SubrazasType2::Class,$subraza);
         
-       
-
-         if ($form2->isSubmitted() && $form2->isValid()) {
-            $subrazas = $form2->getData();
-            $sesion = $request->getSession();
-            $sesion->set('subrazas', $subrazas);
-            $this->entityManager->flush();
-            return $this->redirectToRoute('app_ok_subrazas');
-        }
-
-        
-		
-		
-        
-		return $this->render( 'buscador/subrazas.html.twig', array('form2' => $form2));
-	}
-
-     
-    #[Route("/ok_subrazas", name:"app_ok_subrazas")]
-    public function SubrazasOK(Request $request):Response
-    {
-        // Crea una nueva instancia de Clases para el formulario
-        $resultado = $request->getSession()->get('subrazas');
-        
-        $subrazas = $this->entityManager->getRepository(Subrazas::class)->FindFilter($resultado);
-    
-        
-        // Crea el formulario de filtro
-        
-        
-       
-    
-        // Renderiza el formulario de filtro si no se ha enviado o no es válido
-        return $this->render('buscador/ok_subrazas.html.twig', [
-             'resultado' => $subrazas
-        ]);
-    }
-
-    #[Route("/subraza/{id}", name:"app_subraza")]
-    public function subzara(Request $request, $id):Response
-    {
-        
-      
-        
-        $subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
-        
-        return $this->render('buscador/subrazaok.html.twig', [
-             'subraza' => $subraza
-        ]);
-    }
-
-    #[Route('/buscador_trasfondo', name: 'app_buscador_trasfondo')]
-    public function Buscador_Trasfondos( Request $request):Response
-	{
-       
-       
-        $trasfondo=new Trasfondo();
-		$form = $this->createForm(TrasfondoType2::Class,$trasfondo);
             
 		$form->handleRequest($request);
+       
+       
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $subrazas = $form->getData();
+            if ($subrazas->getAutor() == null){
+                $subrazas->setAutor('Anónimo');
+            }
+
+            $subrazas->setValidado(false);
+            $this->entityManager->persist($subrazas);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('app_solicitud_ok');
+        }
+        
+		return $this->render( 'solicitudes/subrazas.html.twig', array('form' => $form));
+	}
+
+    #[Route('/revisiones_subrazas', name: 'app_revisiones_subraza')]
+public function revisiones_subrazas(): Response
+{
+    $revisiones = $this->entityManager->getRepository(Subrazas::class)->FindNonValidated();
+    return $this->render('revisiones/revisiones_subraza.html.twig', [
+        'revisiones' => $revisiones,
+    ]);
+}
+
+#[Route("/solicitud_subraza/{id}", name:"app_comprobar_subraza")]
+public function subrazaok(Request $request, $id):Response
+{
+    
+  
+    
+    $subraza = $this->entityManager->getRepository(Subrazas::class)->FindNonValidatedById($id);
+   
+    
+    return $this->render('revisiones/revision_subraza.html.twig', [
+         'subraza' => $subraza,
+    ]);
+}
+
+#[Route("/validar_subraza/{id}", name:"app_validar_subraza")]
+public function validarSubrazas($id)
+{
+$subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
+
+
+$subraza->setValidado(1);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_subraza');
+}
+
+#[Route("/eliminar_subraza/{id}", name:"app_eliminar_subraza")]
+public function eliminarSubraza($id)
+{
+$subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
+
+
+$this->entityManager->remove($subraza);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_subraza');
+}
+
+#[Route('/solicitud_trasfondos', name: 'app_solicitud_trasfondos')]
+    public function Solicitudes_Trasfondos( Request $request):Response
+	{
+       
+        
+        $trasfondo=new Trasfondo();
+       
+		$form = $this->createForm(TrasfondoType2::Class,$trasfondo);
+        
+            
+		$form->handleRequest($request);
+       
        
         
         if ($form->isSubmitted() && $form->isValid()) {
             $trasfondos = $form->getData();
-            $sesion = $request->getSession();
-            $sesion->set('trasfondos', $trasfondos);
-           
-            // $form->getData() holds the submitted values
-            // but, the original $task variable has also been updated
+            if ($trasfondos->getAutor() == null){
+                $trasfondos->setAutor('Anónimo');
+            }
 
-            // ... perform some action, such as saving the task to the database
-           
-			
-           
+            $trasfondos->setValidado(false);
+            $this->entityManager->persist($trasfondos);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_ok_trasfondos');
+            return $this->redirectToRoute('app_solicitud_ok');
         }
-		
-		
         
-		return $this->render( 'buscador/trasfondos.html.twig', array('form' => $form));
+		return $this->render( 'solicitudes/trasfondos.html.twig', array('form' => $form));
 	}
 
-    #[Route("/ok_trasfondos", name:"app_ok_trasfondos")]
-    public function Trasfondos_Ok(Request $request):Response
-    {
-        // Crea una nueva instancia de Clases para el formulario
-        $resultado = $request->getSession()->get('trasfondos');
-        
-        $clases2 = $this->entityManager->getRepository(Trasfondo::class)->FindFilter($resultado);
-    
-        
-        // Crea el formulario de filtro
-        
-        
-       
-    
-        // Renderiza el formulario de filtro si no se ha enviado o no es válido
-        return $this->render('buscador/ok_trasfondos.html.twig', [
-             'resultado' => $clases2
-        ]);
-    }
+    #[Route('/revisiones_trasfondos', name: 'app_revisiones_trasfondo')]
+public function revisiones_trasfondos(): Response
+{
+    $revisiones = $this->entityManager->getRepository(Trasfondo::class)->FindNonValidated();
+    return $this->render('revisiones/revisiones_trasfondo.html.twig', [
+        'revisiones' => $revisiones,
+    ]);
+}
 
-    #[Route("/trasfondo/{id}", name:"app_trasfondo")]
-    public function trasfondook(Request $request, $id):Response
-    {
-        
-      
-        
-        $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->find($id);
-       
-        
-        return $this->render('buscador/trasfondook.html.twig', [
-             'trasfondo' => $trasfondo
-        ]);
-    }
+#[Route("/solicitud_trasfondo/{id}", name:"app_comprobar_trasfondo")]
+public function trasfondook(Request $request, $id):Response
+{
+    
+  
+    
+    $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->FindNonValidatedById($id);
+   
+    
+    return $this->render('revisiones/revision_trasfondo.html.twig', [
+         'trasfondo' => $trasfondo,
+    ]);
+}
 
-    #[Route('/buscador_dotes', name: 'app_buscador_dotes')]
-    public function Buscador_Dotes( Request $request):Response
+#[Route("/validar_trasfondo/{id}", name:"app_validar_trasfondo")]
+public function validarTrasfondos($id)
+{
+$trasfondo = $this->entityManager->getRepository(Trasfondo::class)->find($id);
+
+
+$trasfondo->setValidado(1);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_trasfondo');
+}
+
+#[Route("/eliminar_trasfondo/{id}", name:"app_eliminar_trasfondo")]
+public function eliminarTrasfondo($id)
+{
+$trasfondo = $this->entityManager->getRepository(Trasfondo::class)->find($id);
+
+
+$this->entityManager->remove($trasfondo);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_trasfondo');
+}
+
+
+#[Route('/solicitud_dote', name: 'app_solicitud_dote')]
+    public function Solicitudes_Dotes( Request $request):Response
 	{
        
-       
+        
         $dote=new Dotes();
+       
 		$form = $this->createForm(DotesType2::Class,$dote);
+        
             
 		$form->handleRequest($request);
+       
        
         
         if ($form->isSubmitted() && $form->isValid()) {
             $dotes = $form->getData();
-            $sesion = $request->getSession();
-            $sesion->set('dotes', $dotes);
-            $sesion->set('prueba', "prueba");
-           
-            // $form->getData() holds the submitted values
-            // but, the original $task variable has also been updated
+            if ($dotes->getAutor() == null){
+                $dotes->setAutor('Anónimo');
+            }
 
-            // ... perform some action, such as saving the task to the database
-           
-			
-           
+            $dotes->setValidado(false);
+            $this->entityManager->persist($dotes);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_ok_dotes');
+            return $this->redirectToRoute('app_solicitud_ok');
         }
-		
-		
         
-		return $this->render( 'buscador/dotes.html.twig', array('form' => $form));
+		return $this->render( 'solicitudes/dotes.html.twig', array('form' => $form));
 	}
 
-    #[Route("/ok_dotes", name:"app_ok_dotes")]
-    public function Dotes_Ok(Request $request):Response
-    {
-        // Crea una nueva instancia de Clases para el formulario
-        $resultado = $request->getSession()->get('dotes');
-        
-        $dotes = $this->entityManager->getRepository(Dotes::class)->FindFilter($resultado);
-    
-        
-        // Crea el formulario de filtro
-        
-        
-       
-    
-        // Renderiza el formulario de filtro si no se ha enviado o no es válido
-        return $this->render('buscador/ok_dotes.html.twig', [
-             'resultado' => $dotes
-        ]);
-    }
+    #[Route('/revisiones_dotes', name: 'app_revisiones_dote')]
+public function revisiones_dotes(): Response
+{
+    $revisiones = $this->entityManager->getRepository(Dotes::class)->FindNonValidated();
+    return $this->render('revisiones/revisiones_dote.html.twig', [
+        'revisiones' => $revisiones,
+    ]);
+}
 
-    #[Route("/dote/{id}", name:"app_dote")]
-    public function doteok(Request $request, $id):Response
-    {
-        
-      
-        
-        $dote = $this->entityManager->getRepository(Dotes::class)->find($id);
-       
-        
-        return $this->render('buscador/doteok.html.twig', [
-             'dote' => $dote
-        ]);
-    }
+#[Route("/solicitud_dote/{id}", name:"app_comprobar_dote")]
+public function doteok(Request $request, $id):Response
+{
+    
+    $dote = $this->entityManager->getRepository(Dotes::class)->FindNonValidatedById($id);
+   
+    
+    return $this->render('revisiones/revision_dote.html.twig', [
+         'dote' => $dote,
+    ]);
+}
 
-    #[Route('/buscador_hechizos', name: 'app_buscador_hechizos')]
-    public function Buscador_Hechizos( Request $request):Response
+#[Route("/validar_dote/{id}", name:"app_validar_dote")]
+public function validarDotes($id)
+{
+$dote = $this->entityManager->getRepository(Dotes::class)->find($id);
+
+
+$dote->setValidado(1);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_dote');
+}
+
+#[Route("/eliminar_dote/{id}", name:"app_eliminar_dote")]
+public function eliminarDote($id)
+{
+$dote = $this->entityManager->getRepository(Dotes::class)->find($id);
+
+
+$this->entityManager->remove($dote);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_dote');
+}
+
+
+#[Route('/solicitud_hechizo', name: 'app_solicitud_hechizo')]
+    public function Solicitudes_Hechizos( Request $request):Response
 	{
        
+        
+        $hechizo=new Hechizos();
        
-        $trasfondo=new Hechizos();
-		$form = $this->createForm(HechizosType2::Class,$trasfondo);
+		$form = $this->createForm(HechizosType2::Class,$hechizo);
+        
             
 		$form->handleRequest($request);
+       
        
         
         if ($form->isSubmitted() && $form->isValid()) {
             $hechizos = $form->getData();
-            $sesion = $request->getSession();
-            $sesion->set('hechizos', $hechizos);
-            $sesion->set('prueba', "prueba");
-           
-            // $form->getData() holds the submitted values
-            // but, the original $task variable has also been updated
+            if ($hechizos->getAutor() == null){
+                $hechizos->setAutor('Anónimo');
+            }
 
-            // ... perform some action, such as saving the task to the database
-           
-			
-           
+            $hechizos->setValidado(false);
+            $this->entityManager->persist($hechizos);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_ok_hechizos');
+            return $this->redirectToRoute('app_solicitud_ok');
         }
-		
-		
         
-		return $this->render( 'buscador/hechizos.html.twig', array('form' => $form));
+		return $this->render( 'solicitudes/hechizos.html.twig', array('form' => $form));
 	}
 
-    #[Route("/ok_hechizos", name:"app_ok_hechizos")]
-    public function Hechizos_Ok(Request $request):Response
-    {
-        // Crea una nueva instancia de Clases para el formulario
-        $resultado = $request->getSession()->get('hechizos');
-        
-        $clases2 = $this->entityManager->getRepository(Hechizos::class)->FindFilter($resultado);
-    
-        
-        // Crea el formulario de filtro
-        
-        
-       
-    
-        // Renderiza el formulario de filtro si no se ha enviado o no es válido
-        return $this->render('buscador/ok_hechizos.html.twig', [
-             'resultado' => $clases2
-        ]);
-    }
-
-    #[Route("/hechizo/{id}", name:"app_hechizo")]
-    public function hechizook(Request $request, $id):Response
-    {
-        
-      
-        
-        $hechizo = $this->entityManager->getRepository(Hechizos::class)->find($id);
-       
-        
-        return $this->render('buscador/hechizook.html.twig', [
-             'hechizo' => $hechizo
-        ]);
-    }
-
-    
-
-
-    private function progreso($rasgos){
-        $final = [];
-        for ($i = 1; $i <= 20; $i++){
-            $linea = [$i,$this->competencia($i),$this->mejoras_final($rasgos,$i)];
-            $final[$i-1] = $linea;
-        }
-        return $final;
-    }
-
-    private function mejoras_final($rasgos, $i){
-        if ($this->habilidades($rasgos,$i) == '' && $this->evoluciones($rasgos,$i) == ''){
-            return '';
-        }
-
-        else if ($this->habilidades($rasgos,$i) == '' &&  $this->evoluciones($rasgos,$i) != ''){
-            return $this->evoluciones($rasgos,$i);
-        }
-
-        else if ($this->habilidades($rasgos,$i) != '' &&  $this->evoluciones($rasgos,$i) == ''){
-            return $this->habilidades($rasgos,$i);
-        }
-
-        else{
-            return $this->habilidades($rasgos,$i) . ', ' . $this->evoluciones($rasgos,$i);
-
-
-    }
+    #[Route('/revisiones_hechizos', name: 'app_revisiones_hechizo')]
+public function revisiones_hechizos(): Response
+{
+    $revisiones = $this->entityManager->getRepository(Hechizos::class)->FindNonValidated();
+    return $this->render('revisiones/revisiones_hechizo.html.twig', [
+        'revisiones' => $revisiones,
+    ]);
 }
 
-    
-
-
-
-
-
-    private function habilidades($rasgos,$i){
-        $final = '';
-        foreach($rasgos as $r){
-            if ($r->getOrigenNivel() == $i){
-                $final = $final . $r->getNombre() . ', ';
-            }
-        }
-        $final = substr($final,0, -2);
-        return $final;
-    }
-
-
-    private function evoluciones($rasgos, $i){
-        $final = '';
-        foreach($rasgos as $r){
-            if (str_contains($r->getDescripción(), '{' . $i . '}')){
-                $final = $final . $r->getNombre() . ' (Mejora), ';
-            }
-        }
-        $final = substr($final,0, -2);
-        return $final;
-    }
-
-    private function competencia($nivel){
-        switch ($nivel):
-            case 1:
-                return '+2';
-            case 2:
-                return '+2';
-            case 3:
-                return '+2';
-            case 4:
-                return '+2';
-            case 5:
-                return '+3';
-            case 6:
-                return '+3';
-            case 7:
-                return '+3';
-            case 8:
-                return '+3';
-            case 9:
-                return '+4';
-            case 10:
-                return '+4';
-            case 11:
-                return '+4';
-            case 12:
-                return '+4';
-            case 13:
-                return '+5';
-            case 14:
-                return '+5';
-            case 15:
-                return '+5';
-            case 16:
-                return '+5';
-            case 17:
-                return '+6';
-            case 18:
-                return '+6';
-            case 19:
-                return '+6';
-            case 20:
-                return '+6';
-        endswitch;
-    }
+#[Route("/solicitud_hechizo/{id}", name:"app_comprobar_hechizo")]
+public function hechizook(Request $request, $id):Response
+{
+    $hechizo = $this->entityManager->getRepository(Hechizos::class)->FindNonValidatedById($id);
    
+    
+    return $this->render('revisiones/revision_hechizo.html.twig', [
+         'hechizo' => $hechizo,
+    ]);
+}
 
-    private function mergeadordearrays($array){
-        $final = [];    
-        foreach($array as $a){
-           
-            array_push($final, $a['Autor']);
-        }
-        return $final;
-    }
+#[Route("/validar_hechizo/{id}", name:"app_validar_hechizo")]
+public function validarHechizos($id)
+{
+$subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
+
+
+$subraza->setValidado(1);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_hechizo');
+}
+
+#[Route("/eliminar_hechizos/{id}", name:"app_eliminar_hechizo")]
+public function eliminarHechizo($id)
+{
+$hechizo = $this->entityManager->getRepository(Hechizos::class)->find($id);
+
+
+$this->entityManager->remove($hechizo);
+$this->entityManager->flush();
+
+return $this->redirectToRoute('app_revisiones_hechizo');
+}
+
+
+
+
+
+
+     
 }
 

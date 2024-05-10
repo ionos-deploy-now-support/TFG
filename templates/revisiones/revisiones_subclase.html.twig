@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BuscadorController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div>
+    <ul>
+    {% for revision in revisiones %}
+        <li>
+            <h2>{{revision.nombre}}</h2>
+            <a href="{{ path("app_comprobar_subclase", {'id': revision.id}) }}">Ver más</a>
+            <a href="{{ path('app_validar_clase', {'id': revision.id}) }}">Validar subclase</a>
+            <a href="{{ path('app_eliminar_clase', {'id': revision.id}) }}">Eliminar subclase</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

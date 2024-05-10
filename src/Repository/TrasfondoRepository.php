@@ -30,6 +30,24 @@ class TrasfondoRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+
+    public function FindNonValidated(){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 0')
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function FindNonValidatedById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 0')
+        ->andWhere('a.id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
     
     public function FindFilter(Trasfondo $formulario){
        $qb = $this->createQueryBuilder('a')
@@ -47,9 +65,9 @@ class TrasfondoRepository extends ServiceEntityRepository
                ->setParameter('descripcion' , '%' .  $formulario->getDescripcion() . '%');
         }
 
-       if ($formulario->isOrigen() != null){
+       if ($formulario->getOrigen() != null){
             $qb = $qb->andWhere('a.Origen = :origen')
-               ->setParameter('origen' , $formulario->isOrigen());
+               ->setParameter('origen' , $formulario->getOrigen());
         }
 
         if ($formulario->getIdiomas() != null){

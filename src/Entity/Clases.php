@@ -16,7 +16,7 @@ class Clases
     #[ORM\Column(length: 200)]
     private ?string $Nombre = null;
 
-    #[ORM\Column(length: 999)]
+    #[ORM\Column(length: 9999)]
     private ?string $Requisitos = null;
 
     #[ORM\Column(length: 999)]
@@ -40,7 +40,7 @@ class Clases
     #[ORM\Column]
     private ?bool $Validado = null;
 
-    #[ORM\Column(length: 999, nullable: true)]
+    #[ORM\Column(length: 9999, nullable: true)]
     private ?string $img = null;
 
     #[ORM\Column]

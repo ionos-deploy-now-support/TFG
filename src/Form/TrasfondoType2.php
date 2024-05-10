@@ -29,6 +29,7 @@ class TrasfondoType2 extends AbstractType
         $final = $this->mergeadordearrays($autores);
         $builder
         ->add('Nombre', TextType::class,)
+        ->add('Descripcion', TextType::class,)
         ->add('Origen', ChoiceType::class, [
             'choices' => [
                 'Ocupación' => 0,
@@ -54,8 +55,8 @@ class TrasfondoType2 extends AbstractType
         ->add('ObjetosIniciales', TextType::class, )
         ->add('Competencias', TextType::class,)
            
-        ->add('Autor', ChoiceType::class, [
-            'choices' => $final,
+        ->add('Autor', TextType::class, [
+            'required' => false
            
         ])
             ->add('Plano', ChoiceType::class, [

@@ -27,6 +27,7 @@ class HechizosType2 extends AbstractType
         $final = $this->mergeadordearrays($autores);
         $builder
             ->add('Nombre', TextType::class, )
+            ->add('Descripcion', TextType::class, )
             ->add('Nivel', ChoiceType::class, [
                 'choices' =>  [
                     'Truco' => '0',
@@ -87,8 +88,8 @@ class HechizosType2 extends AbstractType
                 ],
                 
             ])
-            ->add('Autor', ChoiceType::class, [
-                'choices' => $final,
+            ->add('Autor', TextType::class, [
+                'required' => false
                 
             ])
             ->add('Enviar', SubmitType::class)

@@ -39,6 +39,16 @@ class ClasesRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function FindNonValidatedById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 0')
+        ->andWhere('a.id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
+
     public function FindClases(){
         return $this->createQueryBuilder('a')
         ->select('a.Nombre')

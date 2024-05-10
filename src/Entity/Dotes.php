@@ -53,9 +53,9 @@ class Dotes
         return $this->Descripcion;
     }
 
-    public function setDescripción(string $Descripción): static
+    public function setDescripcion(string $Descripción): static
     {
-        $this->Descripción = $Descripción;
+        $this->Descripcion = $Descripción;
 
         return $this;
     }

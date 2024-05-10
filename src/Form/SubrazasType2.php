@@ -31,6 +31,7 @@ class SubrazasType2 extends AbstractType
         $final2 = $this->mergeador2($razas);
         $builder
         ->add('Nombre', TextType::class,)
+        ->add('Descripcion', TextType::class,)
         ->add('Fuerza', ChoiceType::class, [
                 'choices' => [
                     '-1' => '-1',

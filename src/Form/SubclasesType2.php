@@ -32,10 +32,7 @@ class SubclasesType2 extends AbstractType
         $builder
             ->add('Nombre', TextType::class,)
             ->add('Requisitos', TextType::class, )
-            ->add('Autor', ChoiceType::class, [
-                'choices' => $final,
-                
-            ])
+            ->add('Autor', TextType::class, ['required' => false])
             ->add('clase_id', ChoiceType::class, [
                 'choices' => $final2,
                 'label' => 'Clase',

@@ -28,12 +28,10 @@ class DotesType2 extends AbstractType
         $final = $this->mergeadordearrays($autores);
         $builder
         ->add('Nombre', TextType::class,)
+        ->add('Descripcion', TextType::class, )
         ->add('Requisitos', TextType::class, )
         ->add('Beneficios', TextType::class, )
-        ->add('Autor', ChoiceType::class, [
-            'choices' => $final,
-           
-        ])
+       ->add('Autor', TextType::class,['required' => false])
         ->add('Enviar', SubmitType::class)
             
         ;
