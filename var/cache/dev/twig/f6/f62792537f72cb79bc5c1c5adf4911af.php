@@ -95,7 +95,7 @@ class __TwigTemplate_9cbfde8a77852ec1c26a0cb7cc18b60d extends Template
         echo " 
  <a href=\"";
         // line 11
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_subclase");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitudes_subclase");
         echo "\">
         <span>Ir al filtro de Subclases</span>
 </a>
@@ -146,7 +146,7 @@ class __TwigTemplate_9cbfde8a77852ec1c26a0cb7cc18b60d extends Template
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
  {{ form(form) }} 
- <a href=\"{{ path(\"app_buscador_subclase\") }}\">
+ <a href=\"{{ path(\"app_solicitudes_subclase\") }}\">
         <span>Ir al filtro de Subclases</span>
 </a>
 

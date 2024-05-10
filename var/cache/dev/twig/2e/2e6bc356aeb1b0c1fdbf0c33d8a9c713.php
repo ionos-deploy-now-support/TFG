@@ -98,25 +98,25 @@ class __TwigTemplate_8782575660fee45fa719c969d2989b19 extends Template
     </a>
     <a href=\"";
         // line 14
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_razas");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitud_raza");
         echo "\">
         <span>Razas</span>
     </a>
     <a href=\"";
         // line 17
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_trasfondo");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitud_trasfondos");
         echo "\">
         <span>Trasfondos</span>
     </a>
      <a href=\"";
         // line 20
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_dotes");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitud_dote");
         echo "\">
         <span>Dotes</span>
     </a>
      <a href=\"";
         // line 23
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_hechizos");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitud_hechizo");
         echo "\">
         <span>Hechizos</span>
     </a>
@@ -181,16 +181,16 @@ class __TwigTemplate_8782575660fee45fa719c969d2989b19 extends Template
     <a href=\"{{ path(\"app_solicitud_clase\") }}\">
         <span>Clases</span>
     </a>
-    <a href=\"{{ path(\"app_buscador_razas\") }}\">
+    <a href=\"{{ path(\"app_solicitud_raza\") }}\">
         <span>Razas</span>
     </a>
-    <a href=\"{{ path(\"app_buscador_trasfondo\") }}\">
+    <a href=\"{{ path(\"app_solicitud_trasfondos\") }}\">
         <span>Trasfondos</span>
     </a>
-     <a href=\"{{ path(\"app_buscador_dotes\") }}\">
+     <a href=\"{{ path(\"app_solicitud_dote\") }}\">
         <span>Dotes</span>
     </a>
-     <a href=\"{{ path(\"app_buscador_hechizos\") }}\">
+     <a href=\"{{ path(\"app_solicitud_hechizo\") }}\">
         <span>Hechizos</span>
     </a>
 </div>

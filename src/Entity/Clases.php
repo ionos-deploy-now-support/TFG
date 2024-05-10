@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\ClasesRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ClasesRepository::class)]
 class Clases
 {
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -16,7 +19,7 @@ class Clases
     #[ORM\Column(length: 200)]
     private ?string $Nombre = null;
 
-    #[ORM\Column(length: 9999)]
+    #[ORM\Column(length: 2000)]
     private ?string $Requisitos = null;
 
     #[ORM\Column(length: 999)]
@@ -40,11 +43,24 @@ class Clases
     #[ORM\Column]
     private ?bool $Validado = null;
 
-    #[ORM\Column(length: 9999, nullable: true)]
+    #[ORM\Column(length: 2000, nullable: true)]
     private ?string $img = null;
 
     #[ORM\Column]
     private ?int $Magia = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $ipAddress = null;
+
+    #[ORM\Column(type: "datetime", nullable: true)]
+    private ?\DateTimeInterface $createdAt = null;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    
 
     public function getId(): ?int
     {
@@ -182,6 +198,32 @@ class Clases
 
         return $this;
     }
+
+    public function getIpAddress(): ?string
+    {
+        return $this->ipAddress;
+    }
+
+    public function setIpAddress(string $ipAddress): static
+    {
+        $this->ipAddress = $ipAddress;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): static
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+   
 
     
 }

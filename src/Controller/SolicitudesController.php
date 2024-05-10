@@ -73,7 +73,19 @@ class SolicitudesController extends AbstractController
     #[Route('/solicitud_clase', name: 'app_solicitud_clase')]
     public function Buscador_Clases( Request $request):Response
 	{
-       
+       $ipAddress = $request->getClientIp();
+       $currentDate = new \DateTime();
+      
+
+       $count = $this->entityManager->getRepository(Clases::class)->count([
+           'ipAddress' => $ipAddress,
+           'createdAt' => $currentDate
+         ]);
+
+            if ($count >= 2){
+                $this->addFlash('error', 'Has superado el límite de solicitudes por IP');
+                return $this->redirectToRoute('app_index');
+            }
         
         $clase=new Clases();
        
@@ -89,6 +101,8 @@ class SolicitudesController extends AbstractController
             if ($clases->getAutor() == null){
                 $clases->setAutor('Anónimo');
             }
+
+            $clases->setIpAddress($ipAddress);
 
             $clases->setValidado(false);
             $this->entityManager->persist($clases);
