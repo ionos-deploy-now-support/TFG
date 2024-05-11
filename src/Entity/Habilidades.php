@@ -19,7 +19,7 @@ class Habilidades
     private ?string $Nombre = null;
 
     #[ORM\Column(length: 9999)]
-    private ?string $Descripción = null;
+    private ?string $Descripcion = null;
 
     #[ORM\Column(length: 200)]
     private ?string $Autor = null;
@@ -55,14 +55,14 @@ class Habilidades
         return $this;
     }
 
-    public function getDescripción(): ?string
+    public function getDescripcion(): ?string
     {
-        return $this->Descripción;
+        return $this->Descripcion;
     }
 
-    public function setDescripción(string $Descripción): static
+    public function setDescripcion(string $Descripción): static
     {
-        $this->Descripción = $Descripción;
+        $this->Descripcion = $Descripción;
 
         return $this;
     }

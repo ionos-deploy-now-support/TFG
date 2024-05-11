@@ -31,6 +31,15 @@ class HabilidadesRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function findByOriginNonValidated($origen, $id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Origen_ID = ?1')
+        ->setParameter(1, $origen . '_'. $id)
+        ->getQuery()
+        ->getResult();
+    }
+
     
 
     

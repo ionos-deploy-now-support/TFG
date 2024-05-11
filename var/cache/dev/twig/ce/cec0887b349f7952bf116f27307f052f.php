@@ -76,10 +76,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador");
         echo "\"><li>Buscador</li></a>
             <a href=\"\"><li>Creador de personajes</li></a>
-            <a href=\"";
-        // line 21
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitudes");
-        echo "\"><li>Solicitudes</li></a>
+            
             ";
         // line 22
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22)) {
@@ -95,19 +92,23 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         } else {
             // line 26
             echo "                <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitudes");
+            echo "\"><li>Solicitudes</li></a>
+                <a href=\"";
+            // line 27
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\"><li>Iniciar Sesión</li></a>
             ";
         }
-        // line 28
+        // line 29
         echo "           
            
         </ul>
         </header>
         ";
-        // line 32
-        $this->displayBlock('body', $context, $blocks);
         // line 33
+        $this->displayBlock('body', $context, $blocks);
+        // line 34
         echo "    </body>
 </html>
 ";
@@ -203,7 +204,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 32
+    // line 33
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -242,7 +243,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  207 => 32,  188 => 12,  178 => 13,  175 => 12,  165 => 11,  152 => 8,  142 => 7,  123 => 5,  111 => 33,  109 => 32,  103 => 28,  97 => 26,  92 => 24,  87 => 23,  85 => 22,  81 => 21,  76 => 19,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  208 => 33,  189 => 12,  179 => 13,  176 => 12,  166 => 11,  153 => 8,  143 => 7,  124 => 5,  112 => 34,  110 => 33,  104 => 29,  99 => 27,  94 => 26,  89 => 24,  84 => 23,  82 => 22,  76 => 19,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -267,11 +268,12 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
             <a href=\"{{ path(\"app_index\") }}\"><li>Inicio</li></a>
             <a href=\"{{ path(\"app_buscador\") }}\"><li>Buscador</li></a>
             <a href=\"\"><li>Creador de personajes</li></a>
-            <a href=\"{{ path(\"app_solicitudes\") }}\"><li>Solicitudes</li></a>
+            
             {% if app.user %}
                 <a href=\"{{ path(\"app_revisiones\") }}\"><li>Revisiones</li></a>
                 <a href=\"{{ path(\"app_logout\") }}\"><li>Cerrar Sesión</li></a>
             {% else %}
+                <a href=\"{{ path(\"app_solicitudes\") }}\"><li>Solicitudes</li></a>
                 <a href=\"{{path(\"app_login\")}}\"><li>Iniciar Sesión</li></a>
             {% endif %}
            

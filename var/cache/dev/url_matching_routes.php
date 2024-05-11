@@ -37,6 +37,7 @@ return [
         '/revisiones' => [[['_route' => 'app_revisiones', '_controller' => 'App\\Controller\\SolicitudesController::revisiones'], null, null, null, false, false, null]],
         '/revisiones_clase' => [[['_route' => 'app_revisiones_clase', '_controller' => 'App\\Controller\\SolicitudesController::revisiones_clase'], null, null, null, false, false, null]],
         '/solicitud_clase' => [[['_route' => 'app_solicitud_clase', '_controller' => 'App\\Controller\\SolicitudesController::Buscador_Clases'], null, null, null, false, false, null]],
+        '/solicitud_clase_habilidades' => [[['_route' => 'app_solicitud_clase_habilidades', '_controller' => 'App\\Controller\\SolicitudesController::habilidades_clase'], null, null, null, false, false, null]],
         '/solicitud_ok' => [[['_route' => 'app_solicitud_ok', '_controller' => 'App\\Controller\\SolicitudesController::gestioneditarok'], null, null, null, false, false, null]],
         '/revisiones_subclase' => [[['_route' => 'app_revisiones_subclase', '_controller' => 'App\\Controller\\SolicitudesController::revisiones_subclase'], null, null, null, false, false, null]],
         '/solicitudes_subclase' => [[['_route' => 'app_solicitudes_subclase', '_controller' => 'App\\Controller\\SolicitudesController::Buscador_Subclases'], null, null, null, false, false, null]],

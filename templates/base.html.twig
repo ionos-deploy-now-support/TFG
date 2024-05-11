@@ -18,11 +18,12 @@
             <a href="{{ path("app_index") }}"><li>Inicio</li></a>
             <a href="{{ path("app_buscador") }}"><li>Buscador</li></a>
             <a href=""><li>Creador de personajes</li></a>
-            <a href="{{ path("app_solicitudes") }}"><li>Solicitudes</li></a>
+            
             {% if app.user %}
                 <a href="{{ path("app_revisiones") }}"><li>Revisiones</li></a>
                 <a href="{{ path("app_logout") }}"><li>Cerrar Sesión</li></a>
             {% else %}
+                <a href="{{ path("app_solicitudes") }}"><li>Solicitudes</li></a>
                 <a href="{{path("app_login")}}"><li>Iniciar Sesión</li></a>
             {% endif %}
            

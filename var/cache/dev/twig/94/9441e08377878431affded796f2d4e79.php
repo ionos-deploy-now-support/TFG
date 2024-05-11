@@ -201,7 +201,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
             // line 54
             echo "                                        ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(range(0, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 54))));
+            $context['_seq'] = twig_ensure_traversable(range(0, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripcion", [], "any", false, false, false, 54))));
             foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
                 // line 55
                 echo "                                            ";
@@ -211,7 +211,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                     $context["buffer"] = ((isset($context["buffer"]) || array_key_exists("buffer", $context) ? $context["buffer"] : (function () { throw new RuntimeError('Variable "buffer" does not exist.', 56, $this->source); })()) - 1);
                     // line 57
                     echo "                                            ";
-                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 57), $context["i"], 5) == "{|S|}")) {
+                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripcion", [], "any", false, false, false, 57), $context["i"], 5) == "{|S|}")) {
                     // line 58
                     echo "                                                ";
                     $context["parraf"] = twig_join_filter([(isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 58, $this->source); })()), "
@@ -221,7 +221,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                     $context["buffer"] = 4;
                     // line 60
                     echo "                                            ";
-                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 60), $context["i"], 5) == "{|B|}")) {
+                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripcion", [], "any", false, false, false, 60), $context["i"], 5) == "{|B|}")) {
                     // line 61
                     echo "                                                ";
                     echo twig_nl2br(twig_escape_filter($this->env, (isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 61, $this->source); })()), "html", null, true));
@@ -236,7 +236,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                     $context["buffer"] = 4;
                     // line 65
                     echo "                                            ";
-                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 65), $context["i"], 6) == "{|/B|}")) {
+                } elseif ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripcion", [], "any", false, false, false, 65), $context["i"], 6) == "{|/B|}")) {
                     // line 66
                     echo "                                                ";
                     echo twig_nl2br(twig_escape_filter($this->env, (isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 66, $this->source); })()), "html", null, true));
@@ -254,7 +254,7 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                 } else {
                     // line 71
                     echo "                                                ";
-                    $context["parraf"] = twig_join_filter([(isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 71, $this->source); })()), twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripción", [], "any", false, false, false, 71), $context["i"], 1)]);
+                    $context["parraf"] = twig_join_filter([(isset($context["parraf"]) || array_key_exists("parraf", $context) ? $context["parraf"] : (function () { throw new RuntimeError('Variable "parraf" does not exist.', 71, $this->source); })()), twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["habilidad"], "Descripcion", [], "any", false, false, false, 71), $context["i"], 1)]);
                     // line 72
                     echo "                                            ";
                 }
@@ -372,24 +372,24 @@ class __TwigTemplate_5738eb37609a3529e6f76a87ae933bb6 extends Template
                         <span class=\"L\">Nivel {{habilidad.OrigenNivel}}</span>
                         <span class=\"D\">{% set parraf = \"\"%}
                                         {% set buffer = 0 %}
-                                        {% for i in 0.. habilidad.Descripción|length %}
+                                        {% for i in 0.. habilidad.Descripcion|length %}
                                             {% if buffer > 0 %}
                                                 {% set buffer = buffer - 1 %}
-                                            {% elseif habilidad.Descripción|slice(i,5) == \"{|S|}\" %}
+                                            {% elseif habilidad.Descripcion|slice(i,5) == \"{|S|}\" %}
                                                 {% set parraf = [parraf,\"\\n\"]|join %}
                                                 {% set buffer = 4 %}
-                                            {% elseif habilidad.Descripción|slice(i,5) == \"{|B|}\" %}
+                                            {% elseif habilidad.Descripcion|slice(i,5) == \"{|B|}\" %}
                                                 {{parraf|nl2br}}
                                                 {% set parraf = \"\"%}
                                                 <b>
                                                 {% set buffer = 4 %}
-                                            {% elseif habilidad.Descripción|slice(i,6) == \"{|/B|}\" %}
+                                            {% elseif habilidad.Descripcion|slice(i,6) == \"{|/B|}\" %}
                                                 {{parraf|nl2br}}
                                                 {% set parraf = \"\"%}
                                                 </b>
                                                 {% set buffer = 5 %}
                                             {% else %}
-                                                {% set parraf = [parraf,habilidad.Descripción|slice(i,1)]|join %}
+                                                {% set parraf = [parraf,habilidad.Descripcion|slice(i,1)]|join %}
                                             {% endif %}
                                         {% endfor %}
                                         {{parraf|nl2br}}

@@ -59,6 +59,15 @@ class ClasesRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function FindLastID(){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->orderBy('a.id', 'DESC')
+        ->setMaxResults(1)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
+
    
     
     public function FindFilter(Clases $formulario){

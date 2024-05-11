@@ -410,6 +410,12 @@
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
+    <service id="App\Form\Habilidades5Type" class="App\Form\Habilidades5Type" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\HabilidadesType1" class="App\Form\HabilidadesType1" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\HechizosType" class="App\Form\HechizosType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -1439,6 +1445,8 @@
         <argument>App\Form\ClasesType2</argument>
         <argument>App\Form\DotesType</argument>
         <argument>App\Form\DotesType2</argument>
+        <argument>App\Form\Habilidades5Type</argument>
+        <argument>App\Form\HabilidadesType1</argument>
         <argument>App\Form\HechizosType</argument>
         <argument>App\Form\HechizosType2</argument>
         <argument>App\Form\RazasType</argument>
@@ -3893,7 +3901,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.70pcR29"/>
+      <argument type="service" id=".service_locator.r.Wd4tp"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -7242,6 +7250,10 @@
     <service id=".abstract.instanceof.App\Form\DotesType" class="App\Form\DotesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DotesType2" class="App\Form\DotesType2" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\DotesType2" class="App\Form\DotesType2" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\Habilidades5Type" class="App\Form\Habilidades5Type" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\Habilidades5Type" class="App\Form\Habilidades5Type" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HabilidadesType1" class="App\Form\HabilidadesType1" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\HabilidadesType1" class="App\Form\HabilidadesType1" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HechizosType" class="App\Form\HechizosType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\HechizosType" class="App\Form\HechizosType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HechizosType2" class="App\Form\HechizosType2" autowire="true" abstract="true"/>
@@ -7854,13 +7866,15 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.70pcR29" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.r.Wd4tp" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ClasesType" type="service_closure" id="App\Form\ClasesType"/>
         <argument key="App\Form\ClasesType2" type="service_closure" id="App\Form\ClasesType2"/>
         <argument key="App\Form\DotesType" type="service_closure" id="App\Form\DotesType"/>
         <argument key="App\Form\DotesType2" type="service_closure" id="App\Form\DotesType2"/>
+        <argument key="App\Form\Habilidades5Type" type="service_closure" id="App\Form\Habilidades5Type"/>
+        <argument key="App\Form\HabilidadesType1" type="service_closure" id="App\Form\HabilidadesType1"/>
         <argument key="App\Form\HechizosType" type="service_closure" id="App\Form\HechizosType"/>
         <argument key="App\Form\HechizosType2" type="service_closure" id="App\Form\HechizosType2"/>
         <argument key="App\Form\RazasType" type="service_closure" id="App\Form\RazasType"/>
@@ -9937,7 +9951,7 @@
     <service id=".service_locator.V6D1oJY" alias=".service_locator.e_4zbH4"/>
     <service id=".service_locator.6d5y4Ar" alias=".service_locator.dkKxYws"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
-    <service id=".service_locator.jOuY2B_" alias=".service_locator.70pcR29"/>
+    <service id=".service_locator.n_JdfzP" alias=".service_locator.r.Wd4tp"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.jUv.zyj" alias=".service_locator.O2p6Lk7"/>

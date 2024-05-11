@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Clases;
 use App\Entity\Dotes;
 use App\Entity\Habilidades;
+use App\Entity\Habilidades5;
 use App\Entity\Hechizos;
 use App\Entity\Razas;
 use App\Entity\Subclases;
@@ -14,6 +15,10 @@ use App\Form\ClasesType;
 use App\Form\ClasesType2;
 use App\Form\DotesType;
 use App\Form\DotesType2;
+use App\Form\Habilidades5Type;
+use App\Form\HabilidadesType1;
+use App\Form\HabilidadesType1Type;
+use App\Form\HabilidadesType2;
 use App\Form\HechizosType;
 use App\Form\HechizosType2;
 use App\Form\RazasType;
@@ -82,10 +87,7 @@ class SolicitudesController extends AbstractController
            'createdAt' => $currentDate
          ]);
 
-            if ($count >= 2){
-                $this->addFlash('error', 'Has superado el límite de solicitudes por IP');
-                return $this->redirectToRoute('app_index');
-            }
+           
         
         $clase=new Clases();
        
@@ -97,17 +99,28 @@ class SolicitudesController extends AbstractController
        
         
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($count >= 2){
+                $this->addFlash('error', 'Has superado el límite de solicitudes por IP');
+                return $this->redirectToRoute('app_index');
+            }
+
+
             $clases = $form->getData();
             if ($clases->getAutor() == null){
                 $clases->setAutor('Anónimo');
             }
 
+            
+
             $clases->setIpAddress($ipAddress);
 
             $clases->setValidado(false);
-            $this->entityManager->persist($clases);
+            $sesion = $request->getSession();
+            $sesion->set('clases', $clases);
+            //$this->entityManager->persist($clases);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_solicitud_ok');
+            return $this->redirectToRoute('app_solicitud_clase_habilidades');
         }
 
 
@@ -117,6 +130,87 @@ class SolicitudesController extends AbstractController
         
 		return $this->render( 'solicitudes/clases.html.twig', array('form' => $form));
 	}
+
+    #[Route("/solicitud_clase_habilidades", name:"app_solicitud_clase_habilidades")]
+    public function habilidades_clase(Request $request):Response
+    {
+        $habilidades = new Habilidades5();
+       
+        $form = $this->createForm(Habilidades5Type::Class,$habilidades);
+
+        
+
+        $form->handleRequest($request);
+       
+
+        if($form->isSubmitted() && $form->isValid()){
+            
+             $this->entityManager->persist($request->getSession()->get('clases'));
+             $this->entityManager->flush();
+             $clase = $this->entityManager->getRepository(Clases::class)->FindLastID();
+             $habilidades = $form->getData();
+             $habilidades1 = new Habilidades();
+             $habilidades2 = new Habilidades();
+             $habilidades3 = new Habilidades();
+             $habilidades4 = new Habilidades();
+             $habilidades5 = new Habilidades();
+            // $habilidadesII = $form2->getData();
+            // $habilidadesIII = $form3->getData();
+            // $habilidadesIV = $form4->getData();
+            // $habilidadesV = $form5->getData();
+             
+            $habilidades1->setNombre($habilidades->getNombre());
+            $habilidades1->setDescripcion($habilidades->getDescripcion());
+            $habilidades1->setOrigenNivel($habilidades->getOrigenNivel());
+            $habilidades1->setOrigenID('clases_' . $clase->getId());
+            $habilidades1->setValidado(false);
+            $habilidades1->setAutor($clase->getAutor());
+
+            $habilidades2->setNombre($habilidades->getNombre2());
+            $habilidades2->setDescripcion($habilidades->getDescripcion2());
+            $habilidades2->setOrigenNivel($habilidades->getOrigenNivel2());
+            $habilidades2->setOrigenID('clases_' . $clase->getId());
+            $habilidades2->setValidado(false);
+            $habilidades2->setAutor($clase->getAutor());
+
+            $habilidades3->setNombre($habilidades->getNombre3());
+            $habilidades3->setDescripcion($habilidades->getDescripcion3());
+            $habilidades3->setOrigenNivel($habilidades->getOrigenNivel3());
+            $habilidades3->setOrigenID('clases_' . $clase->getId());
+            $habilidades3->setValidado(false);
+            $habilidades3->setAutor($clase->getAutor());
+
+            $habilidades4->setNombre($habilidades->getNombre4());
+            $habilidades4->setDescripcion($habilidades->getDescripcion4());
+            $habilidades4->setOrigenNivel($habilidades->getOrigenNivel4());
+            $habilidades4->setOrigenID('clases_' . $clase->getId());
+            $habilidades4->setValidado(false);
+            $habilidades4->setAutor($clase->getAutor());
+
+            $habilidades5->setNombre($habilidades->getNombre5());
+            $habilidades5->setDescripcion($habilidades->getDescripcion5());
+            $habilidades5->setOrigenNivel($habilidades->getOrigenNivel5());
+            $habilidades5->setOrigenID('clases_' . $clase->getId());
+            $habilidades5->setValidado(false);
+            $habilidades5->setAutor($clase->getAutor());
+
+            
+             $this->entityManager->persist($habilidades1); 
+             $this->entityManager->persist($habilidades2);
+             $this->entityManager->persist($habilidades3);
+             $this->entityManager->persist($habilidades4);
+             $this->entityManager->persist($habilidades5);
+            // $this->entityManager->persist($habilidadesII);
+            // $this->entityManager->persist($habilidadesIII);
+            // $this->entityManager->persist($habilidadesIV);
+            // $this->entityManager->persist($habilidadesV);
+             $this->entityManager->flush();
+            return $this->redirectToRoute('app_solicitud_ok');
+        }
+        return $this->render('solicitudes/habilidades_clase.html.twig', [
+            'form' => $form, 
+        ]);
+    }
 
     
     #[Route("/solicitud_ok", name:"app_solicitud_ok")]
@@ -145,10 +239,11 @@ class SolicitudesController extends AbstractController
       
         
         $clase = $this->entityManager->getRepository(Clases::class)->FindNonValidatedById($id);
-       
+        $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('clases',$id);
+        $tabla = $this->progreso($rasgos);
         
-        return $this->render('revisiones/revision_clase.html.twig', [
-             'clase' => $clase,
+        return $this->render('buscador/claseok.html.twig', [
+             'clase' => $clase, 'tabla' => $tabla, 'rasgos' => $rasgos
         ]);
     }
 
@@ -158,7 +253,10 @@ class SolicitudesController extends AbstractController
     public function validarClase($id)
 {
     $clase = $this->entityManager->getRepository(Clases::class)->find($id);
-
+    $habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('clases',$id);
+    foreach($habilidades as $h){
+       $h->setValidado(1);
+    }
 
     $clase->setValidado(1);
     $this->entityManager->flush();
@@ -170,8 +268,10 @@ class SolicitudesController extends AbstractController
 public function eliminarClase($id)
 {
     $clase = $this->entityManager->getRepository(Clases::class)->find($id);
-
-
+    $habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('clases',$id);
+    foreach($habilidades as $h){
+        $this->entityManager->remove($h);
+    }
     $this->entityManager->remove($clase);
     $this->entityManager->flush();
 
@@ -639,7 +739,108 @@ return $this->redirectToRoute('app_revisiones_hechizo');
 
 
 
+private function progreso($rasgos){
+    $final = [];
+    for ($i = 1; $i <= 20; $i++){
+        $linea = [$i,$this->competencia($i),$this->mejoras_final($rasgos,$i)];
+        $final[$i-1] = $linea;
+    }
+    return $final;
+}
 
+private function mejoras_final($rasgos, $i){
+    if ($this->habilidades($rasgos,$i) == '' && $this->evoluciones($rasgos,$i) == ''){
+        return '';
+    }
+
+    else if ($this->habilidades($rasgos,$i) == '' &&  $this->evoluciones($rasgos,$i) != ''){
+        return $this->evoluciones($rasgos,$i);
+    }
+
+    else if ($this->habilidades($rasgos,$i) != '' &&  $this->evoluciones($rasgos,$i) == ''){
+        return $this->habilidades($rasgos,$i);
+    }
+
+    else{
+        return $this->habilidades($rasgos,$i) . ', ' . $this->evoluciones($rasgos,$i);
+
+
+}
+}
+
+
+
+
+
+
+
+private function habilidades($rasgos,$i){
+    $final = '';
+    foreach($rasgos as $r){
+        if ($r->getOrigenNivel() == $i){
+            $final = $final . $r->getNombre() . ', ';
+        }
+    }
+    $final = substr($final,0, -2);
+    return $final;
+}
+
+
+private function evoluciones($rasgos, $i){
+    $final = '';
+    foreach($rasgos as $r){
+        if (str_contains($r->getDescripcion(), '{' . $i . '}')){
+            $final = $final . $r->getNombre() . ' (Mejora), ';
+        }
+    }
+    $final = substr($final,0, -2);
+    return $final;
+}
+
+private function competencia($nivel){
+    switch ($nivel):
+        case 1:
+            return '+2';
+        case 2:
+            return '+2';
+        case 3:
+            return '+2';
+        case 4:
+            return '+2';
+        case 5:
+            return '+3';
+        case 6:
+            return '+3';
+        case 7:
+            return '+3';
+        case 8:
+            return '+3';
+        case 9:
+            return '+4';
+        case 10:
+            return '+4';
+        case 11:
+            return '+4';
+        case 12:
+            return '+4';
+        case 13:
+            return '+5';
+        case 14:
+            return '+5';
+        case 15:
+            return '+5';
+        case 16:
+            return '+5';
+        case 17:
+            return '+6';
+        case 18:
+            return '+6';
+        case 19:
+            return '+6';
+        case 20:
+            return '+6';
+    endswitch;
+}
 
 
      
