@@ -305,14 +305,94 @@ public function Buscador_Subclases( Request $request):Response
         }
 
         $subclases->setValidado(false);
-        $this->entityManager->persist($subclases);
+        $sesion = $request->getSession();
+        $sesion->set('subclases', $subclases);
+        //$this->entityManager->persist($subclases);
         $this->entityManager->flush();
-        return $this->redirectToRoute('app_solicitud_ok');
+        return $this->redirectToRoute('app_solicitud_subclase_habilidades');
     }
     
     
     return $this->render( 'solicitudes/subclases.html.twig', array('form' => $form));
 }
+
+#[Route("/solicitud_subclase_habilidades", name:"app_solicitud_subclase_habilidades")]
+    public function habilidades_subclase(Request $request):Response
+    {
+        $habilidades = new Habilidades5();
+       
+        $form = $this->createForm(Habilidades5Type::Class,$habilidades);
+
+        
+
+        $form->handleRequest($request);
+       
+
+        if($form->isSubmitted() && $form->isValid()){
+            
+             $this->entityManager->persist($request->getSession()->get('subclases'));
+             $this->entityManager->flush();
+             $subclase = $this->entityManager->getRepository(Subclases::class)->FindLastID();
+             $habilidades = $form->getData();
+             $habilidades1 = new Habilidades();
+             $habilidades2 = new Habilidades();
+             $habilidades3 = new Habilidades();
+             $habilidades4 = new Habilidades();
+             $habilidades5 = new Habilidades();
+           
+             
+            $habilidades1->setNombre($habilidades->getNombre());
+            $habilidades1->setDescripcion($habilidades->getDescripcion());
+            $habilidades1->setOrigenNivel($habilidades->getOrigenNivel());
+            $habilidades1->setOrigenID('subclases_' . $subclase->getId());
+            $habilidades1->setValidado(false);
+            $habilidades1->setAutor($subclase->getAutor());
+
+            $habilidades2->setNombre($habilidades->getNombre2());
+            $habilidades2->setDescripcion($habilidades->getDescripcion2());
+            $habilidades2->setOrigenNivel($habilidades->getOrigenNivel2());
+            $habilidades2->setOrigenID('subclases_' . $subclase->getId());
+            $habilidades2->setValidado(false);
+            $habilidades2->setAutor($subclase->getAutor());
+
+            $habilidades3->setNombre($habilidades->getNombre3());
+            $habilidades3->setDescripcion($habilidades->getDescripcion3());
+            $habilidades3->setOrigenNivel($habilidades->getOrigenNivel3());
+            $habilidades3->setOrigenID('subclases_' . $subclase->getId());
+            $habilidades3->setValidado(false);
+            $habilidades3->setAutor($subclase->getAutor());
+
+            $habilidades4->setNombre($habilidades->getNombre4());
+            $habilidades4->setDescripcion($habilidades->getDescripcion4());
+            $habilidades4->setOrigenNivel($habilidades->getOrigenNivel4());
+            $habilidades4->setOrigenID('subclases_' . $subclase->getId());
+            $habilidades4->setValidado(false);
+            $habilidades4->setAutor($subclase->getAutor());
+
+            $habilidades5->setNombre($habilidades->getNombre5());
+            $habilidades5->setDescripcion($habilidades->getDescripcion5());
+            $habilidades5->setOrigenNivel($habilidades->getOrigenNivel5());
+            $habilidades5->setOrigenID('subclases_' . $subclase->getId());
+            $habilidades5->setValidado(false);
+            $habilidades5->setAutor($subclase->getAutor());
+
+            
+             $this->entityManager->persist($habilidades1); 
+             $this->entityManager->persist($habilidades2);
+             $this->entityManager->persist($habilidades3);
+             $this->entityManager->persist($habilidades4);
+             $this->entityManager->persist($habilidades5);
+            // $this->entityManager->persist($habilidadesII);
+            // $this->entityManager->persist($habilidadesIII);
+            // $this->entityManager->persist($habilidadesIV);
+            // $this->entityManager->persist($habilidadesV);
+             $this->entityManager->flush();
+            return $this->redirectToRoute('app_solicitud_ok');
+        }
+        return $this->render('solicitudes/habilidades_subclase.html.twig', [
+            'form' => $form, 
+        ]);
+    }
 
      
 #[Route("/solicitud_subclase/{id}", name:"app_comprobar_subclase")]
@@ -334,7 +414,10 @@ public function validarSubclase($id)
 {
 $subclase = $this->entityManager->getRepository(Subclases::class)->find($id);
 
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('subclases',$id);
+foreach($habilidades as $h){
+$h->setValidado(1);
+}
 $subclase->setValidado(1);
 $this->entityManager->flush();
 
@@ -345,7 +428,10 @@ return $this->redirectToRoute('app_revisiones_subclase');
 public function eliminarSubclase($id)
 {
 $clase = $this->entityManager->getRepository(Subclases::class)->find($id);
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('subclases',$id);
+foreach($habilidades as $h){
+$this->entityManager->remove($h);
+}
 
 $this->entityManager->remove($clase);
 $this->entityManager->flush();
@@ -542,9 +628,11 @@ return $this->redirectToRoute('app_revisiones_raza');
             }
 
             $subrazas->setValidado(false);
-            $this->entityManager->persist($subrazas);
+            $sesion = $request->getSession();
+            $sesion->set('subrazas', $subrazas);
+            //$this->entityManager->persist($subrazas);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_solicitud_ok');
+            return $this->redirectToRoute('app_solicitud_subraza_habilidades');
         }
         
 		return $this->render( 'solicitudes/subrazas.html.twig', array('form' => $form));
@@ -558,6 +646,84 @@ public function revisiones_subrazas(): Response
         'revisiones' => $revisiones,
     ]);
 }
+
+#[Route("/solicitud_subraza_habilidades", name:"app_solicitud_subraza_habilidades")]
+    public function habilidades_subraza(Request $request):Response
+    {
+        $habilidades = new Habilidades5();
+       
+        $form = $this->createForm(Habilidades5Type::Class,$habilidades);
+
+        
+
+        $form->handleRequest($request);
+       
+
+        if($form->isSubmitted() && $form->isValid()){
+            
+             $this->entityManager->persist($request->getSession()->get('subrazas'));
+             $this->entityManager->flush();
+             $subraza = $this->entityManager->getRepository(Subrazas::class)->FindLastID();
+             $habilidades = $form->getData();
+             $habilidades1 = new Habilidades();
+             $habilidades2 = new Habilidades();
+             $habilidades3 = new Habilidades();
+             $habilidades4 = new Habilidades();
+             $habilidades5 = new Habilidades();
+           
+             
+            $habilidades1->setNombre($habilidades->getNombre());
+            $habilidades1->setDescripcion($habilidades->getDescripcion());
+            $habilidades1->setOrigenNivel($habilidades->getOrigenNivel());
+            $habilidades1->setOrigenID('subrazas_' . $subraza->getId());
+            $habilidades1->setValidado(false);
+            $habilidades1->setAutor($subraza->getAutor());
+
+            $habilidades2->setNombre($habilidades->getNombre2());
+            $habilidades2->setDescripcion($habilidades->getDescripcion2());
+            $habilidades2->setOrigenNivel($habilidades->getOrigenNivel2());
+            $habilidades2->setOrigenID('subrazas_' . $subraza->getId());
+            $habilidades2->setValidado(false);
+            $habilidades2->setAutor($subraza->getAutor());
+
+            $habilidades3->setNombre($habilidades->getNombre3());
+            $habilidades3->setDescripcion($habilidades->getDescripcion3());
+            $habilidades3->setOrigenNivel($habilidades->getOrigenNivel3());
+            $habilidades3->setOrigenID('subrazas_' . $subraza->getId());
+            $habilidades3->setValidado(false);
+            $habilidades3->setAutor($subraza->getAutor());
+
+            $habilidades4->setNombre($habilidades->getNombre4());
+            $habilidades4->setDescripcion($habilidades->getDescripcion4());
+            $habilidades4->setOrigenNivel($habilidades->getOrigenNivel4());
+            $habilidades4->setOrigenID('subrazas_' . $subraza->getId());
+            $habilidades4->setValidado(false);
+            $habilidades4->setAutor($subraza->getAutor());
+
+            $habilidades5->setNombre($habilidades->getNombre5());
+            $habilidades5->setDescripcion($habilidades->getDescripcion5());
+            $habilidades5->setOrigenNivel($habilidades->getOrigenNivel5());
+            $habilidades5->setOrigenID('subrazas_' . $subraza->getId());
+            $habilidades5->setValidado(false);
+            $habilidades5->setAutor($subraza->getAutor());
+
+            
+             $this->entityManager->persist($habilidades1); 
+             $this->entityManager->persist($habilidades2);
+             $this->entityManager->persist($habilidades3);
+             $this->entityManager->persist($habilidades4);
+             $this->entityManager->persist($habilidades5);
+            // $this->entityManager->persist($habilidadesII);
+            // $this->entityManager->persist($habilidadesIII);
+            // $this->entityManager->persist($habilidadesIV);
+            // $this->entityManager->persist($habilidadesV);
+             $this->entityManager->flush();
+            return $this->redirectToRoute('app_solicitud_ok');
+        }
+        return $this->render('solicitudes/habilidades_subraza.html.twig', [
+            'form' => $form, 
+        ]);
+    }
 
 #[Route("/solicitud_subraza/{id}", name:"app_comprobar_subraza")]
 public function subrazaok(Request $request, $id):Response
@@ -578,7 +744,10 @@ public function validarSubrazas($id)
 {
 $subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
 
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('subrazas',$id);
+foreach($habilidades as $h){
+$h->setValidado(1);
+}
 $subraza->setValidado(1);
 $this->entityManager->flush();
 
@@ -590,7 +759,10 @@ public function eliminarSubraza($id)
 {
 $subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
 
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('subrazas',$id);
+foreach($habilidades as $h){
+$this->entityManager->remove($h);
+}
 $this->entityManager->remove($subraza);
 $this->entityManager->flush();
 
