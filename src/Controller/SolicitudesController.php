@@ -154,10 +154,7 @@ class SolicitudesController extends AbstractController
              $habilidades3 = new Habilidades();
              $habilidades4 = new Habilidades();
              $habilidades5 = new Habilidades();
-            // $habilidadesII = $form2->getData();
-            // $habilidadesIII = $form3->getData();
-            // $habilidadesIV = $form4->getData();
-            // $habilidadesV = $form5->getData();
+           
              
             $habilidades1->setNombre($habilidades->getNombre());
             $habilidades1->setDescripcion($habilidades->getDescripcion());
@@ -381,13 +378,95 @@ return $this->redirectToRoute('app_revisiones_subclase');
             }
 
             $razas->setValidado(false);
-            $this->entityManager->persist($razas);
+            $sesion = $request->getSession();
+            $sesion->set('razas', $razas);
+            //$this->entityManager->persist($razas);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_solicitud_ok');
+            return $this->redirectToRoute('app_solicitud_raza_habilidades');
         }
         
 		return $this->render( 'solicitudes/razas.html.twig', array('form' => $form));
 	}
+
+    #[Route("/solicitud_raza_habilidades", name:"app_solicitud_raza_habilidades")]
+    public function habilidades_raza(Request $request):Response
+    {
+        $habilidades = new Habilidades5();
+       
+        $form = $this->createForm(Habilidades5Type::Class,$habilidades);
+
+        
+
+        $form->handleRequest($request);
+       
+
+        if($form->isSubmitted() && $form->isValid()){
+            
+             $this->entityManager->persist($request->getSession()->get('razas'));
+             $this->entityManager->flush();
+             $raza = $this->entityManager->getRepository(Razas::class)->FindLastID();
+             $habilidades = $form->getData();
+             $habilidades1 = new Habilidades();
+             $habilidades2 = new Habilidades();
+             $habilidades3 = new Habilidades();
+             $habilidades4 = new Habilidades();
+             $habilidades5 = new Habilidades();
+           
+             
+            $habilidades1->setNombre($habilidades->getNombre());
+            $habilidades1->setDescripcion($habilidades->getDescripcion());
+            $habilidades1->setOrigenNivel($habilidades->getOrigenNivel());
+            $habilidades1->setOrigenID('razas_' . $raza->getId());
+            $habilidades1->setValidado(false);
+            $habilidades1->setAutor($raza->getAutor());
+
+            $habilidades2->setNombre($habilidades->getNombre2());
+            $habilidades2->setDescripcion($habilidades->getDescripcion2());
+            $habilidades2->setOrigenNivel($habilidades->getOrigenNivel2());
+            $habilidades2->setOrigenID('razas_' . $raza->getId());
+            $habilidades2->setValidado(false);
+            $habilidades2->setAutor($raza->getAutor());
+
+            $habilidades3->setNombre($habilidades->getNombre3());
+            $habilidades3->setDescripcion($habilidades->getDescripcion3());
+            $habilidades3->setOrigenNivel($habilidades->getOrigenNivel3());
+            $habilidades3->setOrigenID('razas_' . $raza->getId());
+            $habilidades3->setValidado(false);
+            $habilidades3->setAutor($raza->getAutor());
+
+            $habilidades4->setNombre($habilidades->getNombre4());
+            $habilidades4->setDescripcion($habilidades->getDescripcion4());
+            $habilidades4->setOrigenNivel($habilidades->getOrigenNivel4());
+            $habilidades4->setOrigenID('razas_' . $raza->getId());
+            $habilidades4->setValidado(false);
+            $habilidades4->setAutor($raza->getAutor());
+
+            $habilidades5->setNombre($habilidades->getNombre5());
+            $habilidades5->setDescripcion($habilidades->getDescripcion5());
+            $habilidades5->setOrigenNivel($habilidades->getOrigenNivel5());
+            $habilidades5->setOrigenID('razas_' . $raza->getId());
+            $habilidades5->setValidado(false);
+            $habilidades5->setAutor($raza->getAutor());
+
+            
+             $this->entityManager->persist($habilidades1); 
+             $this->entityManager->persist($habilidades2);
+             $this->entityManager->persist($habilidades3);
+             $this->entityManager->persist($habilidades4);
+             $this->entityManager->persist($habilidades5);
+            // $this->entityManager->persist($habilidadesII);
+            // $this->entityManager->persist($habilidadesIII);
+            // $this->entityManager->persist($habilidadesIV);
+            // $this->entityManager->persist($habilidadesV);
+             $this->entityManager->flush();
+            return $this->redirectToRoute('app_solicitud_ok');
+        }
+        return $this->render('solicitudes/habilidades_raza.html.twig', [
+            'form' => $form, 
+        ]);
+    }
+
+
 
     #[Route('/revisiones_razas', name: 'app_revisiones_raza')]
 public function revisiones_razas(): Response
@@ -417,7 +496,10 @@ public function validarRazas($id)
 {
 $raza = $this->entityManager->getRepository(Razas::class)->find($id);
 
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('razas',$id);
+foreach($habilidades as $h){
+   $h->setValidado(1);
+}
 $raza->setValidado(1);
 $this->entityManager->flush();
 
@@ -428,7 +510,10 @@ return $this->redirectToRoute('app_revisiones_raza');
 public function eliminarRaza($id)
 {
 $raza = $this->entityManager->getRepository(Razas::class)->find($id);
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('razas',$id);
+foreach($habilidades as $h){
+    $this->entityManager->remove($h);
+}
 
 $this->entityManager->remove($raza);
 $this->entityManager->flush();
@@ -533,13 +618,93 @@ return $this->redirectToRoute('app_revisiones_subraza');
             }
 
             $trasfondos->setValidado(false);
-            $this->entityManager->persist($trasfondos);
+            $sesion = $request->getSession();
+            $sesion->set('trasfondo', $trasfondos);
+            //$this->entityManager->persist($trasfondos);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_solicitud_ok');
+            return $this->redirectToRoute('app_solicitud_trasfondo_habilidades');
         }
         
 		return $this->render( 'solicitudes/trasfondos.html.twig', array('form' => $form));
 	}
+
+    #[Route("/solicitud_trasfondo_habilidades", name:"app_solicitud_trasfondo_habilidades")]
+    public function habilidades_trasfondo(Request $request):Response
+    {
+        $habilidades = new Habilidades5();
+       
+        $form = $this->createForm(Habilidades5Type::Class,$habilidades);
+
+        
+
+        $form->handleRequest($request);
+       
+
+        if($form->isSubmitted() && $form->isValid()){
+            
+             $this->entityManager->persist($request->getSession()->get('trasfondo'));
+             $this->entityManager->flush();
+             $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->FindLastID();
+             $habilidades = $form->getData();
+             $habilidades1 = new Habilidades();
+             $habilidades2 = new Habilidades();
+             $habilidades3 = new Habilidades();
+             $habilidades4 = new Habilidades();
+             $habilidades5 = new Habilidades();
+           
+             
+            $habilidades1->setNombre($habilidades->getNombre());
+            $habilidades1->setDescripcion($habilidades->getDescripcion());
+            $habilidades1->setOrigenNivel($habilidades->getOrigenNivel());
+            $habilidades1->setOrigenID('trasfondo_' . $trasfondo->getId());
+            $habilidades1->setValidado(false);
+            $habilidades1->setAutor($trasfondo->getAutor());
+
+            $habilidades2->setNombre($habilidades->getNombre2());
+            $habilidades2->setDescripcion($habilidades->getDescripcion2());
+            $habilidades2->setOrigenNivel($habilidades->getOrigenNivel2());
+            $habilidades2->setOrigenID('trasfondo_' . $trasfondo->getId());
+            $habilidades2->setValidado(false);
+            $habilidades2->setAutor($trasfondo->getAutor());
+
+            $habilidades3->setNombre($habilidades->getNombre3());
+            $habilidades3->setDescripcion($habilidades->getDescripcion3());
+            $habilidades3->setOrigenNivel($habilidades->getOrigenNivel3());
+            $habilidades3->setOrigenID('trasfondo_' . $trasfondo->getId());
+            $habilidades3->setValidado(false);
+            $habilidades3->setAutor($trasfondo->getAutor());
+
+            $habilidades4->setNombre($habilidades->getNombre4());
+            $habilidades4->setDescripcion($habilidades->getDescripcion4());
+            $habilidades4->setOrigenNivel($habilidades->getOrigenNivel4());
+            $habilidades4->setOrigenID('trasfondo_' . $trasfondo->getId());
+            $habilidades4->setValidado(false);
+            $habilidades4->setAutor($trasfondo->getAutor());
+
+            $habilidades5->setNombre($habilidades->getNombre5());
+            $habilidades5->setDescripcion($habilidades->getDescripcion5());
+            $habilidades5->setOrigenNivel($habilidades->getOrigenNivel5());
+            $habilidades5->setOrigenID('trasfondo_' . $trasfondo->getId());
+            $habilidades5->setValidado(false);
+            $habilidades5->setAutor($trasfondo->getAutor());
+
+            
+             $this->entityManager->persist($habilidades1); 
+             $this->entityManager->persist($habilidades2);
+             $this->entityManager->persist($habilidades3);
+             $this->entityManager->persist($habilidades4);
+             $this->entityManager->persist($habilidades5);
+            // $this->entityManager->persist($habilidadesII);
+            // $this->entityManager->persist($habilidadesIII);
+            // $this->entityManager->persist($habilidadesIV);
+            // $this->entityManager->persist($habilidadesV);
+             $this->entityManager->flush();
+            return $this->redirectToRoute('app_solicitud_ok');
+        }
+        return $this->render('solicitudes/habilidades_trasfondo.html.twig', [
+            'form' => $form, 
+        ]);
+    }
 
     #[Route('/revisiones_trasfondos', name: 'app_revisiones_trasfondo')]
 public function revisiones_trasfondos(): Response
@@ -569,7 +734,10 @@ public function validarTrasfondos($id)
 {
 $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->find($id);
 
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('trasfondo',$id);
+foreach($habilidades as $h){
+   $h->setValidado(1);
+}
 $trasfondo->setValidado(1);
 $this->entityManager->flush();
 
@@ -581,7 +749,10 @@ public function eliminarTrasfondo($id)
 {
 $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->find($id);
 
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('trasfondo',$id);
+foreach($habilidades as $h){
+    $this->entityManager->remove($h);
+}
 $this->entityManager->remove($trasfondo);
 $this->entityManager->flush();
 
@@ -610,9 +781,11 @@ return $this->redirectToRoute('app_revisiones_trasfondo');
             }
 
             $dotes->setValidado(false);
-            $this->entityManager->persist($dotes);
+            $sesion = $request->getSession();
+            $sesion->set('dotes', $dotes);
+            //$this->entityManager->persist($dotes);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_solicitud_ok');
+            return $this->redirectToRoute('app_solicitud_dote_habilidades');
         }
         
 		return $this->render( 'solicitudes/dotes.html.twig', array('form' => $form));
@@ -626,6 +799,84 @@ public function revisiones_dotes(): Response
         'revisiones' => $revisiones,
     ]);
 }
+
+#[Route("/solicitud_dote_habilidades", name:"app_solicitud_dote_habilidades")]
+    public function habilidades_dote(Request $request):Response
+    {
+        $habilidades = new Habilidades5();
+       
+        $form = $this->createForm(Habilidades5Type::Class,$habilidades);
+
+        
+
+        $form->handleRequest($request);
+       
+
+        if($form->isSubmitted() && $form->isValid()){
+            
+             $this->entityManager->persist($request->getSession()->get('dotes'));
+             $this->entityManager->flush();
+             $dote = $this->entityManager->getRepository(Dotes::class)->FindLastID();
+             $habilidades = $form->getData();
+             $habilidades1 = new Habilidades();
+             $habilidades2 = new Habilidades();
+             $habilidades3 = new Habilidades();
+             $habilidades4 = new Habilidades();
+             $habilidades5 = new Habilidades();
+           
+             
+            $habilidades1->setNombre($habilidades->getNombre());
+            $habilidades1->setDescripcion($habilidades->getDescripcion());
+            $habilidades1->setOrigenNivel($habilidades->getOrigenNivel());
+            $habilidades1->setOrigenID('dotes_' . $dote->getId());
+            $habilidades1->setValidado(false);
+            $habilidades1->setAutor($dote->getAutor());
+
+            $habilidades2->setNombre($habilidades->getNombre2());
+            $habilidades2->setDescripcion($habilidades->getDescripcion2());
+            $habilidades2->setOrigenNivel($habilidades->getOrigenNivel2());
+            $habilidades2->setOrigenID('dotes_' . $dote->getId());
+            $habilidades2->setValidado(false);
+            $habilidades2->setAutor($dote->getAutor());
+
+            $habilidades3->setNombre($habilidades->getNombre3());
+            $habilidades3->setDescripcion($habilidades->getDescripcion3());
+            $habilidades3->setOrigenNivel($habilidades->getOrigenNivel3());
+            $habilidades3->setOrigenID('dotes_' . $dote->getId());
+            $habilidades3->setValidado(false);
+            $habilidades3->setAutor($dote->getAutor());
+
+            $habilidades4->setNombre($habilidades->getNombre4());
+            $habilidades4->setDescripcion($habilidades->getDescripcion4());
+            $habilidades4->setOrigenNivel($habilidades->getOrigenNivel4());
+            $habilidades4->setOrigenID('dotes_' . $dote->getId());
+            $habilidades4->setValidado(false);
+            $habilidades4->setAutor($dote->getAutor());
+
+            $habilidades5->setNombre($habilidades->getNombre5());
+            $habilidades5->setDescripcion($habilidades->getDescripcion5());
+            $habilidades5->setOrigenNivel($habilidades->getOrigenNivel5());
+            $habilidades5->setOrigenID('dotes_' . $dote->getId());
+            $habilidades5->setValidado(false);
+            $habilidades5->setAutor($dote->getAutor());
+
+            
+             $this->entityManager->persist($habilidades1); 
+             $this->entityManager->persist($habilidades2);
+             $this->entityManager->persist($habilidades3);
+             $this->entityManager->persist($habilidades4);
+             $this->entityManager->persist($habilidades5);
+            // $this->entityManager->persist($habilidadesII);
+            // $this->entityManager->persist($habilidadesIII);
+            // $this->entityManager->persist($habilidadesIV);
+            // $this->entityManager->persist($habilidadesV);
+             $this->entityManager->flush();
+            return $this->redirectToRoute('app_solicitud_ok');
+        }
+        return $this->render('solicitudes/habilidades_dote.html.twig', [
+            'form' => $form, 
+        ]);
+    }
 
 #[Route("/solicitud_dote/{id}", name:"app_comprobar_dote")]
 public function doteok(Request $request, $id):Response
@@ -643,7 +894,10 @@ public function doteok(Request $request, $id):Response
 public function validarDotes($id)
 {
 $dote = $this->entityManager->getRepository(Dotes::class)->find($id);
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('dotes',$id);
+foreach($habilidades as $h){
+   $h->setValidado(1);
+}
 
 $dote->setValidado(1);
 $this->entityManager->flush();
@@ -655,7 +909,10 @@ return $this->redirectToRoute('app_revisiones_dote');
 public function eliminarDote($id)
 {
 $dote = $this->entityManager->getRepository(Dotes::class)->find($id);
-
+$habilidades = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('dotes',$id);
+foreach($habilidades as $h){
+    $this->entityManager->remove($h);
+}
 
 $this->entityManager->remove($dote);
 $this->entityManager->flush();
@@ -685,6 +942,7 @@ return $this->redirectToRoute('app_revisiones_dote');
             }
 
             $hechizos->setValidado(false);
+            
             $this->entityManager->persist($hechizos);
             $this->entityManager->flush();
             return $this->redirectToRoute('app_solicitud_ok');
@@ -701,6 +959,8 @@ public function revisiones_hechizos(): Response
         'revisiones' => $revisiones,
     ]);
 }
+
+
 
 #[Route("/solicitud_hechizo/{id}", name:"app_comprobar_hechizo")]
 public function hechizook(Request $request, $id):Response
