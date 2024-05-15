@@ -13,8 +13,8 @@
         <li>
             <h2>{{revision.nombre}}</h2>
             <a href="{{ path("app_comprobar_subclase", {'id': revision.id}) }}">Ver más</a>
-            <a href="{{ path('app_validar_clase', {'id': revision.id}) }}">Validar subclase</a>
-            <a href="{{ path('app_eliminar_clase', {'id': revision.id}) }}">Eliminar subclase</a>
+            <a href="{{ path('app_validar_subclase', {'id': revision.id}) }}">Validar subclase</a>
+            <a href="{{ path('app_eliminar_subclase', {'id': revision.id}) }}">Eliminar subclase</a>
         </li>
     {% endfor %}
     </ul>

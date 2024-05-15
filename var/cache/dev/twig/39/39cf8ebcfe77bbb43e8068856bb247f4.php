@@ -108,11 +108,11 @@ class __TwigTemplate_ca2a6fc651950c9d15726b2c6979a611 extends Template
             echo "\">Ver más</a>
             <a href=\"";
             // line 16
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_validar_clase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 16)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_validar_subclase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 16)]), "html", null, true);
             echo "\">Validar subclase</a>
             <a href=\"";
             // line 17
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_eliminar_clase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 17)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_eliminar_subclase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 17)]), "html", null, true);
             echo "\">Eliminar subclase</a>
         </li>
     ";
@@ -174,13 +174,13 @@ class __TwigTemplate_ca2a6fc651950c9d15726b2c6979a611 extends Template
         <li>
             <h2>{{revision.nombre}}</h2>
             <a href=\"{{ path(\"app_comprobar_subclase\", {'id': revision.id}) }}\">Ver más</a>
-            <a href=\"{{ path('app_validar_clase', {'id': revision.id}) }}\">Validar subclase</a>
-            <a href=\"{{ path('app_eliminar_clase', {'id': revision.id}) }}\">Eliminar subclase</a>
+            <a href=\"{{ path('app_validar_subclase', {'id': revision.id}) }}\">Validar subclase</a>
+            <a href=\"{{ path('app_eliminar_subclase', {'id': revision.id}) }}\">Eliminar subclase</a>
         </li>
     {% endfor %}
     </ul>
 </div>
 
-{% endblock %}", "revisiones/revisiones_subclase.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\revisiones\\revisiones_subclase.html.twig");
+{% endblock %}", "revisiones/revisiones_subclase.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\revisiones\\revisiones_subclase.html.twig");
     }
 }
