@@ -68,6 +68,15 @@ class RazasRepository extends ServiceEntityRepository
         ->getOneOrNullResult();
     }
 
+    public function FindImg($id){
+        return $this->createQueryBuilder('a')
+        ->select('a.img')
+        ->andWhere('a.id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
+
 
     public function FindFilter(Razas $formulario){
         $qb = $this->createQueryBuilder('a')

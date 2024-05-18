@@ -32,6 +32,7 @@ class DotesType2 extends AbstractType
         ->add('Requisitos', TextType::class, )
         ->add('Beneficios', TextType::class, )
        ->add('Autor', TextType::class,['required' => false])
+       ->add('img', TextType::class,['required' => false, 'label' => 'Imagen'])
         ->add('Enviar', SubmitType::class)
             
         ;

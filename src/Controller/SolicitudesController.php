@@ -57,8 +57,35 @@ class SolicitudesController extends AbstractController
     #[Route('/revisiones', name: 'app_revisiones')]
     public function revisiones(): Response
     {
+        $clases = $this->entityManager->getRepository(Clases::class)->FindNonValidated();
+        $contador_clases= count($clases);
+
+        $subclases = $this->entityManager->getRepository(Subclases::class)->FindNonValidated();
+        $contador_subclases= count($subclases);
+
+        $razas = $this->entityManager->getRepository(Razas::class)->FindNonValidated();
+        $contador_razas= count($razas);
+
+        $subrazas = $this->entityManager->getRepository(Subrazas::class)->FindNonValidated();
+        $contador_subrazas= count($subrazas);
+
+        $trasfondos = $this->entityManager->getRepository(Trasfondo::class)->FindNonValidated();
+        $contador_trasfondos= count($trasfondos);
+
+        $dotes = $this->entityManager->getRepository(Dotes::class)->FindNonValidated();
+        $contador_dotes= count($dotes);
+
+        $hechizos = $this->entityManager->getRepository(Hechizos::class)->FindNonValidated();
+        $contador_hechizos= count($hechizos);
         return $this->render('revisiones/index.html.twig', [
-            'controller_name' => 'SolicitudesController',
+            'controller_name' => 'SolicitudesController', 
+            'clases' => $contador_clases,
+            'subclases' => $contador_subclases,
+            'razas' => $contador_razas,
+            'subrazas' => $contador_subrazas,
+            'trasfondos' => $contador_trasfondos,
+            'dotes' => $contador_dotes,
+            'hechizos' => $contador_hechizos,
         ]);
     }
 
@@ -97,8 +124,12 @@ class SolicitudesController extends AbstractController
             }
 
             $clases = $form->getData();
-            if ($clases->getAutor() == null){
+            if ($clases->getAutor() == null || strtolower($clases->getAutor() )== 'clash of fates'){
                 $clases->setAutor('Anónimo');
+            }
+
+            if ($clases->getImg() == null){
+                $clases->setImg('https://wallpaperaccess.com/full/1902223.png');
             }
 
             $clases->setIpAddress($ipAddress);
@@ -256,8 +287,12 @@ public function Buscador_Subclases( Request $request):Response
 
     if ($form->isSubmitted() && $form->isValid()) {
         $subclases = $form->getData();
-        if ($subclases->getAutor() == null){
+        if ($subclases->getAutor() == null || strtolower($subclases->getAutor() )== 'clash of fates'){
             $subclases->setAutor('Anónimo');
+        }
+
+        if ($subclases->getImg() == null){
+            $subclases->setImg($this->entityManager->getRepository(Clases::class)->FindImg($subclases->getClaseId()));
         }
 
         $subclases->setValidado(false);
@@ -399,9 +434,15 @@ public function eliminarSubclase($id)
         
         if ($form->isSubmitted() && $form->isValid()) {
             $razas = $form->getData();
-            if ($razas->getAutor() == null){
-                $razas->setAutor('Anónimo');
+            if ($razas->getAutor() == null || strtolower($razas->getAutor() )== 'clash of fates'){
+                $razas->setAutor('Anónimo-');
             }
+
+            if ($razas->getImg() == null){
+                $razas->setImg('https://wallpaperaccess.com/full/1902223.png');
+            }
+
+            
 
             $razas->setValidado(false);
             $sesion = $request->getSession();
@@ -548,8 +589,12 @@ return $this->redirectToRoute('app_revisiones_raza');
         
         if ($form->isSubmitted() && $form->isValid()) {
             $subrazas = $form->getData();
-            if ($subrazas->getAutor() == null){
+            if ($subrazas->getAutor() == null || strtolower($subrazas->getAutor() )== 'clash of fates'){
                 $subrazas->setAutor('Anónimo');
+            }
+
+            if ($subrazas->getImg() == null){
+                $subrazas->setImg($this->entityManager->getRepository(Razas::class)->FindImg($subrazas->getRazaId()));
             }
 
             $subrazas->setValidado(false);
@@ -710,8 +755,12 @@ return $this->redirectToRoute('app_revisiones_subraza');
         
         if ($form->isSubmitted() && $form->isValid()) {
             $trasfondos = $form->getData();
-            if ($trasfondos->getAutor() == null){
+            if ($trasfondos->getAutor() == null || strtolower($trasfondos->getAutor() )== 'clash of fates'){
                 $trasfondos->setAutor('Anónimo');
+            }
+
+            if ($trasfondos->getImg() == null){
+                $trasfondos->setImg('https://wallpaperaccess.com/full/1902223.png');
             }
 
             $trasfondos->setValidado(false);
@@ -873,8 +922,12 @@ return $this->redirectToRoute('app_revisiones_trasfondo');
         
         if ($form->isSubmitted() && $form->isValid()) {
             $dotes = $form->getData();
-            if ($dotes->getAutor() == null){
+            if ($dotes->getAutor() == null || strtolower($dotes->getAutor() )== 'clash of fates'){
                 $dotes->setAutor('Anónimo');
+            }
+
+            if ($dotes->getImg() == null){
+                $dotes->setImg('https://wallpaperaccess.com/full/1902223.png');
             }
 
             $dotes->setValidado(false);
@@ -1034,8 +1087,12 @@ return $this->redirectToRoute('app_revisiones_dote');
         
         if ($form->isSubmitted() && $form->isValid()) {
             $hechizos = $form->getData();
-            if ($hechizos->getAutor() == null){
+            if ($hechizos->getAutor() == null || strtolower($hechizos->getAutor() )== 'clash of fates'){
                 $hechizos->setAutor('Anónimo');
+            }
+
+            if ($hechizos->getImg() == null){
+                $hechizos->setImg('https://wallpaperaccess.com/full/1902223.png');
             }
 
             $hechizos->setValidado(false);

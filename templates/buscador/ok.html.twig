@@ -1,21 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-   <h1>BÚSQUEDA</h1
- <ul>
+   
+<div class="listado">
      {% for clase in resultado %}
-     <a href="{{ path( "app_clase", { "id": clase.id} ) }}">
-      
-       <li>{{ clase.Nombre }}</li>
-       <li>{{clase.Competencias}}</li>
-       <li>{{clase.Salvaciones}}</li>
-        <li>{{clase.Autor}}</li>
+     <a class="elemento" href="{{ path( "app_clase", { "id": clase.id} ) }}">
+        <img class="I" src="{{clase.img}}">
+       <h2 class="N">{{ clase.Nombre }}</h2>
+       <span class="E"></span>
+       <i class="C">{{clase.Competencias}}</i>
+        <i class="A">{{clase.Autor}}</i>
+        <span class="S"><b>Salvaciones:</b> {{clase.Salvaciones}}</span>
+
          
       </a>
-      <hr>
+      
      {% endfor %}
-    </ul>
- 
+  
+ </div>
 
 
 

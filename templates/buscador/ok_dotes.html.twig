@@ -1,18 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-   <h1>BÚSQUEDA</h1
- <ul>
+<div class="listado">
      {% for dote in resultado %}
-     <a href="{{ path( "app_dote", { "id": dote.id} ) }}">
-      
-       <li>{{ dote.Nombre }}</li>
-        <li>{{dote.Autor}}</li>
+     <a class="elemento" href="{{ path( "app_dote", { "id": dote.id} ) }}">
+        <img class="I" src="{{dote.img}}">
+       <h2 class="N">{{ dote.Nombre }}</h2>
+       <span class="E"></span>
+       <i class="C">{{dote.Descripcion}}</i>
+        <i class="A">{{dote.Autor}}</i>
+        <span class="S"><b>Requisitos:</b> {{dote.Requisitos}}</span>
+
          
       </a>
-      <hr>
+      
      {% endfor %}
-    </ul>
+  
+ </div>
  
 
 

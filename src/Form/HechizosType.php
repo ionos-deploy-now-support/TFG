@@ -71,7 +71,6 @@ class HechizosType extends AbstractType
             ->add('Duracion', ChoiceType::class, [
                 'choices' => [
                     'Instantánea' => 'Instantánea',
-                    '1 Asalto' => '1 Asalto',
                     '1 Minuto' => '1 Minuto',
                     '10 Minutos' => '10 Minutos',
                     '1 Hora' => '1 Hora',

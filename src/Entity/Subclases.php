@@ -29,6 +29,9 @@ class Subclases
     #[ORM\Column]
     private ?bool $Validado = null;
 
+    #[ORM\Column(length: 999)]
+    private ?string $img = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Subclases
     public function setValidado(bool $Validado): static
     {
         $this->Validado = $Validado;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): static
+    {
+        $this->img = $img;
 
         return $this;
     }

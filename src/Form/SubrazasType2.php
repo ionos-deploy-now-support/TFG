@@ -97,6 +97,7 @@ class SubrazasType2 extends AbstractType
                 'label' => 'Raza',
                
             ])
+            ->add('img', TextType::class, ['required' => false, 'label' => 'Imagen'])
             ->add('Enviar', SubmitType::class)
         ;
     }

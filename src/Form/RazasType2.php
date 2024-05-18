@@ -77,6 +77,7 @@ class RazasType2 extends AbstractType
             ->add('Autor', TextType::class, ['required' => false] )
             ->add('Velocidad', TextType::class,)
             ->add('AtaqueDesarmado', TextType::class,)
+            ->add('img', TextType::class, ['label' => 'Imagen', 'required'=> false] )
             ->add('Enviar', SubmitType::class)
         ;
     }

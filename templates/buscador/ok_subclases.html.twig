@@ -1,19 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-   <h1>BÚSQUEDA</h1
- <ul>
+<div class="listado">
      {% for subclase in resultado %}
-     <a href="{{ path( "app_subclase", { "id": subclase.id} ) }}">
-      
-       <li>{{ subclase.Nombre }}</li>
-        <li>{{subclase.Autor}}</li>
+     <a class="elemento" href="{{ path( "app_subclase", { "id": subclase.id} ) }}">
+        <img class="I" src="{{subclase.img}}">
+       <h2 class="N">{{ subclase.Nombre }}</h2>
+       <span class="E"></span>
+       <span class="S"><b>Requisitos:</b> {{subclase.Requisitos}}</span>
+        <i class="A">{{subclase.Autor}}</i>
+        <span class="C"></span>
+
          
       </a>
-      <hr>
+      
      {% endfor %}
-    </ul>
- 
+  
+ </div>
 
 
 

@@ -38,6 +38,7 @@ class SubclasesType2 extends AbstractType
                 'label' => 'Clase',
                 
             ])
+            ->add('img', TextType::class, ['required' => false, 'label' => 'Imagen'])
             ->add('Enviar', SubmitType::class)
             
         ;

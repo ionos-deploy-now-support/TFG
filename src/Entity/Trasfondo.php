@@ -19,8 +19,8 @@ class Trasfondo
     #[ORM\Column(length: 999)]
     private ?string $Descripcion = null;
 
-    #[ORM\Column]
-    private ?int $Origen = null;
+    #[ORM\Column(length:100)]
+    private ?string $Origen = null;
 
     #[ORM\Column(length: 999, nullable: true)]
     private ?string $Idiomas = null;
@@ -39,6 +39,9 @@ class Trasfondo
 
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $Plano = null;
+
+    #[ORM\Column(length: 999)]
+    private ?string $img = null;
 
     public function getId(): ?int
     {
@@ -69,12 +72,12 @@ class Trasfondo
         return $this;
     }
 
-    public function getOrigen(): ?int
+    public function getOrigen(): ?string
     {
         return $this->Origen;
     }
 
-    public function setOrigen(int $Origen): static
+    public function setOrigen(string $Origen): static
     {
         $this->Origen = $Origen;
 
@@ -149,6 +152,18 @@ class Trasfondo
     public function setPlano(string $Plano): static
     {
         $this->Plano = $Plano;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): static
+    {
+        $this->img = $img;
 
         return $this;
     }

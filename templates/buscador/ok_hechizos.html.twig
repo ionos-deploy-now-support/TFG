@@ -1,19 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-   <h1>BÚSQUEDA</h1
- <ul>
+<div class="listado">
      {% for hechizo in resultado %}
-     <a href="{{ path( "app_hechizo", { "id": hechizo.id} ) }}">
-      
-       <li>{{ hechizo.Nombre }}</li>
-        <li>{{hechizo.Autor}}</li>
+     <a class="elemento" href="{{ path( "app_hechizo", { "id": hechizo.id} ) }}">
+        <img class="I" src="{{hechizo.img}}">
+       <h2 class="N">{{ hechizo.Nombre }}</h2>
+       <span class="E"></span>
+       <span class="S"><b>Nivel:</b> {{hechizo.Nivel}}, <i>{{hechizo.Escuela}}</i></span>
+        <i class="A">{{hechizo.Autor}}</i>
+        <span class="C">{{hechizo.Componentes}}</span>
+
          
       </a>
-      <hr>
+      
      {% endfor %}
-    </ul>
- 
+  
+ </div>
 
 
 

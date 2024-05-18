@@ -72,7 +72,6 @@ class HechizosType2 extends AbstractType
             ->add('Duracion', ChoiceType::class, [
                 'choices' => [
                     'Instantánea' => 'Instantánea',
-                    '1 Asalto' => '1 Asalto',
                     '1 Minuto' => '1 Minuto',
                     '10 Minutos' => '10 Minutos',
                     '1 Hora' => '1 Hora',
@@ -91,6 +90,10 @@ class HechizosType2 extends AbstractType
             ->add('Autor', TextType::class, [
                 'required' => false
                 
+            ])
+            ->add('img', TextType::class, [
+                'required' => false, 
+                'label' => 'Imagen'
             ])
             ->add('Enviar', SubmitType::class)
         ;

@@ -46,6 +46,9 @@ class Hechizos
     #[ORM\Column(length: 200)]
     private ?string $Zona_Efecto = null;
 
+    #[ORM\Column(length: 999)]
+    private ?string $img = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -179,6 +182,18 @@ class Hechizos
     public function setZonaEfecto(string $Zona_Efecto): static
     {
         $this->Zona_Efecto = $Zona_Efecto;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): static
+    {
+        $this->img = $img;
 
         return $this;
     }

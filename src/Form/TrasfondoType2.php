@@ -32,8 +32,8 @@ class TrasfondoType2 extends AbstractType
         ->add('Descripcion', TextType::class,)
         ->add('Origen', ChoiceType::class, [
             'choices' => [
-                'Ocupación' => 0,
-                'Origen' => 1,
+                'Ocupación' => 'Ocupacion',
+                'Origen' => 'Origen',
                         ],
            
         ])
@@ -68,6 +68,7 @@ class TrasfondoType2 extends AbstractType
                     
                
             ])
+        ->add('img', TextType::class, ['label' => 'Imagen', 'required' => false])
             ->add('Enviar', SubmitType::class)
         ;
     }

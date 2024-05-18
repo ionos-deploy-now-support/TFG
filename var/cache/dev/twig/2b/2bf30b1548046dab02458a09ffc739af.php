@@ -66,36 +66,47 @@ class __TwigTemplate_ac015951a055065c06a69a43f45c4ead extends Template
 
         // line 3
         echo "
-   <h1>BÚSQUEDA</h1
- <ul>
+<div class=\"listado\">
      ";
-        // line 6
+        // line 5
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["resultado"]) || array_key_exists("resultado", $context) ? $context["resultado"] : (function () { throw new RuntimeError('Variable "resultado" does not exist.', 6, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["resultado"]) || array_key_exists("resultado", $context) ? $context["resultado"] : (function () { throw new RuntimeError('Variable "resultado" does not exist.', 5, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["subraza"]) {
-            // line 7
-            echo "     <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_subraza", ["id" => twig_get_attribute($this->env, $this->source, $context["subraza"], "id", [], "any", false, false, false, 7)]), "html", null, true);
+            // line 6
+            echo "     <a class=\"elemento\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_subraza", ["id" => twig_get_attribute($this->env, $this->source, $context["subraza"], "id", [], "any", false, false, false, 6)]), "html", null, true);
             echo "\">
-      
-       <li>";
-            // line 9
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subraza"], "Nombre", [], "any", false, false, false, 9), "html", null, true);
-            echo "</li>
-        <li>";
+        <img class=\"I\" src=\"";
+            // line 7
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subraza"], "img", [], "any", false, false, false, 7), "html", null, true);
+            echo "\">
+       <h2 class=\"N\">";
+            // line 8
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subraza"], "Nombre", [], "any", false, false, false, 8), "html", null, true);
+            echo "</h2>
+       <span class=\"E\"></span>
+       <i class=\"S\">";
             // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subraza"], "Autor", [], "any", false, false, false, 10), "html", null, true);
-            echo "</li>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subraza"], "Descripcion", [], "any", false, false, false, 10), "html", null, true);
+            echo "</i>
+        <i class=\"A\">";
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subraza"], "Autor", [], "any", false, false, false, 11), "html", null, true);
+            echo "</i>
+        <span class=\"C\"></span>
+
          
       </a>
-      <hr>
+      
      ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subraza'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 15
-        echo "    </ul>
+        // line 18
+        echo "  
+ </div>
+
  
 
 
@@ -130,7 +141,7 @@ class __TwigTemplate_ac015951a055065c06a69a43f45c4ead extends Template
      */
     public function getDebugInfo()
     {
-        return array (  98 => 15,  87 => 10,  83 => 9,  77 => 7,  73 => 6,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  107 => 18,  94 => 11,  90 => 10,  85 => 8,  81 => 7,  76 => 6,  72 => 5,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -138,18 +149,23 @@ class __TwigTemplate_ac015951a055065c06a69a43f45c4ead extends Template
         return new Source("{% extends 'base.html.twig' %}
 {% block body %}
 
-   <h1>BÚSQUEDA</h1
- <ul>
+<div class=\"listado\">
      {% for subraza in resultado %}
-     <a href=\"{{ path( \"app_subraza\", { \"id\": subraza.id} ) }}\">
-      
-       <li>{{ subraza.Nombre }}</li>
-        <li>{{subraza.Autor}}</li>
+     <a class=\"elemento\" href=\"{{ path( \"app_subraza\", { \"id\": subraza.id} ) }}\">
+        <img class=\"I\" src=\"{{subraza.img}}\">
+       <h2 class=\"N\">{{ subraza.Nombre }}</h2>
+       <span class=\"E\"></span>
+       <i class=\"S\">{{subraza.Descripcion}}</i>
+        <i class=\"A\">{{subraza.Autor}}</i>
+        <span class=\"C\"></span>
+
          
       </a>
-      <hr>
+      
      {% endfor %}
-    </ul>
+  
+ </div>
+
  
 
 

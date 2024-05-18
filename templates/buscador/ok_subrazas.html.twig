@@ -1,18 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-   <h1>BÚSQUEDA</h1
- <ul>
+<div class="listado">
      {% for subraza in resultado %}
-     <a href="{{ path( "app_subraza", { "id": subraza.id} ) }}">
-      
-       <li>{{ subraza.Nombre }}</li>
-        <li>{{subraza.Autor}}</li>
+     <a class="elemento" href="{{ path( "app_subraza", { "id": subraza.id} ) }}">
+        <img class="I" src="{{subraza.img}}">
+       <h2 class="N">{{ subraza.Nombre }}</h2>
+       <span class="E"></span>
+       <i class="S">{{subraza.Descripcion}}</i>
+        <i class="A">{{subraza.Autor}}</i>
+        <span class="C"></span>
+
          
       </a>
-      <hr>
+      
      {% endfor %}
-    </ul>
+  
+ </div>
+
  
 
 
