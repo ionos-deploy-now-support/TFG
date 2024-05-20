@@ -85,20 +85,88 @@ class __TwigTemplate_aad64d186a9a9d6d38ce561b1015706e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        echo "
+<div class=\"formulario center-h center-v\">
+<div class=\"formulario2 \">
+    <h1 class=\"titulo\">Clases</h1>
  ";
         // line 10
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_start');
         echo " 
- <a href=\"";
-        // line 11
+    <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 13
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "Nombre", [], "any", false, false, false, 13), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 17
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "Salvaciones", [], "any", false, false, false, 17), 'row');
+        echo "
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "Requisitos", [], "any", false, false, false, 22), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "Magia", [], "any", false, false, false, 26), 'row');
+        echo "
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "Competencias", [], "any", false, false, false, 31), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "PuntosDeGolpe", [], "any", false, false, false, 35), 'row');
+        echo "
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 40
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 40, $this->source); })()), "Autor", [], "any", false, false, false, 40), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\"><br>
+            ";
+        // line 44
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 44, $this->source); })()), "Enviar", [], "any", false, false, false, 44), 'row');
+        echo "
+        </div>
+    </div>
+ ";
+        // line 47
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 47, $this->source); })()), 'form_end');
+        echo "
+    
+        <div class=\"flex\">
+        <p><a  href=\"";
+        // line 50
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_subclase");
-        echo "\">
-        <span>Ir al filtro de Subclases</span>
-</a>
+        echo "\">Ir al filtro de Subclases</a></p>
+        </div>
+    </div>
+ </div>
+ 
 
 
 ";
@@ -131,7 +199,7 @@ class __TwigTemplate_aad64d186a9a9d6d38ce561b1015706e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  164 => 50,  158 => 47,  152 => 44,  145 => 40,  137 => 35,  130 => 31,  122 => 26,  115 => 22,  107 => 17,  100 => 13,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -141,14 +209,55 @@ class __TwigTemplate_aad64d186a9a9d6d38ce561b1015706e extends Template
 {% block title %}Hello BuscadorController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
- {{ form(form) }} 
- <a href=\"{{ path(\"app_buscador_subclase\") }}\">
-        <span>Ir al filtro de Subclases</span>
-</a>
+
+<div class=\"formulario center-h center-v\">
+<div class=\"formulario2 \">
+    <h1 class=\"titulo\">Clases</h1>
+ {{ form_start(form) }} 
+    <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Nombre) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.Salvaciones) }}
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Requisitos) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.Magia) }}
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Competencias) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.PuntosDeGolpe) }}
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Autor) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\"><br>
+            {{ form_row(form.Enviar) }}
+        </div>
+    </div>
+ {{form_end(form)}}
+    
+        <div class=\"flex\">
+        <p><a  href=\"{{ path(\"app_buscador_subclase\") }}\">Ir al filtro de Subclases</a></p>
+        </div>
+    </div>
+ </div>
+ 
 
 
 {% endblock %}

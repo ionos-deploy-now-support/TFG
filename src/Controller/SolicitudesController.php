@@ -77,6 +77,7 @@ class SolicitudesController extends AbstractController
 
         $hechizos = $this->entityManager->getRepository(Hechizos::class)->FindNonValidated();
         $contador_hechizos= count($hechizos);
+        
         return $this->render('revisiones/index.html.twig', [
             'controller_name' => 'SolicitudesController', 
             'clases' => $contador_clases,

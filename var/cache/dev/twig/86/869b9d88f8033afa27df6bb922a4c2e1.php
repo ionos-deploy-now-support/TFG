@@ -96,47 +96,75 @@ class __TwigTemplate_52095e01e5ef19c6c36655b563264df8 extends Template
         echo "\">
         <span>Clases</span>
     </a>
-    <a href=\"";
+    (";
         // line 14
+        echo twig_escape_filter($this->env, (isset($context["clases"]) || array_key_exists("clases", $context) ? $context["clases"] : (function () { throw new RuntimeError('Variable "clases" does not exist.', 14, $this->source); })()), "html", null, true);
+        echo ")
+    <a href=\"";
+        // line 15
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_subclase");
         echo "\">
         <span>Subclases</span>
     </a>
+    (";
+        // line 18
+        echo twig_escape_filter($this->env, (isset($context["subclases"]) || array_key_exists("subclases", $context) ? $context["subclases"] : (function () { throw new RuntimeError('Variable "subclases" does not exist.', 18, $this->source); })()), "html", null, true);
+        echo ")
     <a href=\"";
-        // line 17
+        // line 19
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_raza");
         echo "\">
         <span>Razas</span>
     </a>
+    (";
+        // line 22
+        echo twig_escape_filter($this->env, (isset($context["razas"]) || array_key_exists("razas", $context) ? $context["razas"] : (function () { throw new RuntimeError('Variable "razas" does not exist.', 22, $this->source); })()), "html", null, true);
+        echo ")
      <a href=\"";
-        // line 20
+        // line 23
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_subraza");
         echo "\">
         <span>Subrazas</span>
     </a>
+    (";
+        // line 26
+        echo twig_escape_filter($this->env, (isset($context["subrazas"]) || array_key_exists("subrazas", $context) ? $context["subrazas"] : (function () { throw new RuntimeError('Variable "subrazas" does not exist.', 26, $this->source); })()), "html", null, true);
+        echo ")
     <a href=\"";
-        // line 23
+        // line 27
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_trasfondo");
         echo "\">
         <span>Trasfondos</span>
     </a>
+    (";
+        // line 30
+        echo twig_escape_filter($this->env, (isset($context["trasfondos"]) || array_key_exists("trasfondos", $context) ? $context["trasfondos"] : (function () { throw new RuntimeError('Variable "trasfondos" does not exist.', 30, $this->source); })()), "html", null, true);
+        echo ")
      <a href=\"";
-        // line 26
+        // line 31
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_dote");
         echo "\">
         <span>Dotes</span>
     </a>
+    (";
+        // line 34
+        echo twig_escape_filter($this->env, (isset($context["dotes"]) || array_key_exists("dotes", $context) ? $context["dotes"] : (function () { throw new RuntimeError('Variable "dotes" does not exist.', 34, $this->source); })()), "html", null, true);
+        echo ")
      <a href=\"";
-        // line 29
+        // line 35
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_hechizo");
         echo "\">
         <span>Hechizos</span>
     </a>
+    (";
+        // line 38
+        echo twig_escape_filter($this->env, (isset($context["hechizos"]) || array_key_exists("hechizos", $context) ? $context["hechizos"] : (function () { throw new RuntimeError('Variable "hechizos" does not exist.', 38, $this->source); })()), "html", null, true);
+        echo ")
 </div>
 <div class=\"example-wrapper\">
     <h1>Hello ";
-        // line 34
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 34, $this->source); })()), "html", null, true);
+        // line 41
+        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 41, $this->source); })()), "html", null, true);
         echo "! ✅</h1>
 
     This friendly message is coming from:
@@ -175,7 +203,7 @@ class __TwigTemplate_52095e01e5ef19c6c36655b563264df8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  139 => 34,  131 => 29,  125 => 26,  119 => 23,  113 => 20,  107 => 17,  101 => 14,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  167 => 41,  161 => 38,  155 => 35,  151 => 34,  145 => 31,  141 => 30,  135 => 27,  131 => 26,  125 => 23,  121 => 22,  115 => 19,  111 => 18,  105 => 15,  101 => 14,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -193,24 +221,31 @@ class __TwigTemplate_52095e01e5ef19c6c36655b563264df8 extends Template
     <a href=\"{{ path(\"app_revisiones_clase\") }}\">
         <span>Clases</span>
     </a>
+    ({{clases}})
     <a href=\"{{ path(\"app_revisiones_subclase\") }}\">
         <span>Subclases</span>
     </a>
+    ({{subclases}})
     <a href=\"{{ path(\"app_revisiones_raza\") }}\">
         <span>Razas</span>
     </a>
+    ({{razas}})
      <a href=\"{{ path(\"app_revisiones_subraza\") }}\">
         <span>Subrazas</span>
     </a>
+    ({{subrazas}})
     <a href=\"{{ path(\"app_revisiones_trasfondo\") }}\">
         <span>Trasfondos</span>
     </a>
+    ({{trasfondos}})
      <a href=\"{{ path(\"app_revisiones_dote\") }}\">
         <span>Dotes</span>
     </a>
+    ({{dotes}})
      <a href=\"{{ path(\"app_revisiones_hechizo\") }}\">
         <span>Hechizos</span>
     </a>
+    ({{hechizos}})
 </div>
 <div class=\"example-wrapper\">
     <h1>Hello {{ controller_name }}! ✅</h1>
