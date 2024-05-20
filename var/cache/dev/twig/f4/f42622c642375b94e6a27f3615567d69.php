@@ -85,14 +85,65 @@ class __TwigTemplate_5921dd0f466a4d5bb580655bc38c8feb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-";
-        // line 10
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form');
         echo "
+<div class=\"formulario center-h center-v\">
+<div class=\"formulario2 \">
+    <h1 class=\"titulo\">Dotes</h1>
+ ";
+        // line 10
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_start');
+        echo " 
+    <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 13
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "Nombre", [], "any", false, false, false, 13), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 17
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "Requisitos", [], "any", false, false, false, 17), 'row');
+        echo "
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "Beneficios", [], "any", false, false, false, 22), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "Autor", [], "any", false, false, false, 26), 'row');
+        echo "
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+           
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "Enviar", [], "any", false, false, false, 35), 'row');
+        echo "
+        </div>
+    </div>
+ ";
+        // line 38
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), 'form_end');
+        echo "
+    
+    </div>
+ </div>
+ 
+
 
 ";
         
@@ -124,7 +175,7 @@ class __TwigTemplate_5921dd0f466a4d5bb580655bc38c8feb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  140 => 38,  134 => 35,  122 => 26,  115 => 22,  107 => 17,  100 => 13,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -134,13 +185,46 @@ class __TwigTemplate_5921dd0f466a4d5bb580655bc38c8feb extends Template
 {% block title %}Hello BuscadorController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-{{ form(form) }}
+
+<div class=\"formulario center-h center-v\">
+<div class=\"formulario2 \">
+    <h1 class=\"titulo\">Dotes</h1>
+ {{ form_start(form) }} 
+    <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Nombre) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.Requisitos) }}
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Beneficios) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.Autor) }}
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+           
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.Enviar) }}
+        </div>
+    </div>
+ {{form_end(form)}}
+    
+    </div>
+ </div>
+ 
+
 
 {% endblock %}
-", "buscador/dotes.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\buscador\\dotes.html.twig");
+", "buscador/dotes.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\buscador\\dotes.html.twig");
     }
 }

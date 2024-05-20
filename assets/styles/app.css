@@ -270,5 +270,36 @@ button{
     cursor:pointer;
 }
 
+.indices{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+   border: 1px solid black;
+   width:750px;
+    margin:auto;
+    padding:10px;
+    border-radius:5px;
+    margin-top: 1rem;
+    flex-direction:column;
 
+}
+
+.indices a{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: black;
+    border: 1px solid black;
+    background-color: rgb(209, 33, 33);
+    padding:10px;
+}
+
+.indices a:hover{
+    background-color: yellow;
+    transition:all 0.5s;
+}
+
+.indices a:active{
+    background-color: purple;
+}
   

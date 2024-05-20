@@ -57,58 +57,58 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         ";
         // line 7
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 10
+        // line 11
         echo "
         ";
-        // line 11
+        // line 12
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 14
+        // line 15
         echo "    </head>
     <body>
         <header>
         <ul class=\"menu\">
             <a href=\"";
-        // line 18
+        // line 19
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\"><li>Inicio</li></a>
             <a href=\"";
-        // line 19
+        // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador");
         echo "\"><li>Buscador</li></a>
             <a href=\"\"><li>Creador de personajes</li></a>
             
             ";
-        // line 22
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22)) {
-            // line 23
+        // line 23
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23)) {
+            // line 24
             echo "                <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones");
             echo "\"><li>Revisiones</li></a>
                 <a href=\"";
-            // line 24
+            // line 25
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\"><li>Cerrar Sesión</li></a>
             ";
         } else {
-            // line 26
+            // line 27
             echo "                <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitudes");
             echo "\"><li>Solicitudes</li></a>
                 <a href=\"";
-            // line 27
+            // line 28
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\"><li>Iniciar Sesión</li></a>
             ";
         }
-        // line 29
+        // line 30
         echo "           
            
         </ul>
         </header>
         ";
-        // line 33
-        $this->displayBlock('body', $context, $blocks);
         // line 34
+        $this->displayBlock('body', $context, $blocks);
+        // line 35
         echo "    </body>
 </html>
 ";
@@ -153,6 +153,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         echo "        <link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("styles/app.css"), "html", null, true);
         echo "\">
+        <link rel=\"stylesheet\" href=\"";
+        // line 9
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("styles/icofont.min.css"), "html", null, true);
+        echo "\">
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -162,7 +166,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 11
+    // line 12
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -172,10 +176,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 12
+        // line 13
         echo "            ";
         $this->displayBlock('importmap', $context, $blocks);
-        // line 13
+        // line 14
         echo "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -185,7 +189,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 12
+    // line 13
     public function block_importmap($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -204,7 +208,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 33
+    // line 34
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -243,7 +247,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  208 => 33,  189 => 12,  179 => 13,  176 => 12,  166 => 11,  153 => 8,  143 => 7,  124 => 5,  112 => 34,  110 => 33,  104 => 29,  99 => 27,  94 => 26,  89 => 24,  84 => 23,  82 => 22,  76 => 19,  72 => 18,  66 => 14,  64 => 11,  61 => 10,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  212 => 34,  193 => 13,  183 => 14,  180 => 13,  170 => 12,  158 => 9,  153 => 8,  143 => 7,  124 => 5,  112 => 35,  110 => 34,  104 => 30,  99 => 28,  94 => 27,  89 => 25,  84 => 24,  82 => 23,  76 => 20,  72 => 19,  66 => 15,  64 => 12,  61 => 11,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -256,6 +260,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
         {% block stylesheets %}
         <link rel=\"stylesheet\" href=\"{{ asset('styles/app.css') }}\">
+        <link rel=\"stylesheet\" href=\"{{ asset('styles/icofont.min.css') }}\">
         {% endblock %}
 
         {% block javascripts %}
