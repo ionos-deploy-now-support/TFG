@@ -566,7 +566,7 @@ class BuscadorController extends AbstractController
     private function evoluciones($rasgos, $i){
         $final = '';
         foreach($rasgos as $r){
-            if (str_contains($r->getDescripción(), '{' . $i . '}')){
+            if (str_contains($r->getDescripcion(), '{' . $i . '}')){
                 $final = $final . $r->getNombre() . ' (Mejora), ';
             }
         }
