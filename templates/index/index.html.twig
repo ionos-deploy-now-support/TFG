@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello IndexController!{% endblock %}
-
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ parent() }}
+{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>E:/TFG/src/Controller/IndexController.php</code></li>
-        <li>Your template at <code>E:/TFG/templates/index/index.html.twig</code></li>
-    </ul>
+<h1 class="tituloApp"><b>¡Bienvenido a DNDpedia!</b></h1>
+<div class="indices">
+    <h1>Accesos Rápidos</h1>
+    <a href="{{ path("app_ok") }}">
+        <span><i class="icofont-shield"></i> Clases</span> 
+    </a>
+    
+    <a href="{{ path("app_ok_subclases") }}">
+        <span><i class="icofont-duotone icofont-shield"></i> Subclases</span> 
+    </a>
+    
+    <a href="{{ path("app_ok_razas") }}">
+        <span><i class="icofont-users-alt-3"></i> Razas</span> 
+    </a>
+    
+     <a href="{{ path("app_ok_subrazas") }}">
+        <span><i class="icofont-user"></i> Subrazas</span> 
+    </a>
+    
+    <a href="{{ path("app_ok_trasfondos") }}">
+        <span><i class="icofont-paper"></i> Trasfondos</span> 
+    </a>
+    
+     <a href="{{ path("app_ok_dotes") }}">
+        <span><i class="icofont-listine-dots"></i> Dotes</span> 
+    </a>
+    
+     <a href="{{ path("app_ok_hechizos") }}">
+        <span><i class="icofont-duotone icofont-wand"></i> Hechizos</span> 
+    </a>
+    
 </div>
 {% endblock %}

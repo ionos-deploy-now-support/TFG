@@ -39,6 +39,14 @@ class HechizosRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function FindAllValidated(){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+    }
+
     public function FindNonValidatedById($id){
         return $this->createQueryBuilder('a')
         ->select('a')

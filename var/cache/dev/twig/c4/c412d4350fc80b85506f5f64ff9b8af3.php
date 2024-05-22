@@ -85,44 +85,47 @@ class __TwigTemplate_ba0c0d60627db0337d41a66dfda0f71c extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
-    <ul>
+        echo "
+
+<div class=\"lista_revisiones\">
+    <h1>Revisiones de las Subclases</h1>
     ";
-        // line 12
+        // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["revisiones"]) || array_key_exists("revisiones", $context) ? $context["revisiones"] : (function () { throw new RuntimeError('Variable "revisiones" does not exist.', 12, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["revisiones"]) || array_key_exists("revisiones", $context) ? $context["revisiones"] : (function () { throw new RuntimeError('Variable "revisiones" does not exist.', 10, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["revision"]) {
+            // line 11
+            echo "    <div class=\"elemento_revisiones\">
+        <img src=\"";
+            // line 12
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["revision"], "img", [], "any", false, false, false, 12), "html", null, true);
+            echo "\">
+        <h2>";
             // line 13
-            echo "        <li>
-            <h2>";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["revision"], "nombre", [], "any", false, false, false, 14), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["revision"], "Nombre", [], "any", false, false, false, 13), "html", null, true);
             echo "</h2>
-            <a href=\"";
+        <div>
+            <button onclick=\"location.href='";
             // line 15
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_comprobar_subclase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 15)]), "html", null, true);
-            echo "\">Ver más</a>
-            <a href=\"";
+            echo "'\" class=\"btn btn-info\">Ver más</button>
+            <button onclick=\"location.href='";
             // line 16
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_validar_clase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 16)]), "html", null, true);
-            echo "\">Validar subclase</a>
-            <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_validar_subclase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 16)]), "html", null, true);
+            echo "'\" class=\"btn btn-success\">Validar subclase</button>
+            <button onclick=\"location.href='";
             // line 17
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_eliminar_clase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 17)]), "html", null, true);
-            echo "\">Eliminar subclase</a>
-        </li>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_eliminar_subclase", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 17)]), "html", null, true);
+            echo "'\" class=\"btn btn-danger\">Eliminar subclase</button>
+        </div>
+    </div>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['revision'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 20
-        echo "    </ul>
-</div>
+        // line 21
+        echo "</div>
 
 ";
         
@@ -154,7 +157,7 @@ class __TwigTemplate_ba0c0d60627db0337d41a66dfda0f71c extends Template
      */
     public function getDebugInfo()
     {
-        return array (  124 => 20,  115 => 17,  111 => 16,  107 => 15,  103 => 14,  100 => 13,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  128 => 21,  118 => 17,  114 => 16,  110 => 15,  105 => 13,  101 => 12,  98 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -164,21 +167,21 @@ class __TwigTemplate_ba0c0d60627db0337d41a66dfda0f71c extends Template
 {% block title %}Hello BuscadorController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
-    <ul>
+
+
+<div class=\"lista_revisiones\">
+    <h1>Revisiones de las Subclases</h1>
     {% for revision in revisiones %}
-        <li>
-            <h2>{{revision.nombre}}</h2>
-            <a href=\"{{ path(\"app_comprobar_subclase\", {'id': revision.id}) }}\">Ver más</a>
-            <a href=\"{{ path('app_validar_clase', {'id': revision.id}) }}\">Validar subclase</a>
-            <a href=\"{{ path('app_eliminar_clase', {'id': revision.id}) }}\">Eliminar subclase</a>
-        </li>
+    <div class=\"elemento_revisiones\">
+        <img src=\"{{revision.img}}\">
+        <h2>{{ revision.Nombre }}</h2>
+        <div>
+            <button onclick=\"location.href='{{ path(\"app_comprobar_subclase\", {'id': revision.id}) }}'\" class=\"btn btn-info\">Ver más</button>
+            <button onclick=\"location.href='{{ path('app_validar_subclase', {'id': revision.id}) }}'\" class=\"btn btn-success\">Validar subclase</button>
+            <button onclick=\"location.href='{{ path('app_eliminar_subclase', {'id': revision.id}) }}'\" class=\"btn btn-danger\">Eliminar subclase</button>
+        </div>
+    </div>
     {% endfor %}
-    </ul>
 </div>
 
 {% endblock %}", "revisiones/revisiones_subclase.html.twig", "/opt/TFG/templates/revisiones/revisiones_subclase.html.twig");

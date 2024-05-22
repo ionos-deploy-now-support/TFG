@@ -85,93 +85,78 @@ class __TwigTemplate_52095e01e5ef19c6c36655b563264df8 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
+        echo "<div class=\"indices\">
+    <h1>Accesos Rápidos</h1>
     <a href=\"";
-        // line 11
+        // line 8
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_clase");
         echo "\">
-        <span>Clases</span>
-    </a>
-    (";
-        // line 14
-        echo twig_escape_filter($this->env, (isset($context["clases"]) || array_key_exists("clases", $context) ? $context["clases"] : (function () { throw new RuntimeError('Variable "clases" does not exist.', 14, $this->source); })()), "html", null, true);
+        <span><i class=\"icofont-shield\"></i> Clases</span> (";
+        // line 9
+        echo twig_escape_filter($this->env, (isset($context["clases"]) || array_key_exists("clases", $context) ? $context["clases"] : (function () { throw new RuntimeError('Variable "clases" does not exist.', 9, $this->source); })()), "html", null, true);
         echo ")
+    </a>
+    
     <a href=\"";
-        // line 15
+        // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_subclase");
         echo "\">
-        <span>Subclases</span>
-    </a>
-    (";
-        // line 18
-        echo twig_escape_filter($this->env, (isset($context["subclases"]) || array_key_exists("subclases", $context) ? $context["subclases"] : (function () { throw new RuntimeError('Variable "subclases" does not exist.', 18, $this->source); })()), "html", null, true);
+        <span><i class=\"icofont-duotone icofont-shield\"></i> Subclases</span> (";
+        // line 13
+        echo twig_escape_filter($this->env, (isset($context["subclases"]) || array_key_exists("subclases", $context) ? $context["subclases"] : (function () { throw new RuntimeError('Variable "subclases" does not exist.', 13, $this->source); })()), "html", null, true);
         echo ")
+    </a>
+    
     <a href=\"";
-        // line 19
+        // line 16
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_raza");
         echo "\">
-        <span>Razas</span>
-    </a>
-    (";
-        // line 22
-        echo twig_escape_filter($this->env, (isset($context["razas"]) || array_key_exists("razas", $context) ? $context["razas"] : (function () { throw new RuntimeError('Variable "razas" does not exist.', 22, $this->source); })()), "html", null, true);
+        <span><i class=\"icofont-users-alt-3\"></i> Razas</span> (";
+        // line 17
+        echo twig_escape_filter($this->env, (isset($context["razas"]) || array_key_exists("razas", $context) ? $context["razas"] : (function () { throw new RuntimeError('Variable "razas" does not exist.', 17, $this->source); })()), "html", null, true);
         echo ")
+    </a>
+    
      <a href=\"";
-        // line 23
+        // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_subraza");
         echo "\">
-        <span>Subrazas</span>
-    </a>
-    (";
-        // line 26
-        echo twig_escape_filter($this->env, (isset($context["subrazas"]) || array_key_exists("subrazas", $context) ? $context["subrazas"] : (function () { throw new RuntimeError('Variable "subrazas" does not exist.', 26, $this->source); })()), "html", null, true);
+        <span><i class=\"icofont-user\"></i> Subrazas</span> (";
+        // line 21
+        echo twig_escape_filter($this->env, (isset($context["subrazas"]) || array_key_exists("subrazas", $context) ? $context["subrazas"] : (function () { throw new RuntimeError('Variable "subrazas" does not exist.', 21, $this->source); })()), "html", null, true);
         echo ")
+    </a>
+    
     <a href=\"";
-        // line 27
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_trasfondo");
         echo "\">
-        <span>Trasfondos</span>
-    </a>
-    (";
-        // line 30
-        echo twig_escape_filter($this->env, (isset($context["trasfondos"]) || array_key_exists("trasfondos", $context) ? $context["trasfondos"] : (function () { throw new RuntimeError('Variable "trasfondos" does not exist.', 30, $this->source); })()), "html", null, true);
+        <span><i class=\"icofont-paper\"></i> Trasfondos</span> (";
+        // line 25
+        echo twig_escape_filter($this->env, (isset($context["trasfondos"]) || array_key_exists("trasfondos", $context) ? $context["trasfondos"] : (function () { throw new RuntimeError('Variable "trasfondos" does not exist.', 25, $this->source); })()), "html", null, true);
         echo ")
+    </a>
+    
      <a href=\"";
-        // line 31
+        // line 28
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_dote");
         echo "\">
-        <span>Dotes</span>
-    </a>
-    (";
-        // line 34
-        echo twig_escape_filter($this->env, (isset($context["dotes"]) || array_key_exists("dotes", $context) ? $context["dotes"] : (function () { throw new RuntimeError('Variable "dotes" does not exist.', 34, $this->source); })()), "html", null, true);
+        <span><i class=\"icofont-listine-dots\"></i> Dotes</span> (";
+        // line 29
+        echo twig_escape_filter($this->env, (isset($context["dotes"]) || array_key_exists("dotes", $context) ? $context["dotes"] : (function () { throw new RuntimeError('Variable "dotes" does not exist.', 29, $this->source); })()), "html", null, true);
         echo ")
+    </a>
+    
      <a href=\"";
-        // line 35
+        // line 32
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_revisiones_hechizo");
         echo "\">
-        <span>Hechizos</span>
-    </a>
-    (";
-        // line 38
-        echo twig_escape_filter($this->env, (isset($context["hechizos"]) || array_key_exists("hechizos", $context) ? $context["hechizos"] : (function () { throw new RuntimeError('Variable "hechizos" does not exist.', 38, $this->source); })()), "html", null, true);
+        <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span> (";
+        // line 33
+        echo twig_escape_filter($this->env, (isset($context["hechizos"]) || array_key_exists("hechizos", $context) ? $context["hechizos"] : (function () { throw new RuntimeError('Variable "hechizos" does not exist.', 33, $this->source); })()), "html", null, true);
         echo ")
-</div>
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 41
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 41, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/src/Controller/BuscadorController.php</code></li>
-        <li>Your template at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/templates/buscador/index.html.twig</code></li>
-    </ul>
+    </a>
+    
 </div>
 ";
         
@@ -203,7 +188,7 @@ class __TwigTemplate_52095e01e5ef19c6c36655b563264df8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  167 => 41,  161 => 38,  155 => 35,  151 => 34,  145 => 31,  141 => 30,  135 => 27,  131 => 26,  125 => 23,  121 => 22,  115 => 19,  111 => 18,  105 => 15,  101 => 14,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  156 => 33,  152 => 32,  146 => 29,  142 => 28,  136 => 25,  132 => 24,  126 => 21,  122 => 20,  116 => 17,  112 => 16,  106 => 13,  102 => 12,  96 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -213,48 +198,36 @@ class __TwigTemplate_52095e01e5ef19c6c36655b563264df8 extends Template
 {% block title %}Hello BuscadorController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
+<div class=\"indices\">
+    <h1>Accesos Rápidos</h1>
     <a href=\"{{ path(\"app_revisiones_clase\") }}\">
-        <span>Clases</span>
+        <span><i class=\"icofont-shield\"></i> Clases</span> ({{clases}})
     </a>
-    ({{clases}})
+    
     <a href=\"{{ path(\"app_revisiones_subclase\") }}\">
-        <span>Subclases</span>
+        <span><i class=\"icofont-duotone icofont-shield\"></i> Subclases</span> ({{subclases}})
     </a>
-    ({{subclases}})
+    
     <a href=\"{{ path(\"app_revisiones_raza\") }}\">
-        <span>Razas</span>
+        <span><i class=\"icofont-users-alt-3\"></i> Razas</span> ({{razas}})
     </a>
-    ({{razas}})
+    
      <a href=\"{{ path(\"app_revisiones_subraza\") }}\">
-        <span>Subrazas</span>
+        <span><i class=\"icofont-user\"></i> Subrazas</span> ({{subrazas}})
     </a>
-    ({{subrazas}})
+    
     <a href=\"{{ path(\"app_revisiones_trasfondo\") }}\">
-        <span>Trasfondos</span>
+        <span><i class=\"icofont-paper\"></i> Trasfondos</span> ({{trasfondos}})
     </a>
-    ({{trasfondos}})
+    
      <a href=\"{{ path(\"app_revisiones_dote\") }}\">
-        <span>Dotes</span>
+        <span><i class=\"icofont-listine-dots\"></i> Dotes</span> ({{dotes}})
     </a>
-    ({{dotes}})
+    
      <a href=\"{{ path(\"app_revisiones_hechizo\") }}\">
-        <span>Hechizos</span>
+        <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span> ({{hechizos}})
     </a>
-    ({{hechizos}})
-</div>
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/src/Controller/BuscadorController.php</code></li>
-        <li>Your template at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/templates/buscador/index.html.twig</code></li>
-    </ul>
+    
 </div>
 {% endblock %}", "revisiones/index.html.twig", "/opt/TFG/templates/revisiones/index.html.twig");
     }

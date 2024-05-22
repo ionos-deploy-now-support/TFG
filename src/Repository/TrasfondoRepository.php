@@ -57,6 +57,14 @@ class TrasfondoRepository extends ServiceEntityRepository
         ->getQuery()
         ->getOneOrNullResult();
     }
+
+    public function FindAllValidated(){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+    }
     
     public function FindFilter(Trasfondo $formulario){
        $qb = $this->createQueryBuilder('a')

@@ -145,7 +145,7 @@ class Habilidades5Type extends AbstractType
             ]
         ])
 
-        ->add('save', SubmitType::class, ['label' => 'Enviar'] )
+        ->add('Enviar', SubmitType::class, ['label' => 'Enviar'] )
         ;
     }
 

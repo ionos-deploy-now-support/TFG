@@ -85,54 +85,43 @@ class __TwigTemplate_269adf14579171574241eb09736198b4 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
+        echo "
+<div class=\"indices\">
+    <h1>Buscador</h1>
     <a href=\"";
-        // line 11
+        // line 9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_clase");
         echo "\">
-        <span>Clases</span>
+        <span><i class=\"icofont-shield\"></i> Clases</span>
     </a>
     <a href=\"";
-        // line 14
+        // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_razas");
         echo "\">
-        <span>Razas</span>
+        <span><i class=\"icofont-users-alt-3\"></i> Razas</span>
     </a>
     <a href=\"";
-        // line 17
+        // line 15
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_trasfondo");
         echo "\">
-        <span>Trasfondos</span>
+        <span><i class=\"icofont-paper\"></i> Trasfondos</span>
     </a>
      <a href=\"";
-        // line 20
+        // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_dotes");
         echo "\">
-        <span>Dotes</span>
+        <span><i class=\"icofont-listine-dots\"></i> Dotes</span>
     </a>
      <a href=\"";
-        // line 23
+        // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_hechizos");
         echo "\">
-        <span>Hechizos</span>
+        <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span>
     </a>
 </div>
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 28
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 28, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/src/Controller/BuscadorController.php</code></li>
-        <li>Your template at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/templates/buscador/index.html.twig</code></li>
-    </ul>
-</div>
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -163,7 +152,7 @@ class __TwigTemplate_269adf14579171574241eb09736198b4 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  127 => 28,  119 => 23,  113 => 20,  107 => 17,  101 => 14,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  117 => 21,  111 => 18,  105 => 15,  99 => 12,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -173,36 +162,28 @@ class __TwigTemplate_269adf14579171574241eb09736198b4 extends Template
 {% block title %}Hello BuscadorController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
+
+<div class=\"indices\">
+    <h1>Buscador</h1>
     <a href=\"{{ path(\"app_buscador_clase\") }}\">
-        <span>Clases</span>
+        <span><i class=\"icofont-shield\"></i> Clases</span>
     </a>
     <a href=\"{{ path(\"app_buscador_razas\") }}\">
-        <span>Razas</span>
+        <span><i class=\"icofont-users-alt-3\"></i> Razas</span>
     </a>
     <a href=\"{{ path(\"app_buscador_trasfondo\") }}\">
-        <span>Trasfondos</span>
+        <span><i class=\"icofont-paper\"></i> Trasfondos</span>
     </a>
      <a href=\"{{ path(\"app_buscador_dotes\") }}\">
-        <span>Dotes</span>
+        <span><i class=\"icofont-listine-dots\"></i> Dotes</span>
     </a>
      <a href=\"{{ path(\"app_buscador_hechizos\") }}\">
-        <span>Hechizos</span>
+        <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span>
     </a>
 </div>
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/src/Controller/BuscadorController.php</code></li>
-        <li>Your template at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/templates/buscador/index.html.twig</code></li>
-    </ul>
-</div>
+
+
 {% endblock %}
 ", "buscador/index.html.twig", "/opt/TFG/templates/buscador/index.html.twig");
     }

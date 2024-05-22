@@ -4,30 +4,22 @@
 
 {% block body %}
 
-<div>
+<div class="indices">
+    <h1>Accesos Rápidos</h1>
     <a href="{{ path("app_solicitud_clase") }}">
-       <span>Clases</span>
+       <span><i class="icofont-shield"></i> Clases</span>
     </a>
     <a href="{{ path("app_solicitud_raza") }}">
-        <span>Razas</span>
+        <span><i class="icofont-users-alt-3"></i> Razas</span>
     </a>
     <a href="{{ path("app_solicitud_trasfondos") }}">
-        <span>Trasfondos</span>
+        <span><i class="icofont-paper"></i> Trasfondos</span>
     </a>
      <a href="{{ path("app_solicitud_dote") }}">
-        <span>Dotes</span>
+        <span><i class="icofont-listine-dots"></i> Dotes</span>
     </a>
      <a href="{{ path("app_solicitud_hechizo") }}">
-        <span>Hechizos</span>
+        <span><i class="icofont-duotone icofont-wand"></i> Hechizos</span>
     </a>
-</div>
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/src/Controller/BuscadorController.php</code></li>
-        <li>Your template at <code>C:/Users/alopa/OneDrive/Escritorio/xampp2/htdocs/Symfony/TFG/templates/buscador/index.html.twig</code></li>
-    </ul>
 </div>
 {% endblock %}

@@ -51,24 +51,24 @@
                         <span class="L">Nivel {{habilidad.OrigenNivel}}</span>
                         <span class="D">{% set parraf = ""%}
                                         {% set buffer = 0 %}
-                                        {% for i in 0.. habilidad.Descripcion|length %}
+                                        {% for i in 0.. habilidad.descripcion|length %}
                                             {% if buffer > 0 %}
                                                 {% set buffer = buffer - 1 %}
-                                            {% elseif habilidad.Descripcion|slice(i,5) == "{|S|}" %}
+                                            {% elseif habilidad.descripcion|slice(i,5) == "{|S|}" %}
                                                 {% set parraf = [parraf,"\n"]|join %}
                                                 {% set buffer = 4 %}
-                                            {% elseif habilidad.Descripcion|slice(i,5) == "{|B|}" %}
+                                            {% elseif habilidad.descripcion|slice(i,5) == "{|B|}" %}
                                                 {{parraf|nl2br}}
                                                 {% set parraf = ""%}
                                                 <b>
                                                 {% set buffer = 4 %}
-                                            {% elseif habilidad.Descripcion|slice(i,6) == "{|/B|}" %}
+                                            {% elseif habilidad.descripcion|slice(i,6) == "{|/B|}" %}
                                                 {{parraf|nl2br}}
                                                 {% set parraf = ""%}
                                                 </b>
                                                 {% set buffer = 5 %}
                                             {% else %}
-                                                {% set parraf = [parraf,habilidad.Descripcion|slice(i,1)]|join %}
+                                                {% set parraf = [parraf,habilidad.descripcion|slice(i,1)]|join %}
                                             {% endif %}
                                         {% endfor %}
                                         {{parraf|nl2br}}

@@ -74,27 +74,32 @@ class __TwigTemplate_f6cb42d41dfb2cf269f6bcf7419b28b1 extends Template
     ";
         }
         // line 10
-        echo "
+        echo "    <div class=\"login\">
+    <h1>Iniciar Sesión</h1>
     <form action=\"";
-        // line 11
+        // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\" method=\"post\">
-        <label for=\"username\">Email:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 13
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 13, $this->source); })()), "html", null, true);
+        <label for=\"username\">Usuario:</label>
+        <input class=\"loginUser\" type=\"text\" id=\"username\" name=\"_username\" value=\"";
+        // line 14
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 14, $this->source); })()), "html", null, true);
         echo "\">
 
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\">
+        <label for=\"password\">Contraseña:</label>
+        <input class=\"loginPass\" type=\"password\" id=\"password\" name=\"_password\">
 
         ";
-        // line 20
+        // line 21
         echo "        <input type=\"hidden\" name=\"_target_path\" value=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\"/> 
-        <button type=\"submit\">login</button>
+        <div class=\"divLoginButton\">
+            <button type=\"submit\" class=\"loginButton\">Iniciar Sesión</button>
+        </div>
+        
     </form>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -125,7 +130,7 @@ class __TwigTemplate_f6cb42d41dfb2cf269f6bcf7419b28b1 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  93 => 20,  85 => 13,  80 => 11,  77 => 10,  71 => 8,  68 => 7,  58 => 6,  35 => 2,);
+        return array (  94 => 21,  86 => 14,  81 => 12,  77 => 10,  71 => 8,  68 => 7,  58 => 6,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -139,19 +144,24 @@ class __TwigTemplate_f6cb42d41dfb2cf269f6bcf7419b28b1 extends Template
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
+    <div class=\"login\">
+    <h1>Iniciar Sesión</h1>
     <form action=\"{{ path('app_login') }}\" method=\"post\">
-        <label for=\"username\">Email:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\">
+        <label for=\"username\">Usuario:</label>
+        <input class=\"loginUser\" type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\">
 
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\">
+        <label for=\"password\">Contraseña:</label>
+        <input class=\"loginPass\" type=\"password\" id=\"password\" name=\"_password\">
 
         {# If you want to control the URL the user is redirected to on success
         <input type=\"hidden\" name=\"_target_path\" value=\"/account\"> #}
         <input type=\"hidden\" name=\"_target_path\" value=\"{{path('app_index')}}\"/> 
-        <button type=\"submit\">login</button>
+        <div class=\"divLoginButton\">
+            <button type=\"submit\" class=\"loginButton\">Iniciar Sesión</button>
+        </div>
+        
     </form>
+    </div>
 {% endblock %}", "login/index.html.twig", "/opt/TFG/templates/login/index.html.twig");
     }
 }

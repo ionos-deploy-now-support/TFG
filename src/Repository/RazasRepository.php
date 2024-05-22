@@ -31,6 +31,14 @@ class RazasRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function FindAllValidated(){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->getQuery()
+        ->getResult();
+    }
+
     public function FindNonValidated(){
         return $this->createQueryBuilder('a')
         ->select('a')
