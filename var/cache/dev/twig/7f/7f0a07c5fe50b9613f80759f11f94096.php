@@ -85,15 +85,67 @@ class __TwigTemplate_58d9a467f7908f569f48f38c9524a435 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        echo "
+<div class=\"formulario center-h center-v\">
+<div class=\"formulario2 \">
+    <h1 class=\"titulo\">Solicitudes de Subclases</h1>
  ";
         // line 10
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_start');
+        echo " 
+    <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 13
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "Nombre", [], "any", false, false, false, 13), 'row');
         echo "
-
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 17
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "Requisitos", [], "any", false, false, false, 17), 'row');
+        echo "
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 22
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "clase_id", [], "any", false, false, false, 22), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            ";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "img", [], "any", false, false, false, 26), 'row');
+        echo "
+        </div>
+    </div>
+    <div class=\"row\">
+        <div class=\"C\">
+            ";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "Autor", [], "any", false, false, false, 31), 'row');
+        echo "
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\"><br>
+            ";
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "Enviar", [], "any", false, false, false, 35), 'row');
+        echo "
+        </div>
+    </div>
+ ";
+        // line 38
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), 'form_end');
+        echo "
+    
+    </div>
+ </div>
+ 
 
 
 ";
@@ -126,7 +178,7 @@ class __TwigTemplate_58d9a467f7908f569f48f38c9524a435 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  143 => 38,  137 => 35,  130 => 31,  122 => 26,  115 => 22,  107 => 17,  100 => 13,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -136,15 +188,45 @@ class __TwigTemplate_58d9a467f7908f569f48f38c9524a435 extends Template
 {% block title %}Hello BuscadorController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
- {{form(form)}}
+
+<div class=\"formulario center-h center-v\">
+<div class=\"formulario2 \">
+    <h1 class=\"titulo\">Solicitudes de Subclases</h1>
+ {{ form_start(form) }} 
+    <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Nombre) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.Requisitos) }}
+        </div>
+    </div>
+     <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.clase_id) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\">
+            {{ form_row(form.img) }}
+        </div>
+    </div>
+    <div class=\"row\">
+        <div class=\"C\">
+            {{ form_row(form.Autor) }}
+        </div>
+        <span class=\"E\"></span>
+        <div class=\"A\"><br>
+            {{ form_row(form.Enviar) }}
+        </div>
+    </div>
+ {{form_end(form)}}
+    
+    </div>
+ </div>
+ 
 
 
-
-{% endblock %}
-", "solicitudes/subclases.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\solicitudes\\subclases.html.twig");
+{% endblock %}", "solicitudes/subclases.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\solicitudes\\subclases.html.twig");
     }
 }

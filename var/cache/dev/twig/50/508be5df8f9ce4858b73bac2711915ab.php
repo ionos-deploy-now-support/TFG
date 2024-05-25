@@ -65,7 +65,7 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello BuscadorController!";
+        echo "DNDpedia";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -87,38 +87,40 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
         // line 6
         echo "
 <div class=\"indices\">
-    <h1>Accesos Rápidos</h1>
+    <h1>Buscador</h1>
     <a href=\"";
         // line 9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_clase");
         echo "\">
-        <span><i class=\"icofont-shield\"></i>Clases</span>
+        <span><i class=\"icofont-shield\"></i> Clases</span>
     </a>
     <a href=\"";
         // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_razas");
         echo "\">
-        <span>Razas</span>
+        <span><i class=\"icofont-users-alt-3\"></i> Razas</span>
     </a>
     <a href=\"";
         // line 15
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_trasfondo");
         echo "\">
-        <span>Trasfondos</span>
+        <span><i class=\"icofont-paper\"></i> Trasfondos</span>
     </a>
      <a href=\"";
         // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_dotes");
         echo "\">
-        <span>Dotes</span>
+        <span><i class=\"icofont-listine-dots\"></i> Dotes</span>
     </a>
      <a href=\"";
         // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_hechizos");
         echo "\">
-        <span>Hechizos</span>
+        <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span>
     </a>
 </div>
+
+
 
 ";
         
@@ -157,30 +159,32 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello BuscadorController!{% endblock %}
+{% block title %}DNDpedia{% endblock %}
 
 {% block body %}
 
 <div class=\"indices\">
-    <h1>Accesos Rápidos</h1>
+    <h1>Buscador</h1>
     <a href=\"{{ path(\"app_buscador_clase\") }}\">
-        <span><i class=\"icofont-shield\"></i>Clases</span>
+        <span><i class=\"icofont-shield\"></i> Clases</span>
     </a>
     <a href=\"{{ path(\"app_buscador_razas\") }}\">
-        <span>Razas</span>
+        <span><i class=\"icofont-users-alt-3\"></i> Razas</span>
     </a>
     <a href=\"{{ path(\"app_buscador_trasfondo\") }}\">
-        <span>Trasfondos</span>
+        <span><i class=\"icofont-paper\"></i> Trasfondos</span>
     </a>
      <a href=\"{{ path(\"app_buscador_dotes\") }}\">
-        <span>Dotes</span>
+        <span><i class=\"icofont-listine-dots\"></i> Dotes</span>
     </a>
      <a href=\"{{ path(\"app_buscador_hechizos\") }}\">
-        <span>Hechizos</span>
+        <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span>
     </a>
 </div>
 
+
+
 {% endblock %}
-", "buscador/index.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\buscador\\index.html.twig");
+", "buscador/index.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\buscador\\index.html.twig");
     }
 }

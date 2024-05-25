@@ -20,19 +20,15 @@ body{
     max-width: 100%;
 }
 
-
 header{
-    width: 100%;
-    height: 60px;
-    background-color: rgb(209, 33, 33);
+    height: 3em;
+
     display: flex;
+    justify-content: center;
+
     position: sticky;
     top:0px;
-    align-items:center;
-    justify-content:center;
-    margin: 0;
-    padding: 0;
-
+    background-color: rgb(209, 33, 33);
 }
 header .menu li{
     color: white;
@@ -55,21 +51,32 @@ header .menu li{
 .grid-clase{
     
     display:grid;
-    grid-template-areas:"V1 N N V2"
-                        "H H I I"
-                        "C C I I"
-                        "E E I I"
-                        "P P I I"
-                        "S S I I"
-                        "R R I I";
+    grid-template-areas:"V1 I V2"
+                        "V1 N V2"
+                        "P espacio S"
+                        "R espacio E"
+                        "H espacio C";
 
 
-    grid-template-columns:0.2fr 0.3fr 0.3fr 0.2fr;
-    grid-template-rows: 0.1fr repeat(6,0.2fr);
+    grid-template-columns:0.375fr 0.25fr 0.375fr;
+    grid-template-rows: 0.5fr 0.1fr repeat(3,0.25fr);
     
 }
 
-.grid-clase .N{
+.grid-subclase{
+    
+    display:grid;
+    grid-template-areas:"V1 I V2"
+                        "V1 N V2"
+                        "V1 R V2";
+
+
+    grid-template-columns:0.375fr 0.25fr 0.375fr;
+    grid-template-rows: 0.5fr 0.1fr 0.25fr;
+    
+}
+
+.grid-clase .N, .grid-subclase .N{
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -77,12 +84,15 @@ header .menu li{
 .grid-rasgos{
     
     display:grid;
-    grid-template-areas:"N N V1 L"
-                        "D D D D";
+    grid-template-areas:"N V1 L"
+                        "D D D";
                        
-    grid-template-columns:0.2fr 0.3fr 0.3fr 0.2fr;
+    grid-template-columns:0.5fr 0.3fr 0.2fr;
     grid-template-rows: 25px auto;
     padding:20px;
+}
+.grid-rasgos:hover{
+    background-color: lightgray;
 }
 
 .Progreso{
@@ -96,14 +106,17 @@ header .menu li{
     padding-bottom: 2.5px;
 }
 
+.Progreso tr:hover{
+    background-color: lightgray;
+}
 
-
-
-
-/*  grid-area:ME; */
+/*  GRID AREAS */
 .N{
     grid-area:N;
+}
 
+.espacio{
+    grid-area:espacio;
 }
 
 .D{
@@ -118,6 +131,8 @@ header .menu li{
     width:100%;
     height:100%;
     border-radius: 100%;
+    padding:2.5px;
+    box-shadow: 0px 0px 10px black;
 }
 .R{
     grid-area:R;
@@ -151,16 +166,20 @@ header .menu li{
     grid-area:L;
 }
 
+.A{
+    grid-area:A;
+}
+
 h1{
     text-align:center;
 }
 
 
 .listado{
-    margin-left:150px;
-    margin-right:150px;
-    margin-top:50px;
-    margin-bottom:50px;
+    margin-left:6%;
+    margin-right:6%;
+    margin-top:2em;
+    margin-bottom:5em;
     
 }
 
@@ -170,14 +189,15 @@ h1{
     border-radius: 100%;
     padding:2.5px;
     box-shadow: 0px 0px 10px black;
+    margin-right:0.15em;
 }
 
 .elemento{
     display:grid;
-    grid-template-areas:"I I N N E S S S"
-                        "I I A A E C C C";
+    grid-template-areas:"I N E S"
+                        "I A E C";
                        
-    grid-template-columns:0.025fr 0.025fr 0.1fr 0.1fr 0.1fr 0.25fr 0.2fr 0.2fr;
+    grid-template-columns:0.05fr 0.25fr 0.1fr 0.6fr;
     grid-template-rows: auto;
     padding:20px;
     border-radius:5px;
@@ -185,8 +205,9 @@ h1{
     background-color:white;
 }
 
-.A{
-    grid-area:A;
+.SU .listado .elemento{
+    margin-top:0.25em;
+    box-shadow: 0px 0px 3px black;
 }
 
 body{
@@ -227,12 +248,10 @@ a:link {
     grid-template-columns:0.45fr 0.1fr 0.45fr;
     grid-template-rows: auto;
     padding:10px;
-    
   }
 
   .formulario{
     display:flex;
-    
     width:100%;
   }
 
@@ -310,7 +329,7 @@ button{
 }
 
 .indices a:hover{
-    background-color: yellow;
+    background-color: lightgray;
     transition:all 0.5s;
 }
 
@@ -353,8 +372,8 @@ button{
 
 .rowHabilidades{
     display:grid;
-    grid-template-areas:"C E A E N";                    
-    grid-template-columns:0.25fr 0.125fr 0.25fr 0.125fr 0.25fr;
+    grid-template-areas:"C E A I N";                    
+    grid-template-columns:0.3fr 0.05fr 0.4fr 0.05fr 0.15fr;
     grid-template-rows: auto;
     padding:10px;
     
@@ -371,16 +390,13 @@ button{
     align-items: center;
   }
 
-  .menu_login{
+  .menu_login *, .menu_logout *{
+    margin-top: 0.7em;
+    right: 1em;
     display: inline-block;
-    transform: translateX(450px);
-    position:relative;
-  }
-
-  .menu_logout{
-    display: inline-block;
-    transform: translateX(450px);
-    position:relative;
+    color: white;
+    transform: scale(2);
+    position: absolute;
   }
 
   
@@ -435,11 +451,17 @@ button{
 footer {
     background-color: rgb(198, 197, 197);
     text-align: center;
-    padding: 10px;
-    position: fixed;
+    padding: 0.5em;
     left: 0;
     bottom: 0;
     width: 100%;
+    font-size: small;
+    position: fixed;
+}
+footer h4{
+    font-size: medium;
+    margin: 0.1em;
+    font-weight: bold;
 }
 
 .tituloApp{
@@ -447,8 +469,5 @@ footer {
     font-size: 100px;
 }
 
-@media screen and (max-width: 600px) {
-    header {
-        flex-direction: column;
-    }
-}
+
+

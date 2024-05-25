@@ -66,6 +66,16 @@ class SubrazasRepository extends ServiceEntityRepository
         ->getOneOrNullResult();
     }
 
+    public function FindRazaById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->andWhere('a.raza_id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getResult();
+    }
+
     
     
     public function FindFilter(Subrazas $formulario){

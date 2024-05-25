@@ -15,21 +15,20 @@
     </head>
     <body>
         <header>
-        <ul class="menu">
-            <a href="{{ path("app_index") }}"><li>Inicio</li></a>
-            <a href="{{ path("app_buscador") }}"><li>Buscador</li></a>
-            <a href=""><li>Creador de personajes</li></a>
+            <ul class="menu">
+                <a href="{{ path("app_index") }}"><li>Inicio</li></a>
+                <a href="{{ path("app_buscador") }}"><li>Buscador</li></a>
+                <a href=""><li>Creador de personajes</li></a>
+                {% if app.user %}
+                    <a href="{{ path("app_revisiones") }}"><li>Revisiones</li></a>
+                    </ul>
+                    <a href="{{ path("app_logout") }}" class="menu_logout"><i class="icofont-logout"></i></a>
+                {% else %}
+                    <a href="{{ path("app_solicitudes") }}"><li>Solicitudes</li></a>
+                    </ul>
+                    <a href="{{path("app_login")}}" class="menu_login"><i class="icofont-login"></i></a>
+                {% endif %}
             
-            {% if app.user %}
-                <a href="{{ path("app_revisiones") }}"><li>Revisiones</li></a>
-                <a href="{{ path("app_logout") }}" class="menu_logout"><li><i class="icofont-logout"></i></li></a>
-            {% else %}
-                <a href="{{ path("app_solicitudes") }}"><li>Solicitudes</li></a>
-                <a href="{{path("app_login")}}" class="menu_login"><li><i class="icofont-login"></i></li></a>
-            {% endif %}
-           
-           
-        </ul>
         </header>
         {% block body %}{% endblock %}
         <footer>
@@ -39,7 +38,6 @@
                 <a href="https://www.instagram.com/javieralonso_paniagua/"><i class="icofont-instagram"></i></a>
                 <a href="https://twitter.com/JavierAlonsoP1"><i class="icofont-twitter"></i></a>
                 <a href="https://github.com/"> <i class="icofont-github"></i></a>
-
             </h4>
             <b>Copyright &copy; 2024 DnDpedia</b>
         </footer>

@@ -226,15 +226,13 @@ class SolicitudesController extends AbstractController
     #[Route("/solicitud_clase/{id}", name:"app_comprobar_clase")]
     public function clasesok(Request $request, $id):Response
     {
-        
-      
-        
-        $clase = $this->entityManager->getRepository(Clases::class)->FindNonValidatedById($id);
+        $clase = $this->entityManager->getRepository(Clases::class)->find($id);
         $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('clases',$id);
-        $tabla = $this->progreso($rasgos);
-        
-        return $this->render('buscador/claseok.html.twig', [
-             'clase' => $clase, 'tabla' => $tabla, 'rasgos' => $rasgos
+        $subclases = $this->entityManager->getRepository(Subclases::class)->FindClassById($id);
+        $tabla = $this->progreso($rasgos, $id);
+                
+        return $this->render('buscador/mostrar/clases.html.twig', [
+            'clase' => $clase, 'rasgos' => $rasgos, 'tabla' => $tabla, 'subclases' => $subclases
         ]);
     }
 
@@ -288,7 +286,7 @@ public function Buscador_Subclases( Request $request):Response
 
     if ($form->isSubmitted() && $form->isValid()) {
         $subclases = $form->getData();
-        if ($subclases->getAutor() == null || strtolower($subclases->getAutor() )== 'clash of fates'){
+        if ($this->copyright($subclases->getAutor())){
             $subclases->setAutor('Anónimo');
         }
 
@@ -1187,7 +1185,24 @@ private function mejoras_final($rasgos, $i){
 
 
 
-
+private function copyright($autor){
+    if($subclases->getAutor() == null 
+            || strtolower($subclases->getAutor() )== 'clash of fates'
+            || strtolower($subclases->getAutor() )== 'clash of feits'
+            || strtolower($subclases->getAutor() )== 'clas of fates'
+            || strtolower($subclases->getAutor() )== 'clas of feits'
+            || strtolower($subclases->getAutor() )== 'klash of fates'
+            || strtolower($subclases->getAutor() )== 'Klas of fates'
+            || strtolower($subclases->getAutor() )== 'klash of feits'
+            || strtolower($subclases->getAutor() )== 'Klas of feits'
+            || strtolower($subclases->getAutor() )== 'wizards of the coast'){
+        return true;
+    }
+    else{
+        return false;
+    }
+     
+}
 
 private function habilidades($rasgos,$i){
     $final = '';

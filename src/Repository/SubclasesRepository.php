@@ -66,6 +66,16 @@ class SubclasesRepository extends ServiceEntityRepository
         ->getOneOrNullResult();
     }
 
+    public function FindClassById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->andWhere('a.clase_id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getResult();
+    }
+
     
     
     public function FindFilter(Subclases $formulario){
