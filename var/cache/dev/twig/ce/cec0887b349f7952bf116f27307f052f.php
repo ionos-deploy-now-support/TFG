@@ -75,7 +75,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador");
         echo "\"><li>Buscador</li></a>
-                <a href=\"\"><li>Creador de personajes</li></a>
+                <a href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_personaje");
+        echo "\"><li>Creador de personajes</li></a>
                 ";
         // line 22
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22)) {
@@ -253,7 +256,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  218 => 33,  199 => 13,  189 => 14,  186 => 13,  176 => 12,  162 => 8,  152 => 7,  133 => 5,  111 => 34,  109 => 33,  105 => 31,  100 => 29,  94 => 27,  89 => 25,  83 => 23,  81 => 22,  76 => 20,  72 => 19,  66 => 15,  64 => 12,  61 => 11,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  221 => 33,  202 => 13,  192 => 14,  189 => 13,  179 => 12,  165 => 8,  155 => 7,  136 => 5,  114 => 34,  112 => 33,  108 => 31,  103 => 29,  97 => 27,  92 => 25,  86 => 23,  84 => 22,  80 => 21,  76 => 20,  72 => 19,  66 => 15,  64 => 12,  61 => 11,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -278,7 +281,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
             <ul class=\"menu\">
                 <a href=\"{{ path(\"app_index\") }}\"><li>Inicio</li></a>
                 <a href=\"{{ path(\"app_buscador\") }}\"><li>Buscador</li></a>
-                <a href=\"\"><li>Creador de personajes</li></a>
+                <a href=\"{{ path(\"app_personaje\") }}\"><li>Creador de personajes</li></a>
                 {% if app.user %}
                     <a href=\"{{ path(\"app_revisiones\") }}\"><li>Revisiones</li></a>
                     </ul>

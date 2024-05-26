@@ -63,6 +63,44 @@ header .menu li{
     
 }
 
+.grid-ficha{
+    
+    display:grid;
+    grid-template-areas:"Nombre Nivel"
+                        "Clase Raza"
+                        "espacio Trasfondo"
+                        "Estadisticas Habilidades"
+                        "Competencias";
+
+    grid-template-columns:auto;
+    grid-template-rows: auto;
+    
+}
+.Nombre{
+    grid-area:Nombre;
+}
+.Nivel{
+    grid-area:Nivel;
+}
+.Clase{
+    grid-area:Clase;
+}
+.Raza{
+    grid-area:Raza;
+}
+.Trasfondo{
+    grid-area:Trasfondo;
+}
+.Estadisticas{
+    grid-area:Estadisticas;
+}
+.Habilidades{
+    grid-area:Habilidades;
+}
+.Competencias{
+    grid-area:Competencias;
+}
+
 .grid-subclase{
     
     display:grid;

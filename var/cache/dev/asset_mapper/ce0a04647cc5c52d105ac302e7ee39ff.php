@@ -1,4 +1,4 @@
-O:41:"Symfony\Component\AssetMapper\MappedAsset":12:{s:10:"sourcePath";s:41:"C:\xampp\htdocs\TFG\assets\styles\app.css";s:10:"publicPath";s:55:"/assets/styles/app-6ebe252d853b23b0cea159d79646158d.css";s:23:"publicPathWithoutDigest";s:22:"/assets/styles/app.css";s:15:"publicExtension";s:3:"css";s:7:"content";s:7627:"
+O:41:"Symfony\Component\AssetMapper\MappedAsset":12:{s:10:"sourcePath";s:41:"C:\xampp\htdocs\TFG\assets\styles\app.css";s:10:"publicPath";s:55:"/assets/styles/app-4a2a3cd51a21c05901e17b9d695cb130.css";s:23:"publicPathWithoutDigest";s:22:"/assets/styles/app.css";s:15:"publicExtension";s:3:"css";s:7:"content";s:8279:"
 @import url("../icofont/icofont.min-4744795acc58a7efe0adcbe5589a6a87.css");
 @font-face {
     font-family: fuente1;
@@ -61,6 +61,44 @@ header .menu li{
     grid-template-columns:0.375fr 0.25fr 0.375fr;
     grid-template-rows: 0.5fr 0.1fr repeat(3,0.25fr);
     
+}
+
+.grid-ficha{
+    
+    display:grid;
+    grid-template-areas:"Nombre Nivel"
+                        "Clase Raza"
+                        "espacio Trasfondo"
+                        "Estadisticas Habilidades"
+                        "Competencias";
+
+    grid-template-columns:auto;
+    grid-template-rows: auto;
+    
+}
+.Nombre{
+    grid-area:Nombre;
+}
+.Nivel{
+    grid-area:Nivel;
+}
+.Clase{
+    grid-area:Clase;
+}
+.Raza{
+    grid-area:Raza;
+}
+.Trasfondo{
+    grid-area:Trasfondo;
+}
+.Estadisticas{
+    grid-area:Estadisticas;
+}
+.Habilidades{
+    grid-area:Habilidades;
+}
+.Competencias{
+    grid-area:Competencias;
 }
 
 .grid-subclase{
@@ -471,7 +509,7 @@ footer h4{
 
 
 
-";s:6:"digest";s:32:"6ebe252d853b23b0cea159d79646158d";s:13:"isPredigested";b:0;s:8:"isVendor";b:0;s:55:" Symfony\Component\AssetMapper\MappedAsset dependencies";a:2:{i:0;O:41:"Symfony\Component\AssetMapper\MappedAsset":12:{s:10:"sourcePath";s:50:"C:\xampp\htdocs\TFG\assets\icofont\icofont.min.css";s:10:"publicPath";s:64:"/assets/icofont/icofont.min-4744795acc58a7efe0adcbe5589a6a87.css";s:23:"publicPathWithoutDigest";s:31:"/assets/icofont/icofont.min.css";s:15:"publicExtension";s:3:"css";s:7:"content";s:3675:"/*! 
+";s:6:"digest";s:32:"4a2a3cd51a21c05901e17b9d695cb130";s:13:"isPredigested";b:0;s:8:"isVendor";b:0;s:55:" Symfony\Component\AssetMapper\MappedAsset dependencies";a:2:{i:0;O:41:"Symfony\Component\AssetMapper\MappedAsset":12:{s:10:"sourcePath";s:50:"C:\xampp\htdocs\TFG\assets\icofont\icofont.min.css";s:10:"publicPath";s:64:"/assets/icofont/icofont.min-4744795acc58a7efe0adcbe5589a6a87.css";s:23:"publicPathWithoutDigest";s:31:"/assets/icofont/icofont.min.css";s:15:"publicExtension";s:3:"css";s:7:"content";s:3675:"/*! 
 * @package IcoFont 
 * @version 1.0.1 
 * @author   

@@ -57,6 +57,16 @@ class RazasRepository extends ServiceEntityRepository
         ->getOneOrNullResult();
     }
 
+    public function FindValidatedById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->andWhere('a.id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
+
     public function FindRazas(){
         return $this->createQueryBuilder('a')
         ->select('a.Nombre')
