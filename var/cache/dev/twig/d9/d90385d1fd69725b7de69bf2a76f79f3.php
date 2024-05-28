@@ -93,21 +93,55 @@ class __TwigTemplate_0feec1894552e54e596cf8876206df72 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "   <h1>";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 7, $this->source); })()), "Nombre", [], "any", false, false, false, 7), "html", null, true);
+        echo "    <div class=\"grid-body\">
+        <div class=\"L1\"></div>
+        <div class=\"L2\"></div>
+        <div class=\"DC\">
+            <div class='grid-subclase'>
+                <span class=\"V1\"> </span>
+                <h1 class=\"N\">";
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 13, $this->source); })()), "nombre", [], "any", false, false, false, 13), "html", null, true);
         echo "</h1>
-    <p>";
-        // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 8, $this->source); })()), "Descripcion", [], "any", false, false, false, 8), "html", null, true);
-        echo "</p>
-   <h3>Requisitos: ";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 9, $this->source); })()), "Requisitos", [], "any", false, false, false, 9), "html", null, true);
-        echo "</h3>
-    <h3>Beneficios: ";
-        // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 10, $this->source); })()), "Beneficios", [], "any", false, false, false, 10), "html", null, true);
-        echo "</h3>
+                <span class=\"V2\"> </span>
+                <div class=\"R\"><br>";
+        // line 15
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 15, $this->source); })()), "Descripcion", [], "any", false, false, false, 15), "html", null, true);
+        echo "</div>
+                <div class=\"I\" ><img src=\"";
+        // line 16
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 16, $this->source); })()), "img", [], "any", false, false, false, 16), "html", null, true);
+        echo "\"/></div>
+            </div>
+        </div>
+        <div class=\"TP\">
+            <h1>Requisitos</h1>
+            <table class=\"Progreso\">
+                <th>
+                    <td>";
+        // line 23
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 23, $this->source); })()), "Requisitos", [], "any", false, false, false, 23), "html", null, true);
+        echo "</td>
+                </th>
+            </table>
+        </div>
+        <div class=\"RC\">
+            <h1>Beneficios</h1>
+            <div class=\"grid-rasgos\">
+                <span class=\"N\"><b>";
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 30, $this->source); })()), "nombre", [], "any", false, false, false, 30), "html", null, true);
+        echo "</b></span>
+                <span class=\"V1\"></span>
+                <span class=\"L\"></span>
+                <span class=\"D\">";
+        // line 33
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["dote"]) || array_key_exists("dote", $context) ? $context["dote"] : (function () { throw new RuntimeError('Variable "dote" does not exist.', 33, $this->source); })()), "Beneficios", [], "any", false, false, false, 33), "html", null, true);
+        echo "</span> 
+            </div>
+        </div>
+        <div class=\"SU\"></div>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -138,7 +172,7 @@ class __TwigTemplate_0feec1894552e54e596cf8876206df72 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  109 => 10,  105 => 9,  101 => 8,  96 => 7,  86 => 6,  74 => 4,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  139 => 33,  133 => 30,  123 => 23,  113 => 16,  109 => 15,  104 => 13,  96 => 7,  86 => 6,  74 => 4,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -149,10 +183,37 @@ class __TwigTemplate_0feec1894552e54e596cf8876206df72 extends Template
         <link rel=\"stylesheet\" href=\"{{ asset('styles/bodygrid.css') }}\">
 {% endblock %}
 {% block body %}
-   <h1>{{dote.Nombre}}</h1>
-    <p>{{dote.Descripcion}}</p>
-   <h3>Requisitos: {{dote.Requisitos}}</h3>
-    <h3>Beneficios: {{dote.Beneficios}}</h3>
+    <div class=\"grid-body\">
+        <div class=\"L1\"></div>
+        <div class=\"L2\"></div>
+        <div class=\"DC\">
+            <div class='grid-subclase'>
+                <span class=\"V1\"> </span>
+                <h1 class=\"N\">{{dote.nombre}}</h1>
+                <span class=\"V2\"> </span>
+                <div class=\"R\"><br>{{dote.Descripcion}}</div>
+                <div class=\"I\" ><img src=\"{{dote.img}}\"/></div>
+            </div>
+        </div>
+        <div class=\"TP\">
+            <h1>Requisitos</h1>
+            <table class=\"Progreso\">
+                <th>
+                    <td>{{dote.Requisitos}}</td>
+                </th>
+            </table>
+        </div>
+        <div class=\"RC\">
+            <h1>Beneficios</h1>
+            <div class=\"grid-rasgos\">
+                <span class=\"N\"><b>{{dote.nombre}}</b></span>
+                <span class=\"V1\"></span>
+                <span class=\"L\"></span>
+                <span class=\"D\">{{dote.Beneficios}}</span> 
+            </div>
+        </div>
+        <div class=\"SU\"></div>
+    </div>
 {% endblock %}
 
 

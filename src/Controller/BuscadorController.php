@@ -224,9 +224,11 @@ class BuscadorController extends AbstractController
             public function subzara(Request $request, $id):Response
             {
                 $subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
-                
+                $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOrigin('subrazas',$id);
+                $raza = $this->entityManager->getRepository(Razas::class)->find($subraza->getRazaId());
+
                 return $this->render('buscador/mostrar/subrazas.html.twig', [
-                    'subraza' => $subraza
+                    'subraza' => $subraza, 'rasgos' => $rasgos, 'raza' => $raza
                 ]);
             }
 
@@ -268,9 +270,10 @@ class BuscadorController extends AbstractController
             public function trasfondook(Request $request, $id):Response
             {
                 $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->find($id);
+                $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOrigin('trasfondo',$id);
             
                 return $this->render('buscador/mostrar/trasfondos.html.twig', [
-                    'trasfondo' => $trasfondo
+                    'trasfondo' => $trasfondo, 'rasgos' => $rasgos
                 ]);
             }
 
