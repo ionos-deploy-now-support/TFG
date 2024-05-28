@@ -25,7 +25,6 @@ class __TwigTemplate_d33405901794c2e800dc39d5e679fa83 extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'head' => [$this, 'block_head'],
             'body' => [$this, 'block_body'],
         ];
@@ -57,25 +56,6 @@ class __TwigTemplate_d33405901794c2e800dc39d5e679fa83 extends Template
     }
 
     // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Hello IndexController!";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 4
     public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -85,10 +65,10 @@ class __TwigTemplate_d33405901794c2e800dc39d5e679fa83 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "head"));
 
-        // line 5
+        // line 4
         echo "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     ";
-        // line 6
+        // line 5
         $this->displayParentBlock("head", $context, $blocks);
         echo "
 ";
@@ -100,7 +80,7 @@ class __TwigTemplate_d33405901794c2e800dc39d5e679fa83 extends Template
 
     }
 
-    // line 8
+    // line 7
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -110,54 +90,54 @@ class __TwigTemplate_d33405901794c2e800dc39d5e679fa83 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 9
+        // line 8
         echo "<h1 class=\"tituloApp\"><b>¡Bienvenido a DNDpedia!</b></h1>
 <div class=\"indices\">
     <h1>Accesos Rápidos</h1>
     <a href=\"";
-        // line 12
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_resultados_clases");
         echo "\">
         <span><i class=\"icofont-shield\"></i> Clases</span> 
     </a>
     
     <a href=\"";
-        // line 16
+        // line 15
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_resultados_subclases");
         echo "\">
         <span><i class=\"icofont-duotone icofont-shield\"></i> Subclases</span> 
     </a>
     
     <a href=\"";
-        // line 20
+        // line 19
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_resultados_razas");
         echo "\">
         <span><i class=\"icofont-users-alt-3\"></i> Razas</span> 
     </a>
     
      <a href=\"";
-        // line 24
+        // line 23
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_resultados_subrazas");
         echo "\">
         <span><i class=\"icofont-user\"></i> Subrazas</span> 
     </a>
     
     <a href=\"";
-        // line 28
+        // line 27
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_resultados_trasfondos");
         echo "\">
         <span><i class=\"icofont-paper\"></i> Trasfondos</span> 
     </a>
     
      <a href=\"";
-        // line 32
+        // line 31
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_resultados_dotes");
         echo "\">
         <span><i class=\"icofont-listine-dots\"></i> Dotes</span> 
     </a>
     
      <a href=\"";
-        // line 36
+        // line 35
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_resultados_hechizos");
         echo "\">
         <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span> 
@@ -194,14 +174,13 @@ class __TwigTemplate_d33405901794c2e800dc39d5e679fa83 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  161 => 36,  154 => 32,  147 => 28,  140 => 24,  133 => 20,  126 => 16,  119 => 12,  114 => 9,  104 => 8,  92 => 6,  89 => 5,  79 => 4,  60 => 3,  37 => 1,);
+        return array (  141 => 35,  134 => 31,  127 => 27,  120 => 23,  113 => 19,  106 => 15,  99 => 11,  94 => 8,  84 => 7,  72 => 5,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
 {% block head %}
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     {{ parent() }}

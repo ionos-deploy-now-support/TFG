@@ -1,4 +1,6 @@
 
+
+
 @import url('../icofont/icofont.min.css');
 @font-face {
     font-family: fuente1;
@@ -36,16 +38,20 @@ header .menu li{
 .menu li{
     display: inline;
     width: 30%;
-    padding: 5px;
+    padding: 0.3em;
     margin: auto;
     border: 0px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 22px;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    font-size: 1.5em;
+}
+.menu{
+    padding-top: 0.3em;
 }
 
 .menu li:hover{
-    background-color:yellowgreen;
+    background-color:rgb(139, 14, 14);
+    box-shadow: 0px 0px 10px black;
 }
 
 .grid-clase{
@@ -61,6 +67,242 @@ header .menu li{
     grid-template-columns:0.375fr 0.25fr 0.375fr;
     grid-template-rows: 0.5fr 0.1fr repeat(3,0.25fr);
     
+}
+.grid-ficha-stats1{
+    
+    display:grid;
+    grid-template-areas:"Fuerza"
+                        "Destreza"
+                        "Constitucion"
+                        "Inteligencia"
+                        "Sabiduria"
+                        "Carisma";
+
+    grid-template-columns:0.1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    
+}
+.grid-ficha-stats2{
+    
+    display:grid;
+    grid-template-areas:"Salvaciones"
+                        "Salvaciones"
+                        "Skills"
+                        "Skills"
+                        "Skills"
+                        "Skills";
+
+    grid-template-columns:0.1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    
+}
+.Nombre{
+    grid-area:Nombre;
+}
+.Nivel{
+    grid-area:Nivel;
+}
+.Datos{
+    grid-area:Datos;
+}
+.Trasfondo{
+    grid-area:Trasfondo;
+}
+.puntuacion{
+    margin-top: 1em;
+    border: 0.1em solid black;
+    width: 4em;
+    height: 4em;
+}
+.casilla{
+    border: 0.1em solid black;
+    width: 0.8em;
+    height: 0.8em;
+    margin-left: 0.5em;
+    margin-right: 1em;
+    margin-top: 0.3em;
+}
+.casilla_si{
+    border: 0.43em solid black;
+    width: 0.4em;
+    height: 0.4em;
+    margin-left: 0.5em;
+    margin-right: 1em;
+    margin-top: 0.3em;
+}
+.Salvaciones{
+    grid-area:Salvaciones;
+
+    display:grid;
+    grid-template-areas:"espacio espacio"
+                        "Fuerza A"
+                        "Destreza N"
+                        "Constitucion E"
+                        "Inteligencia I"
+                        "Sabiduria V1"
+                        "Carisma V2";
+
+    grid-template-columns:0.2fr 0.8fr;
+    grid-template-rows: auto;
+}
+.Skills{
+    grid-area:Skills;
+
+    display:grid;
+    grid-template-areas:"espacio espacio"
+                        "Cs1 s1"
+                        "Cs2 s2"
+                        "Cs3 s3"
+                        "Cs4 s4"
+                        "Cs5 s5"
+                        "Cs6 s6"
+                        "Cs7 s7"
+                        "Cs8 s8"
+                        "Cs9 s9"
+                        "Cs10 s10"
+                        "Cs11 s11"
+                        "Cs12 s12"
+                        "Cs13 s13"
+                        "Cs14 s14"
+                        "Cs15 s15"
+                        "Cs16 s16"
+                        "Cs17 s17"
+                        "Cs18 s18";
+
+    grid-template-columns:0.2fr 0.8fr;
+    grid-template-rows: auto;
+}
+.s1{
+    grid-area: s1;
+}
+.s2{
+    grid-area: s2;
+}
+.s3{
+    grid-area: s3;
+}
+.s4{
+    grid-area: s4;
+}
+.s5{
+    grid-area: s5;
+}
+.s6{
+    grid-area: s6;
+}
+.s7{
+    grid-area: s7;
+}
+.s8{
+    grid-area: s8;
+}
+.s9{
+    grid-area: s9;
+}
+.s10{
+    grid-area: s10;
+}
+.s11{
+    grid-area: s11;
+}
+.s12{
+    grid-area: s12;
+}
+.s13{
+    grid-area: s13;
+}
+.s14{
+    grid-area: s14;
+}
+.s15{
+    grid-area: s15;
+}
+.s16{
+    grid-area: s16;
+}
+.s17{
+    grid-area: s17;
+}
+.s18{
+    grid-area: s18;
+}
+.Cs1{
+    grid-area: Cs1;
+}
+.Cs2{
+    grid-area: Cs2;
+}
+.Cs3{
+    grid-area: Cs3;
+}
+.Cs4{
+    grid-area: Cs4;
+}
+.Cs5{
+    grid-area: Cs5;
+}
+.Cs6{
+    grid-area: Cs6;
+}
+.Cs7{
+    grid-area: Cs7;
+}
+.Cs8{
+    grid-area: Cs8;
+}
+.Cs9{
+    grid-area: Cs9;
+}
+.Cs10{
+    grid-area: Cs10;
+}
+.Cs11{
+    grid-area: Cs11;
+}
+.Cs12{
+    grid-area: Cs12;
+}
+.Cs13{
+    grid-area: Cs13;
+}
+.Cs14{
+    grid-area: Cs14;
+}
+.Cs15{
+    grid-area: Cs15;
+}
+.Cs16{
+    grid-area: Cs16;
+}
+.Cs17{
+    grid-area: Cs17;
+}
+.Cs18{
+    grid-area: Cs18;
+}
+.Fuerza{
+    grid-area:Fuerza;
+}
+.Destreza{
+    grid-area:Destreza;
+}
+.Constitucion{
+    grid-area:Constitucion;
+}
+.Inteligencia{
+    grid-area:Inteligencia;
+}
+.Sabiduria{
+    grid-area:Sabiduria;
+}
+.Carisma{
+    grid-area:Carisma;
+}
+.Habilidades{
+    grid-area:Habilidades;
+}
+.Competencias{
+    grid-area:Competencias;
 }
 
 .grid-subclase{
@@ -331,10 +573,6 @@ button{
 .indices a:hover{
     background-color: lightgray;
     transition:all 0.5s;
-}
-
-.indices a:active{
-    background-color: green;
 }
 
 .indices h1{

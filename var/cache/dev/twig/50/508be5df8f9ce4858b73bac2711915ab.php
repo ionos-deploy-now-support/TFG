@@ -25,7 +25,6 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -55,26 +54,7 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
 
     }
 
-    // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "DNDpedia";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 5
+    // line 4
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,36 +64,36 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 5
         echo "
 <div class=\"indices\">
     <h1>Buscador</h1>
     <a href=\"";
-        // line 9
+        // line 8
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_clase");
         echo "\">
         <span><i class=\"icofont-shield\"></i> Clases</span>
     </a>
     <a href=\"";
-        // line 12
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_razas");
         echo "\">
         <span><i class=\"icofont-users-alt-3\"></i> Razas</span>
     </a>
     <a href=\"";
-        // line 15
+        // line 14
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_trasfondo");
         echo "\">
         <span><i class=\"icofont-paper\"></i> Trasfondos</span>
     </a>
      <a href=\"";
-        // line 18
+        // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_dotes");
         echo "\">
         <span><i class=\"icofont-listine-dots\"></i> Dotes</span>
     </a>
      <a href=\"";
-        // line 21
+        // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador_hechizos");
         echo "\">
         <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span>
@@ -152,14 +132,13 @@ class __TwigTemplate_da38419603402afd88c9a13bada3c5a8 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  117 => 21,  111 => 18,  105 => 15,  99 => 12,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  97 => 20,  91 => 17,  85 => 14,  79 => 11,  73 => 8,  68 => 5,  58 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}DNDpedia{% endblock %}
 
 {% block body %}
 

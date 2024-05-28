@@ -116,7 +116,6 @@ class SolicitudesController extends AbstractController
        
 		$form = $this->createForm(ClasesType2::Class,$clase);
 		$form->handleRequest($request);
-         var_dump($ipAddress);
         if ($form->isSubmitted() && $form->isValid()) {
 
             if ($count >= 2){

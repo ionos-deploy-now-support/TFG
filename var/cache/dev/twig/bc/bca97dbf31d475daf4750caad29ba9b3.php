@@ -25,7 +25,6 @@ class __TwigTemplate_28afe181156aabe76dddd92ebf2eac0d extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -55,26 +54,7 @@ class __TwigTemplate_28afe181156aabe76dddd92ebf2eac0d extends Template
 
     }
 
-    // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "DNDpedia";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 5
+    // line 4
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,41 +64,41 @@ class __TwigTemplate_28afe181156aabe76dddd92ebf2eac0d extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 5
         echo "<div class=\"formulario center-h center-v\">
 <d class=\"formulario2 \">
     <h1 class=\"titulo\">Subclases</h1>
  ";
-        // line 9
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 9, $this->source); })()), 'form_start');
+        // line 8
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 8, $this->source); })()), 'form_start');
         echo " 
     <div class=\"row\">
         <div class=\"C\">
             ";
-        // line 12
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 12, $this->source); })()), "Nombre", [], "any", false, false, false, 12), 'row');
+        // line 11
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 11, $this->source); })()), "Nombre", [], "any", false, false, false, 11), 'row');
         echo "
         </div>
         <span class=\"E\"></span>
         <div class=\"A\">
             ";
-        // line 16
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 16, $this->source); })()), "Requisitos", [], "any", false, false, false, 16), 'row');
+        // line 15
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 15, $this->source); })()), "Requisitos", [], "any", false, false, false, 15), 'row');
         echo "
         </div>
     </div>
      <div class=\"row\">
         <div class=\"C\">
             ";
-        // line 21
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 21, $this->source); })()), "Autor", [], "any", false, false, false, 21), 'row');
+        // line 20
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 20, $this->source); })()), "Autor", [], "any", false, false, false, 20), 'row');
         echo "
         </div>
         <span class=\"E\"></span>
         <div class=\"A\">
             ";
-        // line 25
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 25, $this->source); })()), "clase_id", [], "any", false, false, false, 25), 'row');
+        // line 24
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 24, $this->source); })()), "clase_id", [], "any", false, false, false, 24), 'row');
         echo "
         </div>
     </div>
@@ -129,14 +109,14 @@ class __TwigTemplate_28afe181156aabe76dddd92ebf2eac0d extends Template
         <span class=\"E\"></span>
         <div class=\"A\"><br>
             ";
-        // line 34
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 34, $this->source); })()), "Enviar", [], "any", false, false, false, 34), 'row');
+        // line 33
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 33, $this->source); })()), "Enviar", [], "any", false, false, false, 33), 'row');
         echo "
         </div>
     </div>
  ";
-        // line 37
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 37, $this->source); })()), 'form_end');
+        // line 36
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form2"]) || array_key_exists("form2", $context) ? $context["form2"] : (function () { throw new RuntimeError('Variable "form2" does not exist.', 36, $this->source); })()), 'form_end');
         echo "
     </div>
  </div>
@@ -173,14 +153,13 @@ class __TwigTemplate_28afe181156aabe76dddd92ebf2eac0d extends Template
      */
     public function getDebugInfo()
     {
-        return array (  139 => 37,  133 => 34,  121 => 25,  114 => 21,  106 => 16,  99 => 12,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  119 => 36,  113 => 33,  101 => 24,  94 => 20,  86 => 15,  79 => 11,  73 => 8,  68 => 5,  58 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}DNDpedia{% endblock %}
 
 {% block body %}
 <div class=\"formulario center-h center-v\">

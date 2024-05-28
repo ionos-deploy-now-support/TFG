@@ -49,6 +49,26 @@ class TrasfondoRepository extends ServiceEntityRepository
         ->getOneOrNullResult();
     }
 
+    public function FindValidatedById($id){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->andWhere('a.id = :id')
+        ->setParameter('id', $id)
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
+
+    public function findAllOrigen($origen){
+        return $this->createQueryBuilder('a')
+        ->select('a')
+        ->andWhere('a.Validado = 1')
+        ->andWhere('a.Origen = :origen')
+        ->setParameter('origen', $origen)
+        ->getQuery()
+        ->getResult();
+    }
+
     public function FindLastID(){
         return $this->createQueryBuilder('a')
         ->select('a')

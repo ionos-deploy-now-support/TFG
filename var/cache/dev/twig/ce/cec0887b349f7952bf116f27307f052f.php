@@ -75,7 +75,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_buscador");
         echo "\"><li>Buscador</li></a>
-                <a href=\"\"><li>Creador de personajes</li></a>
+                <a href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_personaje");
+        echo "\"><li>Creador de personajes</li></a>
                 ";
         // line 22
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22)) {
@@ -102,12 +105,11 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                 ";
         }
         // line 31
-        echo "            
-        </header>
+        echo "        </header>
         ";
-        // line 33
+        // line 32
         $this->displayBlock('body', $context, $blocks);
-        // line 34
+        // line 33
         echo "        <footer>
             <h4>
                 Contacta con nosotros por las siguientes redes sociales: 
@@ -139,7 +141,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "DNDpedia";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -214,7 +216,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 33
+    // line 32
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -253,7 +255,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  218 => 33,  199 => 13,  189 => 14,  186 => 13,  176 => 12,  162 => 8,  152 => 7,  133 => 5,  111 => 34,  109 => 33,  105 => 31,  100 => 29,  94 => 27,  89 => 25,  83 => 23,  81 => 22,  76 => 20,  72 => 19,  66 => 15,  64 => 12,  61 => 11,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  220 => 32,  201 => 13,  191 => 14,  188 => 13,  178 => 12,  164 => 8,  154 => 7,  135 => 5,  113 => 33,  111 => 32,  108 => 31,  103 => 29,  97 => 27,  92 => 25,  86 => 23,  84 => 22,  80 => 21,  76 => 20,  72 => 19,  66 => 15,  64 => 12,  61 => 11,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -262,7 +264,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}DNDpedia{% endblock %}</title>
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
         {% block stylesheets %}
         <link rel=\"stylesheet\" href=\"{{ asset('styles/app.css') }}\">
@@ -278,7 +280,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
             <ul class=\"menu\">
                 <a href=\"{{ path(\"app_index\") }}\"><li>Inicio</li></a>
                 <a href=\"{{ path(\"app_buscador\") }}\"><li>Buscador</li></a>
-                <a href=\"\"><li>Creador de personajes</li></a>
+                <a href=\"{{ path(\"app_personaje\") }}\"><li>Creador de personajes</li></a>
                 {% if app.user %}
                     <a href=\"{{ path(\"app_revisiones\") }}\"><li>Revisiones</li></a>
                     </ul>
@@ -288,7 +290,6 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                     </ul>
                     <a href=\"{{path(\"app_login\")}}\" class=\"menu_login\"><i class=\"icofont-login\"></i></a>
                 {% endif %}
-            
         </header>
         {% block body %}{% endblock %}
         <footer>
