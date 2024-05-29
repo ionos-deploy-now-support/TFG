@@ -146,7 +146,7 @@ class __TwigTemplate_9cbfde8a77852ec1c26a0cb7cc18b60d extends Template
         echo "
         </div>
         <span class=\"E\"></span>
-        <div class=\"A\"><br>
+        <div class=\"A\">
             ";
         // line 44
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 44, $this->source); })()), "HabilidadesAElegir", [], "any", false, false, false, 44), 'row');
@@ -161,7 +161,7 @@ class __TwigTemplate_9cbfde8a77852ec1c26a0cb7cc18b60d extends Template
         echo "
         </div>
         <span class=\"E\"></span>
-        <div class=\"A\"><br>
+        <div class=\"A\">
             ";
         // line 53
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 53, $this->source); })()), "Autor", [], "any", false, false, false, 53), 'row');
@@ -272,7 +272,7 @@ class __TwigTemplate_9cbfde8a77852ec1c26a0cb7cc18b60d extends Template
             {{ form_row(form.Equipamiento) }}
         </div>
         <span class=\"E\"></span>
-        <div class=\"A\"><br>
+        <div class=\"A\">
             {{ form_row(form.HabilidadesAElegir) }}
         </div>
     </div>
@@ -281,7 +281,7 @@ class __TwigTemplate_9cbfde8a77852ec1c26a0cb7cc18b60d extends Template
             {{ form_row(form.img) }}
         </div>
         <span class=\"E\"></span>
-        <div class=\"A\"><br>
+        <div class=\"A\">
             {{ form_row(form.Autor) }}
         </div>
     </div>

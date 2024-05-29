@@ -381,10 +381,14 @@ public function Buscador_Subclases( Request $request):Response
 #[Route("/solicitud_subclase/{id}", name:"app_comprobar_subclase")]
 public function subclaseok(Request $request, $id):Response
 {    
-    $subclase = $this->entityManager->getRepository(Subclases::class)->FindNonValidatedById($id);
-    
-    return $this->render('revisiones/revision_subclase.html.twig', [
-         'subclase' => $subclase,
+    $subclase = $this->entityManager->getRepository(Subclases::class)->find($id);
+    $clase = $this->entityManager->getRepository(Clases::class)->find($subclase->getClaseId());
+    $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('subclases',$id);
+    $rasgos_clase = $this->entityManager->getRepository(Habilidades::class)->findByOrigin('clases',$subclase->getClaseId());
+    $tabla = $this->progreso_subclase($rasgos, $rasgos_clase, $id, $subclase->getClaseId());
+                
+    return $this->render('buscador/mostrar/subclases.html.twig', [
+        'subclase' => $subclase, 'clase' => $clase, 'tabla' => $tabla, 'rasgos' => $rasgos
     ]);
 }
 
@@ -418,10 +422,6 @@ public function eliminarSubclase($id)
     return $this->redirectToRoute('app_revisiones_subclase');
 }
 
-
-
-
-
 #[Route('/solicitud_raza', name: 'app_solicitud_raza')]
     public function Solicitudes_Razas( Request $request):Response
 	{
@@ -440,12 +440,9 @@ public function eliminarSubclase($id)
                 $razas->setImg('https://wallpaperaccess.com/full/1902223.png');
             }
 
-            
-
             $razas->setValidado(false);
             $sesion = $request->getSession();
             $sesion->set('razas', $razas);
-            //$this->entityManager->persist($razas);
             $this->entityManager->flush();
             return $this->redirectToRoute('app_solicitud_raza_habilidades');
         }
@@ -534,10 +531,12 @@ public function eliminarSubclase($id)
 #[Route("/solicitud_raza/{id}", name:"app_comprobar_raza")]
     public function razaok(Request $request, $id):Response
     {
-        $raza = $this->entityManager->getRepository(Razas::class)->FindNonValidatedById($id);
-        
-        return $this->render('revisiones/revision_raza.html.twig', [
-            'raza' => $raza,
+        $raza = $this->entityManager->getRepository(Razas::class)->find($id);
+        $subrazas = $this->entityManager->getRepository(Subrazas::class)->FindRazaById($id);
+        $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('razas',$id);
+            
+        return $this->render('buscador/mostrar/razas.html.twig', [
+            'raza' => $raza, 'rasgos' => $rasgos, 'subrazas' => $subrazas
         ]);
     }
 
@@ -696,14 +695,12 @@ public function revisiones_subrazas(): Response
 #[Route("/solicitud_subraza/{id}", name:"app_comprobar_subraza")]
 public function subrazaok(Request $request, $id):Response
 {
-    
-  
-    
-    $subraza = $this->entityManager->getRepository(Subrazas::class)->FindNonValidatedById($id);
-   
-    
-    return $this->render('revisiones/revision_subraza.html.twig', [
-         'subraza' => $subraza,
+    $subraza = $this->entityManager->getRepository(Subrazas::class)->find($id);
+    $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('subrazas',$id);
+    $raza = $this->entityManager->getRepository(Razas::class)->find($subraza->getRazaId());
+
+    return $this->render('buscador/mostrar/subrazas.html.twig', [
+        'subraza' => $subraza, 'rasgos' => $rasgos, 'raza' => $raza
     ]);
 }
 
@@ -862,14 +859,11 @@ public function revisiones_trasfondos(): Response
 #[Route("/solicitud_trasfondo/{id}", name:"app_comprobar_trasfondo")]
 public function trasfondook(Request $request, $id):Response
 {
-    
-  
-    
-    $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->FindNonValidatedById($id);
-   
-    
-    return $this->render('revisiones/revision_trasfondo.html.twig', [
-         'trasfondo' => $trasfondo,
+    $trasfondo = $this->entityManager->getRepository(Trasfondo::class)->find($id);
+    $rasgos = $this->entityManager->getRepository(Habilidades::class)->findByOriginNonValidated('trasfondo',$id);
+            
+    return $this->render('buscador/mostrar/trasfondos.html.twig', [
+        'trasfondo' => $trasfondo, 'rasgos' => $rasgos
     ]);
 }
 
@@ -1029,12 +1023,10 @@ public function revisiones_dotes(): Response
 #[Route("/solicitud_dote/{id}", name:"app_comprobar_dote")]
 public function doteok(Request $request, $id):Response
 {
-    
-    $dote = $this->entityManager->getRepository(Dotes::class)->FindNonValidatedById($id);
-   
-    
-    return $this->render('revisiones/revision_dote.html.twig', [
-         'dote' => $dote,
+    $dote = $this->entityManager->getRepository(Dotes::class)->find($id);
+            
+    return $this->render('buscador/mostrar/dotes.html.twig', [
+        'dote' => $dote
     ]);
 }
 
@@ -1112,16 +1104,13 @@ public function revisiones_hechizos(): Response
     ]);
 }
 
-
-
 #[Route("/solicitud_hechizo/{id}", name:"app_comprobar_hechizo")]
 public function hechizook(Request $request, $id):Response
 {
-    $hechizo = $this->entityManager->getRepository(Hechizos::class)->FindNonValidatedById($id);
-   
-    
-    return $this->render('revisiones/revision_hechizo.html.twig', [
-         'hechizo' => $hechizo,
+    $hechizo = $this->entityManager->getRepository(Hechizos::class)->find($id);
+            
+    return $this->render('buscador/mostrar/hechizos.html.twig', [
+        'hechizo' => $hechizo
     ]);
 }
 
@@ -1151,13 +1140,72 @@ return $this->redirectToRoute('app_revisiones_hechizo');
 
 
 
-private function progreso($rasgos){
+
+
+
+
+private function copyright($autor){
+    if($autor == null 
+            || strtolower($autor )== 'clash of fates'
+            || strtolower($autor )== 'clash of feits'
+            || strtolower($autor )== 'clas of fates'
+            || strtolower($autor )== 'clas of feits'
+            || strtolower($autor )== 'klash of fates'
+            || strtolower($autor )== 'Klas of fates'
+            || strtolower($autor )== 'klash of feits'
+            || strtolower($autor )== 'Klas of feits'
+            || strtolower($autor )== 'wizards of the coast'){
+        return true;
+    }
+    else{
+        return false;
+    }
+     
+}
+
+/* FUNCIONES ADICIONALES */
+
+private function progreso($rasgos, $id){
     $final = [];
     for ($i = 1; $i <= 20; $i++){
-        $linea = [$i,$this->competencia($i),$this->mejoras_final($rasgos,$i)];
+        if($id == 3){
+            $linea = [$i,$this->competencia($i),$this->mejoras_final($rasgos,$i),$this->tabla_artista($i)];
+        }
+        else{
+            $linea = [$i,$this->competencia($i),$this->mejoras_final($rasgos,$i)];
+        }
         $final[$i-1] = $linea;
     }
     return $final;
+}
+
+private function progreso_subclase($rasgos, $rasgos_clase, $id, $id_clase){
+    $final = [];
+    for ($i = 1; $i <= 20; $i++){
+        if($id_clase == 3){
+            $linea = [$i,$this->competencia($i),$this->mejoras_subclase($rasgos, $rasgos_clase, $i),$this->tabla_artista($i)];
+        }
+        else{
+            $linea = [$i,$this->competencia($i),$this->mejoras_subclase($rasgos, $rasgos_clase, $i)];
+        }
+        $final[$i-1] = $linea;
+    }
+    return $final;
+}
+
+private function mejoras_subclase($rasgos, $rasgos_clase, $i){
+    if($this->mejoras_final($rasgos_clase, $i) == '' && $this->mejoras_final($rasgos, $i) == ''){
+        return '';
+    }
+    else if($this->mejoras_final($rasgos_clase, $i) == '' && $this->mejoras_final($rasgos, $i) != ''){
+        return $this->mejoras_final($rasgos, $i);
+    }
+    else if($this->mejoras_final($rasgos_clase, $i) != '' && $this->mejoras_final($rasgos, $i) == ''){
+        return $this->mejoras_final($rasgos_clase, $i);
+    }
+    else{
+        return $this->mejoras_final($rasgos_clase, $i) . ', ' . $this->mejoras_final($rasgos, $i);
+    }
 }
 
 private function mejoras_final($rasgos, $i){
@@ -1175,33 +1223,9 @@ private function mejoras_final($rasgos, $i){
 
     else{
         return $this->habilidades($rasgos,$i) . ', ' . $this->evoluciones($rasgos,$i);
-
-
-}
-}
-
-
-
-
-
-private function copyright($autor){
-    if($subclases->getAutor() == null 
-            || strtolower($subclases->getAutor() )== 'clash of fates'
-            || strtolower($subclases->getAutor() )== 'clash of feits'
-            || strtolower($subclases->getAutor() )== 'clas of fates'
-            || strtolower($subclases->getAutor() )== 'clas of feits'
-            || strtolower($subclases->getAutor() )== 'klash of fates'
-            || strtolower($subclases->getAutor() )== 'Klas of fates'
-            || strtolower($subclases->getAutor() )== 'klash of feits'
-            || strtolower($subclases->getAutor() )== 'Klas of feits'
-            || strtolower($subclases->getAutor() )== 'wizards of the coast'){
-        return true;
     }
-    else{
-        return false;
-    }
-     
 }
+
 
 private function habilidades($rasgos,$i){
     $final = '';
@@ -1271,6 +1295,59 @@ private function competencia($nivel){
     endswitch;
 }
 
+private function tabla_artista($nivel){
+    switch ($nivel):
+        case 1:
+            return '1';
+        case 2:
+            return '2';
+        case 3:
+            return '2';
+        case 4:
+            return '2';
+        case 5:
+            return '3';
+        case 6:
+            return '3';
+        case 7:
+            return '3';
+        case 8:
+            return '3';
+        case 9:
+            return '3';
+        case 10:
+            return '4';
+        case 11:
+            return '4';
+        case 12:
+            return '4';
+        case 13:
+            return '4';
+        case 14:
+            return '4';
+        case 15:
+            return '5';
+        case 16:
+            return '5';
+        case 17:
+            return '5';
+        case 18:
+            return '6';
+        case 19:
+            return '6';
+        case 20:
+            return '8';
+    endswitch;
+}
+
+private function mergeadordearrays($array){
+    $final = [];    
+    foreach($array as $a){
+       
+        array_push($final, $a['Autor']);
+    }
+    return $final;
+}
 
      
 }

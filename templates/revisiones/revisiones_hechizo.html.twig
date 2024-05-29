@@ -1,12 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BuscadorController!{% endblock %}
-
 {% block body %}
 
 
 <div class="lista_revisiones">
-    <h1>Revisiones de las Hechizos</h1>
+    <h1>Revisiones de los Hechizos</h1>
     {% for revision in revisiones %}
     <div class="elemento_revisiones">
         <img src="{{revision.img}}">

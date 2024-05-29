@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BuscadorController!{% endblock %}
-
 {% block body %}
 
 <div class="formulario center-h center-v">
@@ -49,13 +47,21 @@
             {{ form_row(form.Velocidad) }}
         </div>
         <span class="E"></span>
-        <div class="A"><br>
+        <div class="A">
             {{ form_row(form.AtaqueDesarmado) }}
         </div>
     </div>
-     <div class="row">
+    <div class="row">
         <div class="C">
            {{ form_row(form.img) }}
+        </div>
+        <span class="E"></span>
+        <div class="A">
+            {{ form_row(form.Autor) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="C">
         </div>
         <span class="E"></span>
         <div class="A"><br>
@@ -66,3 +72,5 @@
     
     </div>
  </div>
+
+ {% endblock %}
