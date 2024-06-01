@@ -54,7 +54,7 @@ class __TwigTemplate_fcb4be48ea4eaf35ec37282c3581ee7c extends Template
 
     }
 
-    // line 2
+    // line 3
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,9 +64,15 @@ class __TwigTemplate_fcb4be48ea4eaf35ec37282c3581ee7c extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 3
-        echo "    <h1>Solicitud enviada</h1>
-    <p>La solicitud se ha enviado correctamente</p>
+        // line 4
+        echo "    <div style=\"text-align: center; padding: 20px;\">
+        <h1 style=\"color: #4CAF50;\">Solicitud enviada</h1>
+        <p style=\"font-size: 20px;\">La solicitud se ha enviado correctamente</p>
+        <a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
+        echo "\" class=\"btn\" style=\"background-color: #4CAF50; color: white; padding: 14px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 12px;\">Volver</a>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -97,15 +103,19 @@ class __TwigTemplate_fcb4be48ea4eaf35ec37282c3581ee7c extends Template
      */
     public function getDebugInfo()
     {
-        return array (  68 => 3,  58 => 2,  35 => 1,);
+        return array (  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
+
 {% block body %}
-    <h1>Solicitud enviada</h1>
-    <p>La solicitud se ha enviado correctamente</p>
+    <div style=\"text-align: center; padding: 20px;\">
+        <h1 style=\"color: #4CAF50;\">Solicitud enviada</h1>
+        <p style=\"font-size: 20px;\">La solicitud se ha enviado correctamente</p>
+        <a href=\"{{ path('app_index') }}\" class=\"btn\" style=\"background-color: #4CAF50; color: white; padding: 14px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 12px;\">Volver</a>
+    </div>
 {% endblock %}", "solicitudes/solicitud_ok.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\solicitudes\\solicitud_ok.html.twig");
     }
 }

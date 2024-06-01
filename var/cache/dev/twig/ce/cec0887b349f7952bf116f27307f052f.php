@@ -118,7 +118,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                 <a href=\"https://twitter.com/JavierAlonsoP1\"><i class=\"icofont-twitter\"></i></a>
                 <a href=\"https://github.com/\"> <i class=\"icofont-github\"></i></a>
             </h4>
-            <b>Copyright &copy; 2024 DnDpedia</b>
+            <h4>Este proyecto está bajo la licencia de Creative Commons Share Alike</h4>
+            <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" target=\"_blank\">
+                <img src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" alt=\"Licencia de Creative Commons\">
+            </a>
         </footer>
     </body>
 </html>
@@ -255,7 +258,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  220 => 32,  201 => 13,  191 => 14,  188 => 13,  178 => 12,  164 => 8,  154 => 7,  135 => 5,  113 => 33,  111 => 32,  108 => 31,  103 => 29,  97 => 27,  92 => 25,  86 => 23,  84 => 22,  80 => 21,  76 => 20,  72 => 19,  66 => 15,  64 => 12,  61 => 11,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  223 => 32,  204 => 13,  194 => 14,  191 => 13,  181 => 12,  167 => 8,  157 => 7,  138 => 5,  113 => 33,  111 => 32,  108 => 31,  103 => 29,  97 => 27,  92 => 25,  86 => 23,  84 => 22,  80 => 21,  76 => 20,  72 => 19,  66 => 15,  64 => 12,  61 => 11,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -300,10 +303,13 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                 <a href=\"https://twitter.com/JavierAlonsoP1\"><i class=\"icofont-twitter\"></i></a>
                 <a href=\"https://github.com/\"> <i class=\"icofont-github\"></i></a>
             </h4>
-            <b>Copyright &copy; 2024 DnDpedia</b>
+            <h4>Este proyecto está bajo la licencia de Creative Commons Share Alike</h4>
+            <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" target=\"_blank\">
+                <img src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" alt=\"Licencia de Creative Commons\">
+            </a>
         </footer>
     </body>
 </html>
-", "base.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\base.html.twig");
     }
 }

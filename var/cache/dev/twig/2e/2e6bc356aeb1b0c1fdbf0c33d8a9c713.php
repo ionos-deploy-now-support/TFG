@@ -87,7 +87,7 @@ class __TwigTemplate_8782575660fee45fa719c969d2989b19 extends Template
         // line 6
         echo "
 <div class=\"indices\">
-    <h1>Accesos Rápidos</h1>
+    <h1>Solicitudes</h1>
     <a href=\"";
         // line 9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_solicitud_clase");
@@ -161,7 +161,7 @@ class __TwigTemplate_8782575660fee45fa719c969d2989b19 extends Template
 {% block body %}
 
 <div class=\"indices\">
-    <h1>Accesos Rápidos</h1>
+    <h1>Solicitudes</h1>
     <a href=\"{{ path(\"app_solicitud_clase\") }}\">
        <span><i class=\"icofont-shield\"></i> Clases</span>
     </a>
@@ -178,6 +178,6 @@ class __TwigTemplate_8782575660fee45fa719c969d2989b19 extends Template
         <span><i class=\"icofont-duotone icofont-wand\"></i> Hechizos</span>
     </a>
 </div>
-{% endblock %}", "solicitudes/index.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\solicitudes\\index.html.twig");
+{% endblock %}", "solicitudes/index.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\solicitudes\\index.html.twig");
     }
 }

@@ -58,11 +58,9 @@ class PersonajeController extends AbstractController
             ->add('Ocupacion', ChoiceType::class, [
                 'choices' => $this->data($ocupaciones)
             ])
-<<<<<<< Updated upstream
             ->add('save', SubmitType::class, ['label' => 'Enviar'])
-=======
+
             ->add('save', SubmitType::class, ['label' => 'Continuar'])
->>>>>>> Stashed changes
             ->getForm();
 
         $form->handleRequest($request);
@@ -95,11 +93,9 @@ class PersonajeController extends AbstractController
             ->add('Subclase', ChoiceType::class, [
                 'choices' => $this->data($subclases)
             ])
-<<<<<<< Updated upstream
             ->add('save', SubmitType::class, ['label' => 'Enviar'])
-=======
+
             ->add('save', SubmitType::class, ['label' => 'Generar Ficha'])
->>>>>>> Stashed changes
             ->getForm();
 
         $form->handleRequest($request);

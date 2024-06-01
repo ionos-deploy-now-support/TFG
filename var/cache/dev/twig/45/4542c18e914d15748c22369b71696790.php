@@ -25,7 +25,6 @@ class __TwigTemplate_3ddb757016eb52150e2016e0cb2fa5a7 extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -56,25 +55,6 @@ class __TwigTemplate_3ddb757016eb52150e2016e0cb2fa5a7 extends Template
     }
 
     // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Hello BuscadorController!";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,45 +64,47 @@ class __TwigTemplate_3ddb757016eb52150e2016e0cb2fa5a7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
-    <ul>
+        // line 4
+        echo "
+<div class=\"lista_revisiones\">
+    <h1>Revisiones de las Dotes</h1>
     ";
-        // line 12
+        // line 7
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["revisiones"]) || array_key_exists("revisiones", $context) ? $context["revisiones"] : (function () { throw new RuntimeError('Variable "revisiones" does not exist.', 12, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["revisiones"]) || array_key_exists("revisiones", $context) ? $context["revisiones"] : (function () { throw new RuntimeError('Variable "revisiones" does not exist.', 7, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["revision"]) {
-            // line 13
-            echo "        <li>
-            <h2>";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["revision"], "nombre", [], "any", false, false, false, 14), "html", null, true);
+            // line 8
+            echo "    <div class=\"elemento_revisiones\">
+        <img src=\"";
+            // line 9
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["revision"], "img", [], "any", false, false, false, 9), "html", null, true);
+            echo "\">
+        <h2>";
+            // line 10
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["revision"], "Nombre", [], "any", false, false, false, 10), "html", null, true);
             echo "</h2>
-            <a href=\"";
-            // line 15
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_comprobar_dote", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 15)]), "html", null, true);
-            echo "\">Ver más</a>
-            <a href=\"";
-            // line 16
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_validar_dote", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 16)]), "html", null, true);
-            echo "\">Validar dote</a>
-            <a href=\"";
-            // line 17
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_eliminar_dote", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 17)]), "html", null, true);
-            echo "\">Eliminar dote</a>
-        </li>
+        <div>
+            <button onclick=\"location.href='";
+            // line 12
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_comprobar_dote", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 12)]), "html", null, true);
+            echo "'\" class=\"btn btn-info\">Ver más</button>
+            <button onclick=\"location.href='";
+            // line 13
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_validar_dote", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 13)]), "html", null, true);
+            echo "'\" class=\"btn btn-success\">Validar dote</button>
+            <button onclick=\"location.href='";
+            // line 14
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_eliminar_dote", ["id" => twig_get_attribute($this->env, $this->source, $context["revision"], "id", [], "any", false, false, false, 14)]), "html", null, true);
+            echo "'\" class=\"btn btn-danger\">Eliminar dote</button>
+        </div>
+    </div>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['revision'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 20
-        echo "    </ul>
-</div>
+        // line 18
+        echo "</div>
 
 ";
         
@@ -154,33 +136,30 @@ class __TwigTemplate_3ddb757016eb52150e2016e0cb2fa5a7 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  124 => 20,  115 => 17,  111 => 16,  107 => 15,  103 => 14,  100 => 13,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  107 => 18,  97 => 14,  93 => 13,  89 => 12,  84 => 10,  80 => 9,  77 => 8,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello BuscadorController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<div>
-    <ul>
+
+<div class=\"lista_revisiones\">
+    <h1>Revisiones de las Dotes</h1>
     {% for revision in revisiones %}
-        <li>
-            <h2>{{revision.nombre}}</h2>
-            <a href=\"{{ path(\"app_comprobar_dote\", {'id': revision.id}) }}\">Ver más</a>
-            <a href=\"{{ path('app_validar_dote', {'id': revision.id}) }}\">Validar dote</a>
-            <a href=\"{{ path('app_eliminar_dote', {'id': revision.id}) }}\">Eliminar dote</a>
-        </li>
+    <div class=\"elemento_revisiones\">
+        <img src=\"{{revision.img}}\">
+        <h2>{{ revision.Nombre }}</h2>
+        <div>
+            <button onclick=\"location.href='{{ path(\"app_comprobar_dote\", {'id': revision.id}) }}'\" class=\"btn btn-info\">Ver más</button>
+            <button onclick=\"location.href='{{ path('app_validar_dote', {'id': revision.id}) }}'\" class=\"btn btn-success\">Validar dote</button>
+            <button onclick=\"location.href='{{ path('app_eliminar_dote', {'id': revision.id}) }}'\" class=\"btn btn-danger\">Eliminar dote</button>
+        </div>
+    </div>
     {% endfor %}
-    </ul>
 </div>
 
-{% endblock %}", "revisiones/revisiones_dote.html.twig", "C:\\xampp\\htdocs\\TFG\\templates\\revisiones\\revisiones_dote.html.twig");
+{% endblock %}", "revisiones/revisiones_dote.html.twig", "C:\\Users\\alopa\\OneDrive\\Escritorio\\xampp2\\htdocs\\Symfony\\TFG\\templates\\revisiones\\revisiones_dote.html.twig");
     }
 }
