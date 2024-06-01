@@ -4826,3 +4826,11 @@ d5964b,::1,GET,http://localhost:8000/revisiones_hechizos,1717250796,,200,request
 143524,::1,GET,http://localhost:8000/solicitud_hechizo/12,1717250848,,200,request
 e8f6c2,::1,GET,http://localhost:8000/solicitud_hechizo/12,1717250958,,200,request
 50fa0d,::1,GET,http://localhost:8000/solicitud_hechizo/12,1717251086,,200,request
+2d2dfa,::1,GET,http://localhost:8000/logout,1717252476,,302,request
+0bfb5a,::1,GET,http://localhost:8000/index,1717252476,,200,request
+be78c1,::1,GET,http://localhost:8000/resultados_dotes,1717252491,,200,request
+b087b3,::1,GET,http://localhost:8000/solicitudes,1717252495,,200,request
+d69435,::1,GET,http://localhost:8000/solicitud_dote,1717252498,,200,request
+0a5117,::1,POST,http://localhost:8000/solicitud_dote,1717252518,,302,request
+a6adbc,::1,GET,http://localhost:8000/solicitud_ok,1717252518,,200,request
+25f522,::1,GET,http://localhost:8000/index,1717252525,,200,request

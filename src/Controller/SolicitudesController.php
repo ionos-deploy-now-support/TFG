@@ -927,7 +927,7 @@ return $this->redirectToRoute('app_revisiones_trasfondo');
             $sesion->set('dotes', $dotes);
             //$this->entityManager->persist($dotes);
             $this->entityManager->flush();
-            return $this->redirectToRoute('app_solicitud_dote_habilidades');
+            return $this->redirectToRoute('app_solicitud_ok');
         }
         
 		return $this->render( 'solicitudes/dotes.html.twig', array('form' => $form));
@@ -942,83 +942,7 @@ public function revisiones_dotes(): Response
     ]);
 }
 
-#[Route("/solicitud_dote_habilidades", name:"app_solicitud_dote_habilidades")]
-    public function habilidades_dote(Request $request):Response
-    {
-        $habilidades = new Habilidades5();
-       
-        $form = $this->createForm(Habilidades5Type::Class,$habilidades);
 
-        
-
-        $form->handleRequest($request);
-       
-
-        if($form->isSubmitted() && $form->isValid()){
-            
-             $this->entityManager->persist($request->getSession()->get('dotes'));
-             $this->entityManager->flush();
-             $dote = $this->entityManager->getRepository(Dotes::class)->FindLastID();
-             $habilidades = $form->getData();
-             $habilidades1 = new Habilidades();
-             $habilidades2 = new Habilidades();
-             $habilidades3 = new Habilidades();
-             $habilidades4 = new Habilidades();
-             $habilidades5 = new Habilidades();
-           
-             
-            $habilidades1->setNombre($habilidades->getNombre());
-            $habilidades1->setDescripcion($habilidades->getDescripcion());
-            $habilidades1->setOrigenNivel($habilidades->getOrigenNivel());
-            $habilidades1->setOrigenID('dotes_' . $dote->getId());
-            $habilidades1->setValidado(false);
-            $habilidades1->setAutor($dote->getAutor());
-
-            $habilidades2->setNombre($habilidades->getNombre2());
-            $habilidades2->setDescripcion($habilidades->getDescripcion2());
-            $habilidades2->setOrigenNivel($habilidades->getOrigenNivel2());
-            $habilidades2->setOrigenID('dotes_' . $dote->getId());
-            $habilidades2->setValidado(false);
-            $habilidades2->setAutor($dote->getAutor());
-
-            $habilidades3->setNombre($habilidades->getNombre3());
-            $habilidades3->setDescripcion($habilidades->getDescripcion3());
-            $habilidades3->setOrigenNivel($habilidades->getOrigenNivel3());
-            $habilidades3->setOrigenID('dotes_' . $dote->getId());
-            $habilidades3->setValidado(false);
-            $habilidades3->setAutor($dote->getAutor());
-
-            $habilidades4->setNombre($habilidades->getNombre4());
-            $habilidades4->setDescripcion($habilidades->getDescripcion4());
-            $habilidades4->setOrigenNivel($habilidades->getOrigenNivel4());
-            $habilidades4->setOrigenID('dotes_' . $dote->getId());
-            $habilidades4->setValidado(false);
-            $habilidades4->setAutor($dote->getAutor());
-
-            $habilidades5->setNombre($habilidades->getNombre5());
-            $habilidades5->setDescripcion($habilidades->getDescripcion5());
-            $habilidades5->setOrigenNivel($habilidades->getOrigenNivel5());
-            $habilidades5->setOrigenID('dotes_' . $dote->getId());
-            $habilidades5->setValidado(false);
-            $habilidades5->setAutor($dote->getAutor());
-
-            
-             $this->entityManager->persist($habilidades1); 
-             $this->entityManager->persist($habilidades2);
-             $this->entityManager->persist($habilidades3);
-             $this->entityManager->persist($habilidades4);
-             $this->entityManager->persist($habilidades5);
-            // $this->entityManager->persist($habilidadesII);
-            // $this->entityManager->persist($habilidadesIII);
-            // $this->entityManager->persist($habilidadesIV);
-            // $this->entityManager->persist($habilidadesV);
-             $this->entityManager->flush();
-            return $this->redirectToRoute('app_solicitud_ok');
-        }
-        return $this->render('solicitudes/habilidades_dote.html.twig', [
-            'form' => $form, 
-        ]);
-    }
 
 #[Route("/solicitud_dote/{id}", name:"app_comprobar_dote")]
 public function doteok(Request $request, $id):Response

@@ -63,7 +63,6 @@ return [
         '/revisiones_trasfondos' => [[['_route' => 'app_revisiones_trasfondo', '_controller' => 'App\\Controller\\SolicitudesController::revisiones_trasfondos'], null, null, null, false, false, null]],
         '/solicitud_dote' => [[['_route' => 'app_solicitud_dote', '_controller' => 'App\\Controller\\SolicitudesController::Solicitudes_Dotes'], null, null, null, false, false, null]],
         '/revisiones_dotes' => [[['_route' => 'app_revisiones_dote', '_controller' => 'App\\Controller\\SolicitudesController::revisiones_dotes'], null, null, null, false, false, null]],
-        '/solicitud_dote_habilidades' => [[['_route' => 'app_solicitud_dote_habilidades', '_controller' => 'App\\Controller\\SolicitudesController::habilidades_dote'], null, null, null, false, false, null]],
         '/solicitud_hechizo' => [[['_route' => 'app_solicitud_hechizo', '_controller' => 'App\\Controller\\SolicitudesController::Solicitudes_Hechizos'], null, null, null, false, false, null]],
         '/revisiones_hechizos' => [[['_route' => 'app_revisiones_hechizo', '_controller' => 'App\\Controller\\SolicitudesController::revisiones_hechizos'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout'], null, null, null, false, false, null]],
