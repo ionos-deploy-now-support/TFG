@@ -9,7 +9,4 @@
     RewriteRule ^(.*)$ /public/index.php [QSA,L]
 </IfModule>
 
-# Block access to sensitive files
-<FilesMatch "\.(yml|yaml|twig|php~|ht|htaccess|log|ini|bash|sh|inc|swp|sql)$">
-    Require all denied
-</FilesMatch>
+
