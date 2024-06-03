@@ -8,5 +8,9 @@
     # Otherwise, forward the request to index.php
     RewriteRule ^(.*)$ /public/index.php [QSA,L]
 </IfModule>
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+</IfModule>
 
 
