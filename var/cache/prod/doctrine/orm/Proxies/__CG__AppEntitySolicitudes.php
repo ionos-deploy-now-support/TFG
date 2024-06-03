@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Solicitudes extends \App\Entity\Solicitudes implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -22,7 +22,7 @@ class Solicitudes extends \App\Entity\Solicitudes implements \Doctrine\ORM\Proxy
         'Insercion' => [parent::class, 'Insercion', null],
         'Tipo' => [parent::class, 'Tipo', null],
         'id' => [parent::class, 'id', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

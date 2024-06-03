@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class ListaHechizos extends \App\Entity\ListaHechizos implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -22,7 +22,7 @@ class ListaHechizos extends \App\Entity\ListaHechizos implements \Doctrine\ORM\P
         'clase_id' => [parent::class, 'clase_id', null],
         'hechizo_id' => [parent::class, 'hechizo_id', null],
         'id' => [parent::class, 'id', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

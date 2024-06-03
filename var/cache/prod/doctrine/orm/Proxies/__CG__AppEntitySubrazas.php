@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Subrazas extends \App\Entity\Subrazas implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -44,7 +44,7 @@ class Subrazas extends \App\Entity\Subrazas implements \Doctrine\ORM\Proxy\Inter
         'id' => [parent::class, 'id', null],
         'img' => [parent::class, 'img', null],
         'raza_id' => [parent::class, 'raza_id', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

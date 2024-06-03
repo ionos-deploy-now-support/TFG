@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Pactos extends \App\Entity\Pactos implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -32,7 +32,7 @@ class Pactos extends \App\Entity\Pactos implements \Doctrine\ORM\Proxy\InternalP
         'nivel_3' => [parent::class, 'nivel_3', null],
         'nivel_4' => [parent::class, 'nivel_4', null],
         'nivel_5' => [parent::class, 'nivel_5', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

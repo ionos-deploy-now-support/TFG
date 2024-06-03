@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Razas extends \App\Entity\Razas implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -44,7 +44,7 @@ class Razas extends \App\Entity\Razas implements \Doctrine\ORM\Proxy\InternalPro
         'Velocidad' => [parent::class, 'Velocidad', null],
         'id' => [parent::class, 'id', null],
         'img' => [parent::class, 'img', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

@@ -114,6 +114,7 @@ $catalogue = new MessageCatalogue('ru', array (
     'The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.' => 'Недопустимое расширение файла ({{ extension }}). Разрешенные расширения: {{ extensions }}.',
     'The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.' => 'Обнаруженная кодировка символов недопустима ({{ detected }}). Разрешенные кодировки: {{ encodings }}.',
     'This value is not a valid MAC address.' => 'Это значение не является действительным MAC-адресом.',
+    'This URL is missing a top-level domain.' => 'В этом URL отсутствует домен верхнего уровня.',
     'This form should not contain extra fields.' => 'Эта форма не должна содержать дополнительных полей.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Загруженный файл слишком большой. Пожалуйста, попробуйте загрузить файл меньшего размера.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'CSRF значение недопустимо. Пожалуйста, попробуйте повторить отправку формы.',
@@ -167,7 +168,8 @@ $catalogue = new MessageCatalogue('ru', array (
     'Account is locked.' => 'Учетная запись заблокирована.',
     'Too many failed login attempts, please try again later.' => 'Слишком много неудачных попыток входа, пожалуйста, попробуйте позже.',
     'Invalid or expired login link.' => 'Ссылка для входа недействительна или просрочена.',
-    'Too many failed login attempts, please try again in %minutes% minute.' => 'Слишком много неудачных попыток входа в систему, повторите попытку через %minutes% минуту.',
+    'Too many failed login attempts, please try again in %minutes% minute.' => 'Слишком много неудачных попыток входа, повторите попытку через %minutes% минуту.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'Слишком много неудачных попыток входа, повторите попытку через %minutes% минуту.|Слишком много неудачных попыток входа, повторите попытку через %minutes% минуты.|Слишком много неудачных попыток входа, повторите попытку через %minutes% минут.',
   ),
 ));
 
@@ -283,6 +285,7 @@ $catalogueEn = new MessageCatalogue('en', array (
     'The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.' => 'The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.',
     'The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.' => 'The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.',
     'This value is not a valid MAC address.' => 'This value is not a valid MAC address.',
+    'This URL is missing a top-level domain.' => 'This URL is missing a top-level domain.',
     'This form should not contain extra fields.' => 'This form should not contain extra fields.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'The uploaded file was too large. Please try to upload a smaller file.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'The CSRF token is invalid. Please try to resubmit the form.',
@@ -337,6 +340,7 @@ $catalogueEn = new MessageCatalogue('en', array (
     'Too many failed login attempts, please try again later.' => 'Too many failed login attempts, please try again later.',
     'Invalid or expired login link.' => 'Invalid or expired login link.',
     'Too many failed login attempts, please try again in %minutes% minute.' => 'Too many failed login attempts, please try again in %minutes% minute.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'Too many failed login attempts, please try again in %minutes% minutes.',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);

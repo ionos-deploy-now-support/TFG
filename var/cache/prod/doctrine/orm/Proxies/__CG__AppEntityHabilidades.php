@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Habilidades extends \App\Entity\Habilidades implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -30,7 +30,7 @@ class Habilidades extends \App\Entity\Habilidades implements \Doctrine\ORM\Proxy
         'Origen_ID' => [parent::class, 'Origen_ID', null],
         'Validado' => [parent::class, 'Validado', null],
         'id' => [parent::class, 'id', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

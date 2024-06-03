@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Hechizos extends \App\Entity\Hechizos implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -42,7 +42,7 @@ class Hechizos extends \App\Entity\Hechizos implements \Doctrine\ORM\Proxy\Inter
         'Zona_Efecto' => [parent::class, 'Zona_Efecto', null],
         'id' => [parent::class, 'id', null],
         'img' => [parent::class, 'img', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

@@ -114,6 +114,7 @@ $catalogue = new MessageCatalogue('de', array (
     'The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.' => 'Die Dateiendung ist ungültig ({{ extension }}). Gültige Dateiendungen sind {{ extensions }}.',
     'The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.' => 'Der erkannte Zeichensatz ist nicht gültig ({{ detected }}). Gültige Zeichensätze sind {{ encodings }}.',
     'This value is not a valid MAC address.' => 'Dieser Wert ist keine gültige MAC-Adresse.',
+    'This URL is missing a top-level domain.' => 'Dieser URL fehlt eine Top-Level-Domain.',
     'This form should not contain extra fields.' => 'Dieses Formular sollte keine zusätzlichen Felder enthalten.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Die hochgeladene Datei ist zu groß. Versuchen Sie bitte eine kleinere Datei hochzuladen.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'Der CSRF-Token ist ungültig. Versuchen Sie bitte, das Formular erneut zu senden.',
@@ -168,6 +169,7 @@ $catalogue = new MessageCatalogue('de', array (
     'Too many failed login attempts, please try again later.' => 'Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es später noch einmal.',
     'Invalid or expired login link.' => 'Ungültiger oder abgelaufener Anmelde-Link.',
     'Too many failed login attempts, please try again in %minutes% minute.' => 'Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es in einer Minute noch einmal.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es in %minutes% Minuten noch einmal.',
   ),
 ));
 
@@ -283,6 +285,7 @@ $catalogueEn = new MessageCatalogue('en', array (
     'The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.' => 'The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.',
     'The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.' => 'The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.',
     'This value is not a valid MAC address.' => 'This value is not a valid MAC address.',
+    'This URL is missing a top-level domain.' => 'This URL is missing a top-level domain.',
     'This form should not contain extra fields.' => 'This form should not contain extra fields.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'The uploaded file was too large. Please try to upload a smaller file.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'The CSRF token is invalid. Please try to resubmit the form.',
@@ -337,6 +340,7 @@ $catalogueEn = new MessageCatalogue('en', array (
     'Too many failed login attempts, please try again later.' => 'Too many failed login attempts, please try again later.',
     'Invalid or expired login link.' => 'Invalid or expired login link.',
     'Too many failed login attempts, please try again in %minutes% minute.' => 'Too many failed login attempts, please try again in %minutes% minute.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'Too many failed login attempts, please try again in %minutes% minutes.',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueEn);
