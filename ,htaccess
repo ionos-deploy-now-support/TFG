@@ -7,6 +7,8 @@
 
     # Otherwise, forward the request to index.php
     RewriteRule ^(.*)$ /public/index.php [QSA,L]
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^$ /public/index.php [L]
 </IfModule>
 <IfModule mod_mime.c>
     AddType application/javascript .js
