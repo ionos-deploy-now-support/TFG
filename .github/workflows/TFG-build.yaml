@@ -42,7 +42,7 @@ jobs:
       - name: Setup composer
         uses: shivammathur/setup-php@v2
         with:
-          php_version: '8.3.7'
+          php-version: '8.3.7'
           tools: composer:2.6.6
 
       - name: Run composer install
