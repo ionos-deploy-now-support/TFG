@@ -17,4 +17,4 @@
 </IfModule>
 <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$">
     Require all granted
-</FilesMatch
+</FilesMatch>
