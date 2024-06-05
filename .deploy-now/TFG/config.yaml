@@ -6,10 +6,14 @@ deploy:
     # folders that are not copied to IONOS webspace
     excludes:
       - tests
+      - node_modules
+      - DOCKER_ENV
+      - docker_tag
+      - output.log
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
       - mkdir -p var/log var/cache
-      - chmod -R 777 var
+      - chmod -R 775 var
       - APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
       - APP_ENV=prod APP_DEBUG=0 php bin/console cache:warmup
 
@@ -25,10 +29,10 @@ deploy:
       - var
     # commands that are executed at the real webspace NOT at build servers BEFORE copying new files
     pre-deployment-remote-commands:
-      - 
+      - echo "here you could enter maintenance mode..."
     # commands that are executed at the real webspace NOT at build servers AFTER copying new files
     post-deployment-remote-commands:
-      - chmod -R 777 var
+      - chmod -R 775 var
       - APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
       - APP_ENV=prod APP_DEBUG=0 php bin/console cache:warmup
 
